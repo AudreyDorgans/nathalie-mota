@@ -23,6 +23,8 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<div id="NM-page">
+
 	<header id="NM-header">
 		
 		<nav role="navigation" aria-label="<?php _e('Menu principal', 'text-domain'); ?>" id="NM-nav-header">
@@ -47,3 +49,4 @@
   			</button>
 		</nav>
 	</header>
+

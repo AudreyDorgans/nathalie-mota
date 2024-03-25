@@ -1,37 +1,42 @@
 @font-face {
-  src: url("../fonts/SpaceMono/SpaceMono-Bold.ttf") format("ttf");
+  src: url("../fonts/SpaceMono/SpaceMono-Bold.ttf") format("truetype");
   font-family: "SpaceMonoBold";
   font-weight: 700;
 }
 @font-face {
-  src: url("../fonts/SpaceMono/SpaceMono-BoldItalic.ttf") format("ttf");
+  src: url("../fonts/SpaceMono/SpaceMono-BoldItalic.ttf") format("truetype");
   font-family: "SpaceMonoBoldItalic";
   font-weight: 700;
   font-style: Italic;
 }
 @font-face {
-  src: url("../fonts/SpaceMono/SpaceMono-Italic.ttf") format("ttf");
+  src: url("../fonts/SpaceMono/SpaceMono-Italic.ttf") format("truetype");
   font-family: "SpaceMonoItalic";
   font-weight: 400;
   font-style: Italic;
 }
 @font-face {
-  src: url("../fonts/SpaceMono/SpaceMono-Regular.ttf") format("ttf");
+  src: url("../fonts/SpaceMono/SpaceMono-Regular.ttf") format("truetype");
   font-family: "SpaceMono";
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  src: url("../fonts/Poppins/Poppins-Light.ttf") format("ttf");
+  src: url("../fonts/Poppins/Poppins-Light.ttf") format("truetype");
   font-family: "Poppins";
   font-weight: 400;
   font-style: normal;
 }
-html, body {
+html, body, #NM-page {
   height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+#NM-page {
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 body, h1, h2, h3, h4, p, a, li {
@@ -76,19 +81,19 @@ p {
   }
 }
 #NM-header {
-  max-width: 1440px;
-  margin: 35px auto;
   height: 100%;
   color: #000000;
 }
 #NM-header #NM-nav-header {
   display: flex;
   justify-content: space-between;
+  margin: 35px auto;
 }
 #NM-header #NM-nav-header #logo-header {
   width: 20%;
   display: flex;
   align-items: center;
+  margin-left: 146px;
 }
 #NM-header #NM-nav-header #logo-header img {
   width: 216px;
@@ -132,9 +137,10 @@ p {
   transform: translateY(-1rem) rotate(45deg);
 }
 #NM-header #NM-nav-header #header-menu {
-  width: 40%;
   gap: 45px;
   display: flex;
+  justify-content: end;
+  margin-right: 146px;
 }
 #NM-header #NM-nav-header #header-menu li {
   list-style: none;

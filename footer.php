@@ -26,7 +26,7 @@
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-
+</div> <!-- #NM-page -->
 
 <?php wp_footer(); ?>
 

@@ -1,17 +1,17 @@
 #NM-header {
-    max-width: 1440px;
-    margin: 35px auto;
     height: 100%;
     color:$main-black;
 
     #NM-nav-header {
         display: flex;
         justify-content: space-between;
+        margin: 35px auto;
 
         #logo-header {
             width: 20%;
             display: flex;
             align-items: center;
+            margin-left:146px;
 
             img {
                 width: 216px;
@@ -68,9 +68,10 @@
         }
 
         #header-menu {
-            width: 40%;
             gap: 45px;
             display: flex; 
+            justify-content: end;
+            margin-right:146px;
 
             li {
                 list-style: none;

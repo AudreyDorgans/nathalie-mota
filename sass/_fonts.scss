@@ -2,42 +2,41 @@ $SpaceMonoPath: "../fonts/SpaceMono";
 $PoppinsPath: "../fonts/Poppins";
 
 @font-face {
-    src: url("#{$SpaceMonoPath}/SpaceMono-Bold.ttf") format("ttf");
-    font-family: "SpaceMonoBold";
+    src: url("#{$SpaceMonoPath}/SpaceMono-Bold.ttf") format("truetype");
+    font-family: 'SpaceMonoBold';
     font-weight: 700;
 }
 
 @font-face {
-    src: url("#{$SpaceMonoPath}/SpaceMono-BoldItalic.ttf") format("ttf");
-    font-family: "SpaceMonoBoldItalic";
+    src: url("#{$SpaceMonoPath}/SpaceMono-BoldItalic.ttf") format("truetype");
+    font-family: 'SpaceMonoBoldItalic';
     font-weight: 700;
     font-style: Italic;
 }
 
 @font-face {
-    src: url("#{$SpaceMonoPath}/SpaceMono-Italic.ttf") format("ttf");
-    font-family: "SpaceMonoItalic";
+    src: url("#{$SpaceMonoPath}/SpaceMono-Italic.ttf") format("truetype");
+    font-family: 'SpaceMonoItalic';
     font-weight: 400;
     font-style: Italic;
 }
 
 @font-face {
-    src: url("#{$SpaceMonoPath}/SpaceMono-Regular.ttf") format("ttf");
-    font-family: "SpaceMono";
+    src: url("#{$SpaceMonoPath}/SpaceMono-Regular.ttf") format("truetype");
+    font-family: 'SpaceMono';
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    src: url("#{$PoppinsPath}/Poppins-Light.ttf") format("ttf");
-    font-family: "Poppins";
+    src: url("#{$PoppinsPath}/Poppins-Light.ttf") format("truetype");
+    font-family: 'Poppins';
     font-weight: 400;
     font-style: normal;
 }
 
-$main-font : "SpaceMono";
-$main-font-bold : "SpaceMonoBold";
-$main-font-bold-italic : "SpaceMonoBoldItalic";
-$main-font-italic : "SpaceMonoItalic";
-
-$second-font : "Poppins";
+$main-font : 'SpaceMono';
+$main-font-bold : 'SpaceMonoBold';
+$main-font-bold-italic : 'SpaceMonoBoldItalic';
+$main-font-italic : 'SpaceMonoItalic';
+$second-font : 'Poppins';
