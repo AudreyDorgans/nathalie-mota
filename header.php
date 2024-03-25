@@ -22,43 +22,28 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'nathalie-mota' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header id="NM-header">
 		
-	
-	<div class="site-branding">
+		<nav role="navigation" aria-label="<?php _e('Menu principal', 'text-domain'); ?>" id="NM-nav-header">
 
-		<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$nathalie_mota_description = get_bloginfo( 'description', 'display' );
-			if ( $nathalie_mota_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $nathalie_mota_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+			<a href="/nathalie-mota/" title="Retour à l'accueil" id="logo-header">
+				<img src=" <?php echo get_stylesheet_directory_uri() .'/assets/logo/Logo.png'; ?> " alt="Logo de la photographe évènementielle Nathalie Mota">
+			</a>
 
+  			<?php
+    			wp_nav_menu([
+        			'theme_location' => 'main-menu',
+        			'container'      => false,
+        			'walker'         => new Nathalie_Mota_Walker_Nav_Menu(),
+					'menu_id' 		 => 'header-menu'
+    			]);
+  			?>
 
-
-
-		<nav id="site-navigation" class="main-navigation">
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'main-menu',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+			<button id="NM-button-burger" type="button" aria-expanded="false" aria-controls="primary-menu" class="menu_button">
+    			<span class="menu_button_line top"></span>
+    			<span class="menu_button_line mid"></span>
+    			<span class="menu_button_line botm"></span>
+  			</button>
+		</nav>
+	</header>

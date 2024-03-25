@@ -1,0 +1,50 @@
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, p, a, li {
+    color:$main-black;
+}
+
+h1, h2, h3, .description-photo {
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size:96px;
+    font-family: $main-font-bold-italic;
+}
+
+h2 {
+    font-size: 66px;
+    font-family: $main-font-italic;
+}
+
+h3 {
+    font-size: 18px;
+    font-family: $main-font;
+}
+
+.description-photo {
+    font-size: 14px;
+    font-family: $main-font;
+}
+
+p {
+    font-family: $second-font;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 700px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 46px;
+    }
+}

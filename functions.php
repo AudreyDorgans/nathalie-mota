@@ -1,7 +1,7 @@
 <?php
 // Chargement style
 function nathalie_mota_register_style() {
-    wp_register_style('nathalie-mota-style', get_template_directory_uri() . '/style.css');
+    wp_register_style('nathalie-mota-style', get_template_directory_uri() . '/style/style.css');
     wp_enqueue_style('nathalie-mota-style');
 }
 add_action( 'wp_enqueue_scripts', 'nathalie_mota_register_style' );
@@ -18,12 +18,11 @@ add_action('after_setup_theme', 'nathalie_mota_supports');
 
 
 // Chargement scripts JS
-
 function nathalie_mota_scripts() {
     wp_enqueue_script( 'scripts', get_stylesheet_directory_uri()  . '/js/scripts.js', array(), 1, true );
 }
 add_action( 'wp_enqueue_scripts', 'nathalie_mota_scripts' );
 
 
-
-
+// Appel menus.php
+require_once get_template_directory() . '/menus.php';

@@ -1,0 +1,46 @@
+ @media screen and (max-width: 700px) {
+    #NM-header {
+
+        #NM-nav-header {
+            display: block;
+            height:100%;
+
+            #logo-header {
+                width: 100%;
+                display: block;
+                margin : 10px 0 0 40px;
+            }
+
+            .menu_button {
+                display: block; 
+                position:absolute;
+                top:45px;
+                right:40px;
+            }
+
+            #header-menu {
+                display: none; 
+            }
+        }
+
+        #NM-nav-header.toggled #header-menu {
+            display: flex; 
+            flex-direction: column;
+            width:100%;
+            justify-content: center;
+            text-align: center;
+            min-height:100%;
+            background-color: $main-red;
+            margin-top : 20px;
+
+            li a {
+                color: #FFF;
+                text-align: center;
+                font-size: 44px;
+                text-transform: uppercase;
+                font-family: $main-font;
+            }
+        }
+    }  
+}
+
