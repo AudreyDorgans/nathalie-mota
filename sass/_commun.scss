@@ -1,8 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body, #NM-page {
     height:100%;
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
 }
 
 #NM-page {
@@ -12,6 +15,10 @@ html, body, #NM-page {
 
 body, h1, h2, h3, h4, p, a, li {
     color:$main-black;
+}
+
+a, li a, a:link, a:visited, a:focus, a:hover, a:active, :-webkit-any-link, :-moz-any-link, :any-link {
+    text-decoration: none !important;
 }
 
 h1, h2, h3, .description-photo {

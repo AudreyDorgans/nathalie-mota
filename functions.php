@@ -13,6 +13,7 @@ function nathalie_mota_supports() {
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
     register_nav_menu('main-menu', 'En-tête du menu de navigation');
+    register_nav_menu('footer-menu', 'Menu du footer');
 }
 add_action('after_setup_theme', 'nathalie_mota_supports');
 
@@ -26,3 +27,9 @@ add_action( 'wp_enqueue_scripts', 'nathalie_mota_scripts' );
 
 // Appel menus.php
 require_once get_template_directory() . '/menus.php';
+
+// Ajout lien Droits réservés footer //
+
+/* HOOK ADMIN */
+
+

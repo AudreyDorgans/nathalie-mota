@@ -11,24 +11,20 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'nathalie-mota' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'nathalie-mota' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'nathalie-mota' ), 'nathalie-mota', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div> <!-- #NM-page -->
+<div class="container-footer">
+	<footer class="NM-footer">
+		<?php
+    			wp_nav_menu([
+        			'theme_location' => 'footer-menu',
+        			'container'      => false,
+					'menu_id' 		 => 'footer-menu'
+    			]);
+  		?>
+		<span class="droits-reserves"> Tous droits réservés </span>
+	</footer>
+</div>
 
-<?php wp_footer(); ?>
+</div> <!-- #NM-page -->
 
 </body>
 </html>

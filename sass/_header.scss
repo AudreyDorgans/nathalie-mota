@@ -1,11 +1,12 @@
 #NM-header {
     height: 100%;
     color:$main-black;
+    padding-top:35px;
 
     #NM-nav-header {
         display: flex;
         justify-content: space-between;
-        margin: 35px auto;
+        margin: 0 auto;
 
         #logo-header {
             width: 20%;
@@ -85,7 +86,5 @@
                 }
             }
         }
-    }
-
-   
+    }  
 }

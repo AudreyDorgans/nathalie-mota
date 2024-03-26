@@ -27,11 +27,14 @@
   font-weight: 400;
   font-style: normal;
 }
-html, body, #NM-page {
-  height: 100%;
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html, body, #NM-page {
+  height: 100%;
 }
 
 #NM-page {
@@ -41,6 +44,10 @@ html, body, #NM-page {
 
 body, h1, h2, h3, h4, p, a, li {
   color: #000000;
+}
+
+a, li a, a:link, a:visited, a:focus, a:hover, a:active, :-webkit-any-link, :-moz-any-link, :any-link {
+  text-decoration: none !important;
 }
 
 h1, h2, h3, .description-photo {
@@ -83,11 +90,12 @@ p {
 #NM-header {
   height: 100%;
   color: #000000;
+  padding-top: 35px;
 }
 #NM-header #NM-nav-header {
   display: flex;
   justify-content: space-between;
-  margin: 35px auto;
+  margin: 0 auto;
 }
 #NM-header #NM-nav-header #logo-header {
   width: 20%;
@@ -150,6 +158,34 @@ p {
 #NM-header #NM-nav-header #header-menu li a {
   text-decoration: none;
   font-family: "SpaceMono";
+}
+
+.container-footer .NM-footer {
+  display: flex;
+  justify-content: center;
+  gap: 85px;
+}
+.container-footer .NM-footer #footer-menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.container-footer .NM-footer #footer-menu li {
+  list-style: none;
+  display: inline;
+  font-family: "Poppins";
+}
+.container-footer .NM-footer #footer-menu li a {
+  text-decoration: none;
+  margin-bottom: 25px;
+}
+.container-footer .NM-footer #footer-menu #menu-item-51 {
+  margin-right: 85px;
+}
+.container-footer .NM-footer span {
+  font-family: "Poppins";
+  display: flex;
+  margin-bottom: 25px;
 }
 
 @media screen and (max-width: 700px) {
