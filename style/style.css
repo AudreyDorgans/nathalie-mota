@@ -27,14 +27,14 @@
   font-weight: 400;
   font-style: normal;
 }
-* {
+html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 html, body, #NM-page {
-  height: 100%;
+  height: calc(100% - 26px);
 }
 
 #NM-page {
@@ -160,29 +160,29 @@ p {
   font-family: "SpaceMono";
 }
 
-.container-footer .NM-footer {
+.NM-footer {
   display: flex;
   justify-content: center;
   gap: 85px;
 }
-.container-footer .NM-footer #footer-menu {
+.NM-footer #footer-menu {
   display: flex;
   margin: 0;
   padding: 0;
 }
-.container-footer .NM-footer #footer-menu li {
+.NM-footer #footer-menu li {
   list-style: none;
   display: inline;
   font-family: "Poppins";
 }
-.container-footer .NM-footer #footer-menu li a {
+.NM-footer #footer-menu li a {
   text-decoration: none;
   margin-bottom: 25px;
 }
-.container-footer .NM-footer #footer-menu #menu-item-51 {
+.NM-footer #footer-menu #menu-item-51 {
   margin-right: 85px;
 }
-.container-footer .NM-footer span {
+.NM-footer span {
   font-family: "Poppins";
   display: flex;
   margin-bottom: 25px;
@@ -216,6 +216,8 @@ p {
     min-height: 100%;
     background-color: #E00000;
     margin-top: 20px;
+    z-index: 2;
+    position: relative;
   }
   #NM-header #NM-nav-header.toggled #header-menu li a {
     color: #FFF;
