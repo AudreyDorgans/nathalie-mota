@@ -7,16 +7,6 @@ function nathalie_mota_register_style() {
 add_action( 'wp_enqueue_scripts', 'nathalie_mota_register_style' );
 
 
-// Chargement support du thème
-function nathalie_mota_supports() {
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('menus');
-    register_nav_menu('main-menu', 'En-tête du menu de navigation');
-    register_nav_menu('footer-menu', 'Menu du footer');
-}
-add_action('after_setup_theme', 'nathalie_mota_supports');
-
 
 // Chargement scripts JS
 function nathalie_mota_scripts() {
@@ -28,8 +18,40 @@ add_action( 'wp_enqueue_scripts', 'nathalie_mota_scripts' );
 // Appel menus.php
 require_once get_template_directory() . '/menus.php';
 
-// Ajout lien Droits réservés footer //
+// Chargement support du thème
+function nathalie_mota_supports() {
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('menus');
+    register_nav_menu('main-menu', 'En-tête du menu de navigation');
+    register_nav_menu('footer-menu', 'Menu du footer');
+}
+add_action('after_setup_theme', 'nathalie_mota_supports');
 
-/* HOOK ADMIN */
+
+// Hook Ajout bouton modale //
+
+function add_button_header($items, $args) {
+          if( $args->theme_location == 'main-menu' ){
+          $items .= '<li class="menu-item" id="myBtn">Contact</li>';
+          }
+        return $items;
+}
+add_filter('wp_nav_menu_items', 'add_button_header', 10, 2);
+
+
+// Hook Ajout span footer vie privée//
+
+function add_span_footer($items, $args) {
+    if( $args->theme_location == 'footer-menu' ){
+        $items .= '<li class="menu-item"> Tous droits réservés </li>';
+    }
+    return $items;
+}
+add_filter('wp_nav_menu_items', 'add_span_footer', 10, 2);
+
+
+
+
 
 

@@ -7,13 +7,14 @@
     .NM-footer {
         display: flex;
         justify-content: center;
-        gap: 85px;
+
 
         #footer-menu {
             display: flex;
             margin: 0;
             padding: 0;
-
+            gap: 85px;
+            
             li {
                 list-style: none;
                 display: inline;
@@ -25,17 +26,8 @@
                 }
             }
 
-            #menu-item-51 {
-                margin-right: 85px;
-            }
         }
 
-
-        span {
-            font-family: $second-font;
-            display: flex;
-            margin-bottom: 25px;
-        }
     }
 }
     

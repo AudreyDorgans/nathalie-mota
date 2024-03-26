@@ -73,15 +73,14 @@
             justify-content: end;
             margin:0 146px 0 0;
 
-            li {
+            .menu-item {
                 list-style: none;
                 text-transform: uppercase;
                 margin:0;
-  
+                font-family: $main-font;
 
                 a {
-                    text-decoration: none;
-                    font-family: $main-font;
+                    text-decoration: none;                  
                 }
             }
         }

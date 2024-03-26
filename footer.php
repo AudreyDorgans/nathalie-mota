@@ -20,7 +20,7 @@
 					'menu_id' 		 => 'footer-menu'
     			]);
   		?>
-		<span class="droits-reserves"> Tous droits réservés </span>
+
 	</footer>
 </div>
 </div> <!-- #NM-page -->

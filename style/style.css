@@ -156,14 +156,14 @@ p {
   justify-content: end;
   margin: 0 146px 0 0;
 }
-#NM-header #NM-nav-header #header-menu li {
+#NM-header #NM-nav-header #header-menu .menu-item {
   list-style: none;
   text-transform: uppercase;
   margin: 0;
-}
-#NM-header #NM-nav-header #header-menu li a {
-  text-decoration: none;
   font-family: "SpaceMono";
+}
+#NM-header #NM-nav-header #header-menu .menu-item a {
+  text-decoration: none;
 }
 
 .container-footer {
@@ -175,12 +175,12 @@ p {
 .container-footer .NM-footer {
   display: flex;
   justify-content: center;
-  gap: 85px;
 }
 .container-footer .NM-footer #footer-menu {
   display: flex;
   margin: 0;
   padding: 0;
+  gap: 85px;
 }
 .container-footer .NM-footer #footer-menu li {
   list-style: none;
@@ -189,14 +189,6 @@ p {
 }
 .container-footer .NM-footer #footer-menu li a {
   text-decoration: none;
-  margin-bottom: 25px;
-}
-.container-footer .NM-footer #footer-menu #menu-item-51 {
-  margin-right: 85px;
-}
-.container-footer .NM-footer span {
-  font-family: "Poppins";
-  display: flex;
   margin-bottom: 25px;
 }
 
@@ -234,7 +226,7 @@ p {
     z-index: 2;
     position: relative;
   }
-  #NM-header #NM-nav-header.toggled #header-menu li a {
+  #NM-header #NM-nav-header.toggled #header-menu li, #NM-header #NM-nav-header.toggled #header-menu li a {
     color: #FFF;
     text-align: center;
     font-size: 44px;
