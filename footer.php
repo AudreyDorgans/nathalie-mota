@@ -11,7 +11,7 @@
 
 ?>
 
-
+<div class="container-footer">
 	<footer class="NM-footer">
 		<?php
     			wp_nav_menu([
@@ -22,6 +22,7 @@
   		?>
 		<span class="droits-reserves"> Tous droits réservés </span>
 	</footer>
+</div>
 </div> <!-- #NM-page -->
 
 <?php wp_footer(); ?>

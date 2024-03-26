@@ -1,16 +1,23 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 html,body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body, #NM-page {
-    height:calc(100% - 26px);
+html, body, #NM-page{
+    height:100%;
 }
 
 #NM-page {
     max-width:1440px;
     margin: 0 auto;
+    position: relative;
 }
 
 body, h1, h2, h3, h4, p, a, li {

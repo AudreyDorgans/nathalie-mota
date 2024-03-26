@@ -27,6 +27,12 @@
   font-weight: 400;
   font-style: normal;
 }
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -34,12 +40,13 @@ html, body {
 }
 
 html, body, #NM-page {
-  height: calc(100% - 26px);
+  height: 100%;
 }
 
 #NM-page {
   max-width: 1440px;
   margin: 0 auto;
+  position: relative;
 }
 
 body, h1, h2, h3, h4, p, a, li {
@@ -100,7 +107,6 @@ p {
 #NM-header #NM-nav-header #logo-header {
   width: 20%;
   display: flex;
-  align-items: center;
   margin-left: 146px;
 }
 #NM-header #NM-nav-header #logo-header img {
@@ -148,7 +154,7 @@ p {
   gap: 45px;
   display: flex;
   justify-content: end;
-  margin-right: 146px;
+  margin: 0 146px 0 0;
 }
 #NM-header #NM-nav-header #header-menu li {
   list-style: none;
@@ -160,35 +166,44 @@ p {
   font-family: "SpaceMono";
 }
 
-.NM-footer {
+.container-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.container-footer .NM-footer {
   display: flex;
   justify-content: center;
   gap: 85px;
 }
-.NM-footer #footer-menu {
+.container-footer .NM-footer #footer-menu {
   display: flex;
   margin: 0;
   padding: 0;
 }
-.NM-footer #footer-menu li {
+.container-footer .NM-footer #footer-menu li {
   list-style: none;
   display: inline;
   font-family: "Poppins";
 }
-.NM-footer #footer-menu li a {
+.container-footer .NM-footer #footer-menu li a {
   text-decoration: none;
   margin-bottom: 25px;
 }
-.NM-footer #footer-menu #menu-item-51 {
+.container-footer .NM-footer #footer-menu #menu-item-51 {
   margin-right: 85px;
 }
-.NM-footer span {
+.container-footer .NM-footer span {
   font-family: "Poppins";
   display: flex;
   margin-bottom: 25px;
 }
 
 @media screen and (max-width: 700px) {
+  /*****************/
+  /* HEADER */
+  /*****************/
   #NM-header #NM-nav-header {
     display: block;
     height: 100%;
@@ -225,6 +240,25 @@ p {
     font-size: 44px;
     text-transform: uppercase;
     font-family: "SpaceMono";
+  }
+  /*****************/
+  /* FOOTER */
+  /*****************/
+  .container-footer .NM-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+  }
+  .container-footer .NM-footer #footer-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-footer .NM-footer #footer-menu #menu-item-51 {
+    margin-right: 0px;
+    margin-bottom: 35px;
+  }
+  .container-footer .NM-footer span {
+    margin-top: 35px;
   }
 }
 
