@@ -21,6 +21,7 @@
     			]);
   		?>
 
+		<?php get_template_part('templates/modale-contact'); ?>
 	</footer>
 </div>
 </div> <!-- #NM-page -->
