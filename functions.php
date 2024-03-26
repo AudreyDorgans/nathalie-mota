@@ -43,31 +43,29 @@ add_action('after_setup_theme', 'nathalie_mota_supports');
 
 
 
-//////////////////////////////
-// Hook Ajout bouton modale //
-//////////////////////////////
+////////////////////////////////////////////////////////////
+// Hook Ajout bouton modale header et Ajout span footer vie privée //
+////////////////////////////////////////////////////////////
 
-function add_button_header($items, $args) {
-          if( $args->theme_location == 'main-menu' ){
-          $items .= '<li class="menu-item" id="myBtn">Contact</li>';
-          }
-        return $items;
-}
-add_filter('wp_nav_menu_items', 'add_button_header', 10, 2);
+function add_elements_menus($items, $args) {
 
+    if( $args->theme_location == 'main-menu' ){
 
+        $items .= '<li class="menu-item" id="myBtn">Contact</li>';
 
-//////////////////////////////
-// Hook Ajout span footer vie privée//
-//////////////////////////////
+    }elseif( $args->theme_location == 'footer-menu' ){
 
-function add_span_footer($items, $args) {
-    if( $args->theme_location == 'footer-menu' ){
         $items .= '<li class="menu-item"> Tous droits réservés </li>';
     }
+
     return $items;
 }
-add_filter('wp_nav_menu_items', 'add_span_footer', 10, 2);
+
+add_filter('wp_nav_menu_items', 'add_elements_menus', 10, 2);
+
+
+
+
 
 
 
