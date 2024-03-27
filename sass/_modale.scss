@@ -1,9 +1,8 @@
 /* The Modal (background) */
 .modal {
     display: none;
-    margin:10px auto;
+    margin:0 auto;
     width: 600px;
-    height: 770px;
     overflow: auto;
     position: absolute;
     bottom:0;
@@ -12,7 +11,15 @@
 
 /* Modal Header */
 .modal-header {
-    padding-top: 18px;
+    padding-top: 30px;
+    position: relative;
+
+    .close {
+        position: absolute;
+        top: -5px;
+        right: 5px;
+        font-size:22px;
+    }
 
     .background-contact {
         background-image: url("../assets/header/contact.png");
@@ -35,15 +42,73 @@
 .modal-content {
     position: relative;
     background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
+    border: 5px solid #000;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    padding-bottom:35px;
+
+    #wpcf7-f54-o1 {
+        width: 263px;
+        margin:0 auto;
+
+        .wpcf7-form {
+            width: 263px;
+            padding-top:46px;
+
+            p, label, input, textarea {
+                width: 263px;
+            }
+
+            p {
+                margin-bottom:0;
+            }
+
+            input, textarea {
+                border: 1px solid #B8BBC2;
+                border-radius: 8px;
+                margin-bottom:24px;
+            }
+
+            input {
+                height: 40px;
+            }
+
+            .wpcf7-submit {
+                border-radius: 2px;
+                background: #D8D8D8;
+                box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+                text-align: center;   
+                border:none;
+                height:50px;
+            }
+
+            .wpcf7-spinner {
+                height:0;
+
+                &:before {
+                    height:0;
+                }
+            }
+
+            .wpcf7-response-output {
+                margin:0;
+                color:$main-red;
+                border:none;
+                font-family: $second-font;
+                font-size:14px;
+                padding:0;
+            }
+
+            .wpcf7-not-valid-tip {
+                color:$main-red;
+                margin-top:-16px;
+                margin-bottom:26px;
+            }
+        }
+    }
 }
 
 /* Add Animation */
