@@ -2,17 +2,22 @@
     height: 100%;
     color:$main-black;
     padding-top:35px;
-
+    -webkit-animation: fade-in $animation-duration-medium ease-in-out;
+    animation: fade-in $animation-duration-medium ease-in-out;
+    
     #NM-nav-header {
         display: flex;
         justify-content: space-between;
         margin: 0 auto;
+        
 
         #logo-header {
             width: 20%;
             display: flex;
             margin-left:146px;
-
+            -webkit-animation: blink $animation-duration-courte $animation-delay both;
+                animation: blink $animation-duration-courte $animation-delay both;
+            
             img {
                 width: 216px;
                 height: 14px;
