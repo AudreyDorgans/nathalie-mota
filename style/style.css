@@ -37,6 +37,7 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  width: 100%;
 }
 
 html, body, #NM-page {
@@ -92,6 +93,27 @@ p {
   }
   h2 {
     font-size: 46px;
+  }
+}
+/* Animation modale */
+@-webkit-keyframes animatetop {
+  0% {
+    top: -300px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animatetop {
+  0% {
+    top: -300px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
   }
 }
 #NM-header {
@@ -166,91 +188,105 @@ p {
   text-decoration: none;
 }
 
-/* The Modal (background) */
+/* The Modal */
 .modal {
   display: none;
   margin: 0 auto;
   width: 600px;
-  overflow: auto;
-  position: absolute;
-  bottom: 0;
+  max-height: 100%;
+  overflow: scroll;
+  position: fixed;
+  top: 100px;
+  z-index: 3;
+  /* Modal Header */
+  /* Modal Body */
+  /* Modal Content */
 }
-
-/* Modal Header */
-.modal-header {
+.modal .modal-header {
   padding-top: 30px;
   position: relative;
 }
-.modal-header .close {
+.modal .modal-header .close {
   position: absolute;
   top: -5px;
   right: 5px;
   font-size: 22px;
 }
-.modal-header .background-contact {
+.modal .modal-header .background-contact {
   background-image: url("../assets/header/contact.png");
   background-repeat: no-repeat;
   width: 100%;
   height: 106px;
 }
-.modal-header .background-contact h2 {
+.modal .modal-header .background-contact h2 {
   display: none;
 }
-
-/* Modal Body */
-.modal-body {
+.modal .modal-body {
   padding: 2px 16px;
 }
-
-/* Modal Content */
-.modal-content {
+.modal .modal-content {
   position: relative;
   background-color: #fefefe;
   border: 5px solid #000;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
+  -webkit-animation-duration: 1s;
   animation-name: animatetop;
-  animation-duration: 0.4s;
+  animation-duration: 1s;
   padding-bottom: 35px;
 }
-.modal-content #wpcf7-f54-o1 {
+.modal .modal-content #wpcf7-f54-o1 {
   width: 263px;
   margin: 0 auto;
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form {
   width: 263px;
   padding-top: 46px;
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form p, .modal-content #wpcf7-f54-o1 .wpcf7-form label, .modal-content #wpcf7-f54-o1 .wpcf7-form input, .modal-content #wpcf7-f54-o1 .wpcf7-form textarea {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form label {
+  text-transform: uppercase;
+}
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form p,
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form label,
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form input,
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form textarea {
   width: 263px;
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form p {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form p {
   margin-bottom: 0;
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form input, .modal-content #wpcf7-f54-o1 .wpcf7-form textarea {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form input,
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form textarea {
   border: 1px solid #B8BBC2;
   border-radius: 8px;
   margin-bottom: 24px;
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form input {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form input {
   height: 40px;
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-submit {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-submit {
   border-radius: 2px;
   background: #D8D8D8;
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
   text-align: center;
   border: none;
   height: 50px;
+  margin-bottom: 0;
+  font-family: "SpaceMono";
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-spinner {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-submit:hover {
+  background-color: #000000;
+  color: white;
+  transition: all 0.5s ease-out;
+  font-size: 16px;
+}
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-spinner {
   height: 0;
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-spinner:before {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-spinner:before {
   height: 0;
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-response-output {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-response-output {
   margin: 0;
   color: #E00000;
   border: none;
@@ -258,33 +294,12 @@ p {
   font-size: 14px;
   padding: 0;
 }
-.modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-not-valid-tip {
+.modal .modal-content #wpcf7-f54-o1 .wpcf7-form .wpcf7-not-valid-tip {
   color: #E00000;
   margin-top: -16px;
   margin-bottom: 26px;
 }
 
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
 .container-footer {
   position: absolute;
   bottom: 0;
@@ -294,6 +309,7 @@ p {
 .container-footer .NM-footer {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 .container-footer .NM-footer #footer-menu {
   display: flex;
@@ -311,7 +327,21 @@ p {
   margin-bottom: 25px;
 }
 
-@media screen and (max-width: 700px) {
+/*****************/
+/* TABLETTE
+/*****************/
+@media screen and (max-width: 992px) {
+  #NM-header {
+    padding-top: 50px;
+  }
+  #NM-header #NM-nav-header #logo-header {
+    margin-left: 80px;
+  }
+  #NM-header #NM-nav-header #header-menu {
+    margin: 0 80px 0 0;
+  }
+}
+@media screen and (max-width: 768px) {
   /*****************/
   /* HEADER */
   /*****************/
@@ -336,12 +366,11 @@ p {
   #NM-header #NM-nav-header.toggled #header-menu {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    padding: 0;
     justify-content: center;
-    text-align: center;
     min-height: 100%;
     background-color: #E00000;
-    margin-top: 20px;
+    margin: 20px 0 0 0;
     z-index: 2;
     position: relative;
   }
@@ -370,6 +399,54 @@ p {
   }
   .container-footer .NM-footer span {
     margin-top: 35px;
+  }
+  /*****************/
+  /* MODALE CONTACT*/
+  /*****************/
+  /* The Modal */
+  .modal {
+    width: 286px;
+    bottom: 20px;
+    /* Modal Header */
+    /* Modal Content */
+  }
+  .modal .modal-header {
+    padding-top: 30px;
+    position: relative;
+  }
+  .modal .modal-header .close {
+    top: -35px;
+    right: 10px;
+    font-size: 26px;
+  }
+  .modal .modal-content #wpcf7-f54-o1 {
+    width: 190px;
+  }
+  .modal .modal-content #wpcf7-f54-o1 .wpcf7-form {
+    width: 190px;
+    padding-top: 15px;
+  }
+  .modal .modal-content #wpcf7-f54-o1 .wpcf7-form p,
+  .modal .modal-content #wpcf7-f54-o1 .wpcf7-form label,
+  .modal .modal-content #wpcf7-f54-o1 .wpcf7-form input,
+  .modal .modal-content #wpcf7-f54-o1 .wpcf7-form textarea {
+    width: 190px;
+  }
+  .modal .modal-content #wpcf7-f54-o1 .wpcf7-form p {
+    margin-bottom: 0;
+  }
+  .modal .modal-content #wpcf7-f54-o1 .wpcf7-form input,
+  .modal .modal-content #wpcf7-f54-o1 .wpcf7-form textarea {
+    margin-bottom: 14px;
+  }
+}
+@media screen and (max-width: 390px) {
+  /*****************/
+  /* HEADER */
+  /*****************/
+  #NM-header #NM-nav-header .menu_button {
+    top: 55px;
+    right: 10px;
   }
 }
 

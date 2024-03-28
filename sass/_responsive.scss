@@ -1,4 +1,25 @@
- @media screen and (max-width: 700px) {
+ /*****************/
+ /* TABLETTE
+ /*****************/
+ @media screen and (max-width: 992px) {
+#NM-header {
+    padding-top: 50px;
+
+        #NM-nav-header {
+
+            #logo-header {
+                margin-left: 80px;
+            }
+          
+            #header-menu {
+                margin: 0 80px 0 0;                
+            }
+        }
+    }
+ }
+ 
+ 
+ @media screen and (max-width: 768px) {
 
 /*****************/
 /* HEADER */
@@ -31,14 +52,13 @@
         #NM-nav-header.toggled #header-menu {
             display: flex; 
             flex-direction: column;
-            width:100%;
+            padding:0;
             justify-content: center;
-            text-align: center;
             min-height:100%;
             background-color: $main-red;
-            margin-top : 20px;
+            margin : 20px 0 0 0;
             z-index: 2;
-            position: relative;
+            position:relative;
 
             li, li a  {
                 color: #FFF;
@@ -71,6 +91,78 @@
     
             span {
                 margin-top: 35px;
+            }
+        }
+    }
+
+
+/*****************/
+/* MODALE CONTACT*/
+/*****************/
+
+        /* The Modal */
+    .modal {
+        width: 286px;
+        bottom: 20px;
+
+    /* Modal Header */
+        .modal-header {
+            padding-top: 30px;
+            position: relative;
+
+            .close {
+                top: -35px;
+                right: 10px;
+                font-size: 26px;
+            }
+        }
+    
+        /* Modal Content */
+        .modal-content {
+            
+            #wpcf7-f54-o1 {
+                width: 190px;
+
+                .wpcf7-form {
+                    width: 190px;
+                    padding-top: 15px;
+
+                    p,
+                    label,
+                    input,
+                    textarea {
+                        width: 190px;
+                    }
+
+                    p {
+                        margin-bottom: 0;
+                    }
+
+                    input,
+                    textarea {
+                        margin-bottom: 14px;
+                    }
+                }
+            }
+        }
+        
+    }   
+}
+
+
+@media screen and (max-width: 390px) {
+
+/*****************/
+/* HEADER */
+/*****************/
+    
+    #NM-header {
+        
+        #NM-nav-header {
+                
+            .menu_button {
+                top: 55px;
+                right: 10px;
             }
         }
     }
