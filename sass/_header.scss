@@ -1,7 +1,7 @@
 #NM-header {
     height: 100%;
     color:$main-black;
-    padding-top:35px;
+    padding-top:25px;
     -webkit-animation: fade-in $animation-duration-medium ease-in-out;
     animation: fade-in $animation-duration-medium ease-in-out;
     
@@ -17,7 +17,8 @@
             margin-left:146px;
             -webkit-animation: blink $animation-duration-courte $animation-delay both;
                 animation: blink $animation-duration-courte $animation-delay both;
-            
+            padding: 12px;
+
             img {
                 width: 216px;
                 height: 14px;
@@ -77,16 +78,51 @@
             display: flex; 
             justify-content: end;
             margin:0 146px 0 0;
-
+     
             .menu-item {
                 list-style: none;
                 text-transform: uppercase;
                 margin:0;
                 font-family: $main-font;
+                position: relative;
+                padding: 10px 0 0 14px;
+
+                    &::before,
+                    &::after {
+                        content: '';
+                        box-sizing: border-box;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 30px;
+                        width: 50px;
+                        transform-origin: top left;
+                    }
+
+                    &::before {
+                        border-top: 0.2em solid $main-red;
+                        transform: scale3d(0, 1, 1);
+                    }
+
+                    &::after {
+                        border-left: 0.2em solid $main-red;
+                        transform: scale3d(1, 0, 1);
+                    }
+
+                    &:hover::before,
+                    &:hover::after {
+                        transform: scale3d(1, 1, 1);
+                        transition: transform 600ms;
+                    }
+                   
 
                 a {
-                    text-decoration: none;                  
+                    text-decoration: none;                       
                 }
+            }
+
+            [aria-current]:not([aria-current="false"]) {
+                font-weight: 700;
             }
         }
     }  

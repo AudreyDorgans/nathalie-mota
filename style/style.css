@@ -160,7 +160,7 @@ KEYFRAMES
 #NM-header {
   height: 100%;
   color: #000000;
-  padding-top: 35px;
+  padding-top: 25px;
   -webkit-animation: fade-in 2s ease-in-out;
   animation: fade-in 2s ease-in-out;
 }
@@ -175,6 +175,7 @@ KEYFRAMES
   margin-left: 146px;
   -webkit-animation: blink 1s 1.5s both;
   animation: blink 1s 1.5s both;
+  padding: 12px;
 }
 #NM-header #NM-nav-header #logo-header img {
   width: 216px;
@@ -228,9 +229,36 @@ KEYFRAMES
   text-transform: uppercase;
   margin: 0;
   font-family: "SpaceMono";
+  position: relative;
+  padding: 10px 0 0 14px;
+}
+#NM-header #NM-nav-header #header-menu .menu-item::before, #NM-header #NM-nav-header #header-menu .menu-item::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 50px;
+  transform-origin: top left;
+}
+#NM-header #NM-nav-header #header-menu .menu-item::before {
+  border-top: 0.2em solid #E00000;
+  transform: scale3d(0, 1, 1);
+}
+#NM-header #NM-nav-header #header-menu .menu-item::after {
+  border-left: 0.2em solid #E00000;
+  transform: scale3d(1, 0, 1);
+}
+#NM-header #NM-nav-header #header-menu .menu-item:hover::before, #NM-header #NM-nav-header #header-menu .menu-item:hover::after {
+  transform: scale3d(1, 1, 1);
+  transition: transform 600ms;
 }
 #NM-header #NM-nav-header #header-menu .menu-item a {
   text-decoration: none;
+}
+#NM-header #NM-nav-header #header-menu [aria-current]:not([aria-current=false]) {
+  font-weight: 700;
 }
 
 /* The Modal */
