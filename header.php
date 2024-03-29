@@ -15,13 +15,13 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
+
+	<?php wp_body_open(); ?>
 
 <div id="NM-page">
 
@@ -29,7 +29,7 @@
 		
 		<nav role="navigation" aria-label="<?php _e('Menu principal', 'text-domain'); ?>" id="NM-nav-header">
 
-			<a href="/nathalie-mota/" title="Retour à l'accueil" id="logo-header">
+			 <a href="<?php echo home_url( '/' ); ?>." id="logo-header">
 				<img src=" <?php echo get_stylesheet_directory_uri() .'/assets/logo/Logo.png'; ?> " alt="Logo de la photographe évènementielle Nathalie Mota">
 			</a>
 
