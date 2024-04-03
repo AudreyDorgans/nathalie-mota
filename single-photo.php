@@ -33,7 +33,7 @@ get_header();
 
 			<div class="colonne-infos-photo">
 				<h2> <?php echo get_the_title(); ?> </h2>
-				<p> Référence : <?php the_field( 'reference' );?> </p>
+				<p> Référence : <span class="reference"><?php the_field( 'reference' );?></span> </p>
 				<p> Catégorie <?php echo $nom_categories;?> </p>
 				<p> Format : <?php echo $formats;?> </p>
 				<p> Type : <?php the_field( 'type' );?> </p>
@@ -48,6 +48,8 @@ get_header();
 
 		<div class="row-photo-contact">
 			<div class="colonne-photo-contact">
+				<p> Cette photo vous intéresse ? </p>
+				<button class="myBtnContact">Contact</button>
 			</div>
 
 			<div class="colonne-photo-next">

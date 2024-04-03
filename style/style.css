@@ -281,12 +281,6 @@ KEYFRAMES
   padding-top: 30px;
   position: relative;
 }
-.modal .modal-header .close {
-  position: absolute;
-  top: -5px;
-  right: 5px;
-  font-size: 22px;
-}
 .modal .modal-header .background-contact {
   background-image: url("../assets/header/contact.png");
   background-repeat: no-repeat;
@@ -495,11 +489,6 @@ KEYFRAMES
   .modal .modal-header {
     padding-top: 30px;
     position: relative;
-  }
-  .modal .modal-header .close {
-    top: -35px;
-    right: 10px;
-    font-size: 26px;
   }
   .modal .modal-content #wpcf7-f54-o1 {
     width: 190px;

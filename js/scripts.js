@@ -30,19 +30,22 @@ if (siteNavigation) {
 /* MODALE HEADER CONTACT */
 
 var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
+var btns = document.getElementsByClassName("myBtnContact");
 var span = document.getElementsByClassName("close")[0];
 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+for (var i = 0; i < btns.length; i++) {
+    btns[i].onclick = function(event) {
+        event.stopPropagation(); // Arrête la propagation de l'événement
+        if (modal.style.display !== "block") {
+            modal.style.display = "block";
+        }
     }
 }
+
+// Fermeture de la modale au clic en dehors de celle-ci
+window.addEventListener('click', function(event) {
+    if (modal.style.display == "block" && event.target !== modal && !modal.contains(event.target)) {
+        modal.style.display = "none";
+    }
+});
+

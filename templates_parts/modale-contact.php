@@ -4,7 +4,7 @@
   <div class="modal-content">
 
     <div class="modal-header">
-      <span class="close">×</span>
+
       <div class="background-contact">
         <h2>Contact</h2>
       </div>

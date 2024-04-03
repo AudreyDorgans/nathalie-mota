@@ -41,7 +41,7 @@ function add_elements_menus($items, $args) {
 
     if( $args->theme_location == 'main-menu' ){
 
-        $items .= '<li class="menu-item" id="myBtn">Contact</li>';
+        $items .= '<li class="menu-item myBtnContact">Contact</li>';
 
     }elseif( $args->theme_location == 'footer-menu' ){
 
