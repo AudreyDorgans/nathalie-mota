@@ -1,11 +1,3 @@
-/*
-Theme name : Nathalie Mota
-Description : Thème sur mesure Nathalie Mota
-Author name: Nathalie Mota
-Author URI : https://nathalie.mota.com
-*/
-
-
 @charset "UTF-8";
 @font-face {
   src: url("../fonts/SpaceMono/SpaceMono-Bold.ttf") format("truetype");
@@ -49,14 +41,16 @@ html, body {
   width: 100%;
 }
 
-html, body, #NM-page {
+html, body {
   height: 100%;
+  position: relative;
 }
 
 #NM-page {
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
+  height: 100%;
 }
 
 body, h1, h2, h3, h4, p, a, li {
@@ -406,6 +400,12 @@ KEYFRAMES
   margin-bottom: 25px;
 }
 
+.single-photo-main {
+  position: absolute;
+  top: 100px;
+  left: 0;
+}
+
 /*****************/
 /* TABLETTE
 /*****************/
@@ -424,6 +424,9 @@ KEYFRAMES
   /*****************/
   /* HEADER */
   /*****************/
+  #NM-header {
+    height: 100%;
+  }
   #NM-header #NM-nav-header {
     display: block;
     height: 100%;
