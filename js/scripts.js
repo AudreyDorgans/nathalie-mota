@@ -49,3 +49,18 @@ window.addEventListener('click', function(event) {
     }
 });
 
+
+
+/* FONCTIONNALITE REFERENCE CONTACT  */
+
+jQuery(document).ready(function() {
+    // Écoutez le clic sur le bouton avec la classe "bouton-avec-reference"
+    jQuery(".bouton-avec-reference").click(function() {
+        // Récupérez le contenu de la référence
+        var reference = jQuery(".reference").text();
+        console.log(reference);
+        jQuery("#input-reference").val(reference);
+    });
+});
+
+

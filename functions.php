@@ -23,6 +23,7 @@ function nathalie_mota_register_style() {
 // scripts JS
 //////////////////////////////
 function nathalie_mota_scripts() {
+    wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'scripts', get_stylesheet_directory_uri()  . '/js/scripts.js', array(), 1, true );
 }
 

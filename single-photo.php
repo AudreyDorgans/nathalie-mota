@@ -49,7 +49,7 @@ get_header();
 		<div class="row-photo-contact">
 			<div class="colonne-photo-contact">
 				<p> Cette photo vous intéresse ? </p>
-				<button class="myBtnContact">Contact</button>
+				<button class="myBtnContact bouton-avec-reference">Contact</button>
 			</div>
 
 			<div class="colonne-photo-next">
