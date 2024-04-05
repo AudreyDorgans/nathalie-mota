@@ -10,38 +10,7 @@
 
 <?php get_header(); ?>
 
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
-
-	/* Récupère l'id pour l'exclure par la suite des photos apparentées */
-		$id_photo = get_the_id();
-	
-	/* Récupère les catégories pour affichage des infos photo en cours ainsi que les suggestions des photos apparentées */
-		$categories = get_the_terms( get_the_ID(), 'categorie');
-			foreach( $categories as $categorie ){
-    			$nom_categories = $categorie->name;
-				$slug_categories[] = $categorie->slug;
-			}
-	/* Récupère les formats pour affichage des infos photo en cours */
-		$formats = get_the_terms( get_the_ID(), 'format');
-			foreach( $formats as $format ){
-    			$formats = $format->name;
-			} 
-			
-	/* Récupère les liens et images pour la navigation entre les photos */
-		$next_posts = get_next_posts_link(); 
-		$prev_posts = get_previous_posts_link();
-
-		$prev_post = get_previous_post();
-		$prev_thumbnail = get_the_post_thumbnail( $prev_post, array(80,70)  ); 
-
-		$next_post = get_next_post();
-		$next_thumbnail = get_the_post_thumbnail( $next_post, array(80,70) ); 
-
-?>		
-		
-<?php endwhile; else : ?>
-<?php endif; ?>
-
+<?php include_once('include/requetes_single_photo.php'); ?>
 
 	<main class="single-photo-main">   
 
@@ -106,20 +75,17 @@
             if ($my_query->have_posts()) : ?>
 	
                     
-                        <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
-						<div class="col-img-similaire">
-                        	<a href="<?php echo get_permalink(); ?>">
-                        	<?php the_post_thumbnail(); ?> </a>
-						</div>
-                        <?php endwhile; ?>
+                <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+					<div class="col-img-similaire">
+                        <a href="<?php echo get_permalink(); ?>">
+                        <?php the_post_thumbnail(); ?> </a>
+					</div>
+                <?php endwhile; ?>
 
 			<?php else : ?>
-    			<p> Il n'y a pas de photos apparentées pour cette catégorie. </p>   				
+    			<p> Il n'y a pas de photos apparentées pour cette catégorie </p> 	
                
-             
             <?php endif; ?>
-
-		
 
         	<?php wp_reset_postdata(); ?>
 		
