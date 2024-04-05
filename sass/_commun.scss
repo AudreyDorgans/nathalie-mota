@@ -1,25 +1,19 @@
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 html,body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    width:100%;
-}
-
-html, body{
-    height:100%;
 }
 
 #NM-page {
     max-width:1440px;
     margin: 0 auto;
     position: relative;
-    min-height:100%;
 }
 
 body, h1, h2, h3, h4, p, a, li {
@@ -57,6 +51,10 @@ h3 {
 p {
     font-family: $second-font;
     font-size: 14px;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
 
 @media screen and (max-width: 700px) {

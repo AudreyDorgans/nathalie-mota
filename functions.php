@@ -54,20 +54,7 @@ function add_elements_menus($items, $args) {
 
 
 
-////////////////////////////////////////////////////////////
-// Enregistre le custom type
-////////////////////////////////////////////////////////////
-//function NM_register_custom_post_type() {
-    //register_post_type( 'photo', array(
-        //'label'    => 'Photos',
-        //'supports' => array( 'title', 'editor', 'thumbnail' ),
-    //) );
-//}
-
-
-
 add_action('after_setup_theme', 'nathalie_mota_supports');
 add_action( 'wp_enqueue_scripts', 'nathalie_mota_register_style' );
 add_action( 'wp_enqueue_scripts', 'nathalie_mota_scripts' );
 add_filter('wp_nav_menu_items', 'add_elements_menus', 10, 2);
-//do_action( 'init', 'NM_register_custom_post_type' );
