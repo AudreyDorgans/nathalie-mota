@@ -38,12 +38,14 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 #NM-page {
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
+  min-height: 100vh;
 }
 
 body, h1, h2, h3, h4, p, a, li {
@@ -71,6 +73,13 @@ h2 {
 h3 {
   font-size: 18px;
   font-family: "SpaceMono";
+}
+
+.btnhover:hover {
+  background-color: #000000;
+  color: white;
+  transition: all 0.5s ease-out;
+  font-size: 16px;
 }
 
 .description-photo {
@@ -231,33 +240,11 @@ KEYFRAMES
   position: relative;
   padding: 10px 0 0 14px;
 }
-#NM-header #NM-nav-header #header-menu .menu-item::before, #NM-header #NM-nav-header #header-menu .menu-item::after {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 30px;
-  width: 50px;
-  transform-origin: top left;
-}
-#NM-header #NM-nav-header #header-menu .menu-item::before {
-  border-top: 0.2em solid #E00000;
-  transform: scale3d(0, 1, 1);
-}
-#NM-header #NM-nav-header #header-menu .menu-item::after {
-  border-left: 0.2em solid #E00000;
-  transform: scale3d(1, 0, 1);
-}
-#NM-header #NM-nav-header #header-menu .menu-item:hover::before, #NM-header #NM-nav-header #header-menu .menu-item:hover::after {
-  transform: scale3d(1, 1, 1);
-  transition: transform 600ms;
+#NM-header #NM-nav-header #header-menu .menu-item:hover {
+  font-weight: bold;
 }
 #NM-header #NM-nav-header #header-menu .menu-item a {
   text-decoration: none;
-}
-#NM-header #NM-nav-header #header-menu [aria-current]:not([aria-current=false]) {
-  font-weight: 700;
 }
 
 /* The Modal */
@@ -399,6 +386,7 @@ KEYFRAMES
 }
 .single-photo-main .row-infos-photo-single {
   display: flex;
+  gap: 30px;
 }
 .single-photo-main .row-infos-photo-single .colonne-infos-photo, .single-photo-main .row-infos-photo-single .colonne-photo {
   width: 50%;
@@ -406,6 +394,9 @@ KEYFRAMES
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+.single-photo-main .row-infos-photo-single .colonne-infos-photo {
+  border-bottom: 1px solid black;
 }
 .single-photo-main .row-infos-photo-single .colonne-infos-photo p {
   display: block;
@@ -419,12 +410,48 @@ KEYFRAMES
   height: 118px;
   display: flex;
   justify-content: space-between;
+}
+.single-photo-main .row-infos-photo-contact .colonne-photo-contact, .single-photo-main .row-infos-photo-contact .photos-navigation {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-.single-photo-main .row-infos-photo-contact .photos-navigation .nav-thumbnails-prev img, .single-photo-main .row-infos-photo-contact .photos-navigation .nav-thumbnails-next {
+.single-photo-main .row-infos-photo-contact .colonne-photo-contact .myBtnContact {
+  background-color: #D8D8D8;
+  width: 50%;
+  height: 50px;
+  border: none;
+  font-family: "SpaceMono";
+  border-radius: 2px;
+  margin-right: 10px;
+}
+.single-photo-main .row-infos-photo-contact .colonne-photo-contact .myBtnContact:hover {
+  background-color: #000000;
+  color: white;
+  transition: all 0.5s ease-out;
+  font-size: 16px;
+}
+.single-photo-main .row-infos-photo-contact .photos-navigation {
+  height: 80px;
+  width: 70px;
+  position: relative;
+  padding-top: 5px;
+}
+.single-photo-main .row-infos-photo-contact .photos-navigation .photo-prev, .single-photo-main .row-infos-photo-contact .photos-navigation .photo-next {
+  position: absolute;
+  bottom: -10px;
+}
+.single-photo-main .row-infos-photo-contact .photos-navigation .photo-prev {
+  left: 0;
+}
+.single-photo-main .row-infos-photo-contact .photos-navigation .photo-next {
+  right: 0;
+}
+.single-photo-main .row-infos-photo-contact .photos-navigation .thumbnails_hide {
   display: none;
 }
-.single-photo-main .row-infos-photo-contact .photos-navigation .photo-prev a:hover .nav-thumbnails-prev {
+.single-photo-main .row-infos-photo-contact .photos-navigation .thumbnails_visible {
   display: block;
 }
 
@@ -446,12 +473,8 @@ KEYFRAMES
   /*****************/
   /* HEADER */
   /*****************/
-  #NM-header {
-    min-height: 100%;
-  }
   #NM-header #NM-nav-header {
     display: block;
-    min-height: 100%;
     min-width: 100%;
   }
   #NM-header #NM-nav-header #logo-header {
@@ -473,7 +496,7 @@ KEYFRAMES
     flex-direction: column;
     padding: 0;
     justify-content: center;
-    min-height: 100%;
+    min-height: 100vh;
     background-color: #E00000;
     margin: 20px 0 0 0;
     z-index: 2;

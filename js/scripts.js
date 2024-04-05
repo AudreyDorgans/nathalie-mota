@@ -27,8 +27,10 @@ if (siteNavigation) {
     }
 
 
-/* MODALE HEADER CONTACT */
 
+/**/
+/* MODALE HEADER CONTACT */
+/**/
 var modal = document.getElementById('myModal');
 var btns = document.getElementsByClassName("myBtnContact");
 var span = document.getElementsByClassName("close")[0];
@@ -51,8 +53,9 @@ window.addEventListener('click', function(event) {
 
 
 
+/**/
 /* FONCTIONNALITE REFERENCE CONTACT  */
-
+/**/
 jQuery(document).ready(function() {
 
     jQuery(".bouton-avec-reference").click(function() {
@@ -63,4 +66,26 @@ jQuery(document).ready(function() {
     });
 });
 
+
+/**/
+/* FONCTIONNALITES HOVER THUMBNAILS SINGLE PHOTO */
+/**/
+
+const prevPhoto = document.querySelector('.photo-prev');
+const nextPhoto = document.querySelector('.photo-next');
+const prevThumbnail = document.querySelector('.nav-thumbnails-prev');
+const nextThumbnail = document.querySelector('.nav-thumbnails-next');
+
+function handleHover(element, thumbnail) {
+    element.addEventListener('mouseenter', () => {
+        thumbnail.classList.add('thumbnails_visible');
+    });
+
+    element.addEventListener('mouseleave', () => {
+        thumbnail.classList.remove('thumbnails_visible');
+    });
+}
+
+handleHover(prevPhoto, prevThumbnail);
+handleHover(nextPhoto, nextThumbnail);
 

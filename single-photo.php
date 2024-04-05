@@ -32,10 +32,10 @@
 		$prev_posts = get_previous_posts_link();
 
 		$prev_post = get_previous_post();
-		$prev_thumbnail = get_the_post_thumbnail( $prev_post, array(80,80)  ); 
+		$prev_thumbnail = get_the_post_thumbnail( $prev_post, array(80,70)  ); 
 
 		$next_post = get_next_post();
-		$next_thumbnail = get_the_post_thumbnail( $next_post, array(80,80) ); 
+		$next_thumbnail = get_the_post_thumbnail( $next_post, array(80,70) ); 
 
 ?>		
 		
@@ -64,16 +64,16 @@
 		<div class="row-infos-photo-contact">
 	
 			<div class="colonne-photo-contact">
-				<p> Cette photo vous intéresse ? 
-				<button class="myBtnContact bouton-avec-reference">Contact</button> </p>
+				<p> Cette photo vous intéresse ? </p>
+				<button class="myBtnContact bouton-avec-reference">Contact</button> 
 			</div>
 
 			<div class="photos-navigation">
+				<?php echo "<span class=\"nav-thumbnails-prev thumbnails_hide\">".$prev_thumbnail."</span>"; ?>
+				<?php echo "<span class=\"nav-thumbnails-next thumbnails_hide\">".$next_thumbnail."</span>";?>
+				
 				<span class="photo-prev"> <?php previous_post_link('%link','<img src="' . get_bloginfo("template_directory") . '/assets/icones/prev.png" />'); ?> </span>
-				<?php echo "<span class=\"nav-thumbnails-prev\">".$prev_thumbnail."</span>"; ?>
-
 				<span class="photo-next"> <?php next_post_link('%link','<img src="' . get_bloginfo("template_directory") . '/assets/icones/next.png" />'); ?> </span>
-				<?php echo "<span class=\"nav-thumbnails-next\">".$next_thumbnail."</span>";?>
 			</div>
 		</div>
 	

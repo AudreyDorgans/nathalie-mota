@@ -6,7 +6,8 @@
 
     .row-infos-photo-single {
         display: flex;
-       
+        gap: 30px;
+        
         .colonne-infos-photo, .colonne-photo {
             width:50%;
             height:calc(100vh - 310px);
@@ -16,15 +17,14 @@
         }
 
         .colonne-infos-photo {
-
+            border-bottom: 1px solid black;
+            
             p {
                 display: block;
             }
-            
         }
 
-        .colonne-photo {
-            
+        .colonne-photo {          
 
             #main_thumbnail {
                 object-fit: cover;
@@ -32,33 +32,66 @@
                 height:100%;
             }
         }
-      
     }
 
     .row-infos-photo-contact{
         height: 118px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
-
+       
         .colonne-photo-contact, .photos-navigation {
+            width:50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .colonne-photo-contact {
+
+            .myBtnContact {
+                background-color: $second_grey;
+                width:50%;
+                height:50px;
+                border:none;
+                font-family: $main-font;
+                border-radius: 2px;
+                margin-right:10px;
+            
+                &:hover {
+                    background-color: $main-black;
+                    color: white;
+                    transition: all 0.5s ease-out;
+                    font-size: 16px;
+                }
+            }
         }
         
         .photos-navigation {
+            height:80px;
+            width:70px;
+            position:relative;
+            padding-top:5px;
 
-            .nav-thumbnails-prev img, .nav-thumbnails-next {
+            .photo-prev, .photo-next {
+                position: absolute;   
+                bottom: -10px;
+            }
+
+            .photo-prev {
+                left:0;
+            }
+
+            .photo-next {
+                right: 0;
+            }
+
+            .thumbnails_hide {
                 display: none;
             }
 
-            .photo-prev a:hover {
-                
-                .nav-thumbnails-prev {
-                    display: block;
-                }
+            .thumbnails_visible {
+                display: block;
             }
-
-            
         }
     }
 }
