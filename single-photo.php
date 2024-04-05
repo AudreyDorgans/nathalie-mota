@@ -83,10 +83,12 @@
 	<aside class="aside-photo-comp">
 		
 		<h3> Vous aimerez aussi </h3>
+
+			<div class="row-img-similaires">
 			
-		<?php
+			<?php
                    
-        $args_photos_similaires = array(
+        	$args_photos_similaires = array(
             'post_type' => 'photo',
 			'post__not_in' => array($id_photo),
             'posts_per_page' => 2,
@@ -99,20 +101,29 @@
                             ),
                         );
                 
-		$my_query = new WP_Query($args_photos_similaires);
+			$my_query = new WP_Query($args_photos_similaires);
 
             if ($my_query->have_posts()) : ?>
-              
-                    <div>
+	
+                    
                         <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
+						<div class="col-img-similaire">
                         	<a href="<?php echo get_permalink(); ?>">
                         	<?php the_post_thumbnail(); ?> </a>
+						</div>
                         <?php endwhile; ?>
-                    </div>
+
+			<?php else : ?>
+    			<p> Il n'y a pas de photos apparentées pour cette catégorie. </p>   				
+               
              
             <?php endif; ?>
 
-        <?php wp_reset_postdata(); ?>
+		
+
+        	<?php wp_reset_postdata(); ?>
+		
+			</div>
 
 	</aside>
 

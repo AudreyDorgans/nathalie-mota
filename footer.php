@@ -12,7 +12,7 @@
 ?>
 
 <div class="container-footer">
-	<footer class="NM-footer">
+	<footer class="NM-footer uppercase">
 		<?php
     			wp_nav_menu([
         			'theme_location' => 'footer-menu',
