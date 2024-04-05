@@ -55,7 +55,7 @@
 
 			<div class="row-img-similaires">
 			
-			<?php
+			<?php	
                    
         	$args_photos_similaires = array(
             'post_type' => 'photo',
@@ -70,30 +70,15 @@
                             ),
                         );
                 
-			$my_query = new WP_Query($args_photos_similaires);
+			$my_query = new WP_Query($args_photos_similaires); 
+			
+			set_query_var( 'my_query', $my_query );?>
 
-            if ($my_query->have_posts()) : ?>
-	
-                    
-                <?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
-					<div class="col-img-similaire">
-                        <a href="<?php echo get_permalink(); ?>">
-                        <?php the_post_thumbnail(); ?> </a>
-					</div>
-                <?php endwhile; ?>
+            <?php get_template_part('templates_parts/affichage-photo'); ?>
 
-			<?php else : ?>
-    			<p> Il n'y a pas de photos apparentées pour cette catégorie </p> 	
-               
-            <?php endif; ?>
-
-        	<?php wp_reset_postdata(); ?>
-		
 			</div>
 
 	</aside>
-
-
 
 <?php
 get_footer();
