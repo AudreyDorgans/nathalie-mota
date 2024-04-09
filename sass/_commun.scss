@@ -2,13 +2,16 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
 }
 
 html,body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
     min-height: 100vh;
+    width:100%;
 }
 
 #NM-page {
@@ -16,6 +19,7 @@ html,body {
     margin: 0 auto;
     position: relative;
     min-height: 100vh;
+    min-width:100%;
 }
 
 body, h1, h2, h3, h4, p, a, li {

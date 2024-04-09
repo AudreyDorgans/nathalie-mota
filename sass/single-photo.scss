@@ -3,7 +3,7 @@
     max-width:1440px;
     width:100%;
     height:calc(100vh - 80px);
-    margin-bottom: 77px;
+
 
     .row-infos-photo-single {
         display: flex;
@@ -19,9 +19,19 @@
 
         .colonne-infos-photo {
             border-bottom: 1px solid black;
+
+            h2 {
+                margin:0;
+                line-height: 1;
+            }
             
             p {
                 display: block;
+                margin:0;
+            }
+
+            h2, p {
+                padding-bottom:20px;
             }
         }
 
@@ -36,7 +46,7 @@
     }
 
     .row-infos-photo-contact{
-        height: 118px;
+        min-height: 118px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid black;
@@ -49,6 +59,11 @@
         }
 
         .colonne-photo-contact {
+            margin:0;
+
+            p {
+                margin:0;
+            }
 
             .myBtnContact {
                 background-color: $second_grey;
@@ -70,7 +85,6 @@
         
         .photos-navigation {
             height:80px;
-            width:70px;
             position:relative;
             padding-top:5px;
 
@@ -80,16 +94,23 @@
             }
 
             .photo-prev {
-                left:0;
+                right:44px;
             }
 
             .photo-next {
                 right: 0;
             }
 
-            .thumbnails_hide {
-                display: none;
+            .nav-thumbnails-prev, 
+            .nav-thumbnails-next {
+                position: absolute;
+                top: 5px;
+                right:0px;
             }
+
+        .thumbnails_hide {
+            display: none;
+        }
 
             .thumbnails_visible {
                 display: block;
@@ -99,10 +120,9 @@
 }
 
 .aside-photo-comp{
-    margin: 0px 146px 0px 146px;
+    padding: 0px 146px 109px 146px;
     max-width: 1440px;
     border-bottom:1px solid black;
-    padding-bottom:109px;
 
     h3 {
         margin:0 0 52px 0;

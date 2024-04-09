@@ -1,6 +1,8 @@
- /*****************/
- /* TABLETTE
- /*****************/
+/***********************************/
+/***********************************/
+/* FORMAT TABLETTE 992px MAX
+/***********************************/
+/***********************************/
  @media screen and (max-width: 992px) {
 #NM-header {
     padding-top: 50px;
@@ -18,7 +20,11 @@
     }
  }
  
- 
+/***********************************/
+/***********************************/
+/* FORMAT 768px MAX
+/***********************************/
+/***********************************/
  @media screen and (max-width: 768px) {
 
 /*****************/
@@ -26,11 +32,10 @@
 /*****************/
 
     #NM-header {
- 
+        padding-top:20px;
         
         #NM-nav-header {
             display: block;
-           
             min-width:100%;  
 
             #logo-header {
@@ -42,8 +47,8 @@
             .menu_button {
                 display: block; 
                 position:absolute;
-                top:45px;
-                right:40px;
+                top:50px;
+                right:17px;
             }
 
             #header-menu {
@@ -77,26 +82,25 @@
 .container-footer {
    
     .NM-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+    
+        #footer-menu {
             flex-direction: column;
             align-items: center;
-            gap: 0px;
     
-            #footer-menu {
-                flex-direction: column;
-                align-items: center;
-    
-                #menu-item-51 {
-                    margin-right: 0px;
-                    margin-bottom: 35px;
-                }
-            }
-    
-            span {
-                margin-top: 35px;
+            #menu-item-51 {
+                margin-right: 0px;
+                margin-bottom: 35px;
             }
         }
+    
+        span {
+            margin-top: 35px;
+        }
     }
-
+}
 
 /*****************/
 /* MODALE CONTACT*/
@@ -146,6 +150,12 @@
 }
 
 
+
+ /***********************************/
+ /***********************************/
+ /* FORMAT PETIT TELEPHONE 390px MAX
+ /***********************************/
+ /***********************************/
 @media screen and (max-width: 390px) {
 
 /*****************/
@@ -153,14 +163,103 @@
 /*****************/
     
     #NM-header {
-        
+        min-height: 72px;
+        padding-top:10px;
+
         #NM-nav-header {
                 
             .menu_button {
-                top: 55px;
-                right: 10px;
+                top: 40px;
+                right: 40px;
             }
         }
     }
+
+/*****************/
+/* FOOTER */
+/*****************/
+    .container-footer {
+        padding: 44px 0px 44px 0px;
+
+        .NM-footer {
+
+            #footer-menu {
+                gap:30px;
+            }
+        }
+       
+    }
+
+/*****************/
+/* SINGLE-PHOTO */
+/*****************/
+
+.single-photo-main {
+    padding: 20px 0px 0 0px;
+    margin: 0 auto;
+    min-height: calc(100vh + 72px);
+
+    .row-infos-photo-single {
+        flex-direction: column-reverse;
+        margin: 0 56px;
+        padding: 0 0 40px 0;
+
+        .colonne-infos-photo,
+        .colonne-photo {
+            width: 100%;
+            justify-content: flex-start;
+            height: calc(50vh - 72px);
+            align-items: stretch;
+        }
+
+        .colonne-infos-photo {
+            border:none;
+        }
+
+    }
+
+    .row-infos-photo-contact {
+        margin: 0 56px;
+
+        .colonne-photo-contact {
+            flex-direction: column;
+            width: 100%;
+            justify-content: space-around;
+            border-top:1px solid black;
+
+            p {
+                width: 100%;
+            }
+
+            .myBtnContact {
+                width: 100%;
+                margin-right: 0px;
+            }
+        }
+
+        .photos-navigation {
+            display: none;
+            justify-content: space-around;
+        }
+    }
+}
+
+.aside-photo-comp {
+    margin: 0px 29px 0px 29px;
+    padding-bottom: 25px;
+
+    h3 {
+        text-align: center;
+        margin: 0 0 20px 0;
+    }
+
+    .row-img-similaires {
+        flex-direction: column;
+
+        .col-img-similaire {
+            width: 100%;
+        }
+    }
+}
 }
 
