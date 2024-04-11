@@ -4,15 +4,13 @@
     -webkit-animation: fade-in $animation-duration-medium ease-in-out;
     animation: fade-in $animation-duration-medium ease-in-out;
     min-height:80px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
-
-    
+   
     #NM-nav-header {
         display: flex;
         justify-content: space-between;
         margin: 0 auto;
         max-width: 1440px;
-        
+
         #logo-header {
             width: 20%;
             display: flex;

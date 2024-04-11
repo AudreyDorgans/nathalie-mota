@@ -10,7 +10,13 @@
 
 <?php get_header(); ?>
 
-<?php include_once('include/requetes_single_photo.php'); ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
+
+	$infos_photo = recuperer_infos_photo(get_the_id());
+?>		
+		
+<?php endwhile; else : ?>
+<?php endif; ?>
 
 	<main class="single-photo-main">   
 
@@ -19,10 +25,11 @@
 			<div class="colonne-infos-photo">
 				<h2> <?php echo get_the_title(); ?> </h2>
 				<p class="uppercase">Référence :  <span class="reference"><?php the_field( 'reference' );?></span> </p>
-				<p class="uppercase">Catégorie : <?php echo $nom_categories;?> </p>
-				<p class="uppercase">Format : <?php echo $formats;?> </p>
+				<p class="uppercase">Catégorie : <?php echo $infos_photo['nom_categories'];?> </p>
+				<p class="uppercase">Format : <?php echo $infos_photo['formats'];?> </p>
 				<p class="uppercase">Type : <?php the_field( 'type' );?> </p>
 				<p class="uppercase">Date : <?php the_time( 'Y' ); ?> </p>	
+
 			</div>
 
 			<div class="colonne-photo">
@@ -38,8 +45,8 @@
 			</div>
 
 			<div class="photos-navigation">
-				<?php echo "<span class=\"nav-thumbnails-prev thumbnails_hide\">".$prev_thumbnail."</span>"; ?>
-				<?php echo "<span class=\"nav-thumbnails-next thumbnails_hide\">".$next_thumbnail."</span>";?>
+				<?php echo "<span class=\"nav-thumbnails-prev thumbnails_hide\">".$infos_photo['prev_thumbnail']."</span>"; ?>
+				<?php echo "<span class=\"nav-thumbnails-next thumbnails_hide\">".$infos_photo['next_thumbnail']."</span>";?>
 				
 				<span class="photo-prev"> <?php previous_post_link('%link','<img src="' . get_bloginfo("template_directory") . '/assets/icones/prev.png" />'); ?> </span>
 				<span class="photo-next"> <?php next_post_link('%link','<img src="' . get_bloginfo("template_directory") . '/assets/icones/next.png" />'); ?> </span>
@@ -55,27 +62,24 @@
 
 			<div class="row-img-similaires">
 			
-			<?php	
-                   
+			<?php	      
         	$args_photos_similaires = array(
             'post_type' => 'photo',
-			'post__not_in' => array($id_photo),
+			'post__not_in' => array($infos_photo['id_photo']),
             'posts_per_page' => 2,
             'tax_query' => array(
                                 array(
                                     'taxonomy' => 'categorie',
                                     'field' => 'slug',
-                                    'terms' => $slug_categories, 
+                                    'terms' => $infos_photo['slug_categories'], 
                                 ),
                             ),
                         );
                 
 			$my_query = new WP_Query($args_photos_similaires); 
-			
 			set_query_var( 'my_query', $my_query );?>
 
-            <?php get_template_part('templates_parts/affichage-photo'); ?>
-
+            <?php get_template_part('templates_parts/affichage-photos'); ?>
 			</div>
 
 	</aside>

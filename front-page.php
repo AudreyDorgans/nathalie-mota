@@ -14,15 +14,32 @@
 
 get_header();
 ?>
-
-	<main>
-
-		<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+	<main class="main-accueil">
 		
-	
+		<?php include_once('include/requetes_hero.php'); ?>
 		
-	<?php endwhile; endif; ?>
+		<div class="banner">
+			<h1 id="stroke">Photographe Event </h1>
+		</div>
 
+		<div class="catalogue-photos">
+
+			<?php	
+            
+        	$args_catalogue_photo = array(
+            'post_type' => 'photo',
+			'posts_per_page' => 8,                       
+            );
+                
+			$my_query = new WP_Query($args_catalogue_photo ); 
+			
+			set_query_var( 'my_query', $my_query );?>
+
+            <?php get_template_part('templates_parts/affichage-photos'); ?>
+
+			</div>
+		</div>
+		
 	</main><!-- #main -->
 
 <?php

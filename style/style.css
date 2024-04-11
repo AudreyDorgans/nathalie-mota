@@ -175,7 +175,6 @@ KEYFRAMES
   -webkit-animation: fade-in 2s ease-in-out;
   animation: fade-in 2s ease-in-out;
   min-height: 80px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
 }
 #NM-header #NM-nav-header {
   display: flex;
@@ -384,6 +383,89 @@ KEYFRAMES
 }
 .container-footer .NM-footer #footer-menu li a:hover {
   font-weight: bold;
+}
+
+.main-accueil .banner {
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-13-scaled.jpeg");
+  max-width: 1440px;
+  height: 960px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-accueil .banner #stroke {
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #FFF;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+.main-accueil .catalogue-photos {
+  padding: 40px 146px 0 146px;
+  margin: 0 auto;
+  display: flex;
+  max-width: 1440px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.main-accueil .catalogue-photos .col-img-catalogue {
+  max-width: 50%;
+  width: 560px;
+  height: 560px;
+  position: relative;
+}
+.main-accueil .catalogue-photos .col-img-catalogue img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.main-accueil .catalogue-photos .col-img-catalogue .display-front-hover {
+  position: absolute;
+  background-color: black;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 560px;
+  height: 560px;
+  transition: opacity 0.5s;
+}
+.main-accueil .catalogue-photos .col-img-catalogue:hover .display-front-hover {
+  opacity: 0.5;
+}
+.main-accueil .catalogue-photos .col-img-catalogue:hover .reference, .main-accueil .catalogue-photos .col-img-catalogue:hover .categorie, .main-accueil .catalogue-photos .col-img-catalogue:hover .fa-eye, .main-accueil .catalogue-photos .col-img-catalogue:hover .fa-expand {
+  opacity: 1;
+}
+.main-accueil .catalogue-photos .col-img-catalogue .reference, .main-accueil .catalogue-photos .col-img-catalogue .categorie {
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  font-family: "SpaceMono";
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.main-accueil .catalogue-photos .col-img-catalogue .reference {
+  left: 16px;
+}
+.main-accueil .catalogue-photos .col-img-catalogue .categorie {
+  right: 16px;
+}
+.main-accueil .catalogue-photos .col-img-catalogue .fa-eye, .main-accueil .catalogue-photos .col-img-catalogue .fa-expand {
+  color: white;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.main-accueil .catalogue-photos .col-img-catalogue .fa-eye {
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  font-size: 44px;
+}
+.main-accueil .catalogue-photos .col-img-catalogue .fa-expand {
+  top: 10px;
+  right: 16px;
+  font-size: 24px;
 }
 
 .single-photo-main {
