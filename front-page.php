@@ -22,7 +22,7 @@ get_header();
 			<h1 id="stroke">Photographe Event </h1>
 		</div>
 
-		<div class="catalogue-photos">
+
 
 			<?php	
             
@@ -37,9 +37,8 @@ get_header();
 
             <?php get_template_part('templates_parts/affichage-photos'); ?>
 
-			</div>
-		</div>
-		
+			
+
 	</main><!-- #main -->
 
 <?php
