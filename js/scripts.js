@@ -96,68 +96,69 @@ if (document.body.classList.contains('single-photo')) {
 /**
  * REQUETE AJAX POUR CHARGEMENT DES POSTS SUR FRONTPAGE
  */
-(function ($) {
-    $(document).ready(function () {
-        let Paged = 1;
 
-        // Chargement des photos en Ajax
-        $('.load-catalogue-photos').click(function (e){
-            Paged++;
+jQuery(document).ready(function($) {
+   
+    let Paged = 1; // Définir la variable Paged ici
+    
+    $('.load-catalogue-photos').click(function (e){
+        Paged++;
 
-            // Empêcher l'envoi classique du formulaire
-            e.preventDefault();
+        e.preventDefault();
 
-            // L'URL qui réceptionne les requêtes Ajax dans l'attribut "action" de <form>
-            const ajaxurl = $(this).data('ajaxurl');
+        const categorieValue = $('select[name="categorie"]').val() || ''; // Valeur par défaut : ''
+        const formatValue = $('select[name="format"]').val() || ''; // Valeur par défaut : ''
+        const ajaxurl = $(this).data('ajaxurl');
 
-            const data = {
-                action: $(this).data('action'), 
-                nonce:  $(this).data('nonce'),
-                paged: Paged,
+        const data = {
+            action: $(this).data('action'), 
+            nonce:  $(this).data('nonce'),
+            paged: Paged,
+            categorie: categorieValue,
+            format: formatValue,
+        }
+
+        fetch(ajaxurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Cache-Control': 'no-cache',
+            },
+            body: new URLSearchParams(data),
+        })
+        .then(response => response.json())
+        .then(body => {
+
+            // En cas d'erreur
+            if (!body.success) {
+                alert(body.data);
+                return;
             }
 
-            // Requête Ajax en JS natif via Fetch
-            fetch(ajaxurl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Cache-Control': 'no-cache',
-                },
-                body: new URLSearchParams(data),
-            })
-            .then(response => response.json())
-            .then(body => {
+            // Afficher les photos dans la div load-result
+            body.data.forEach(photo => {
+                const colImgCatalogue = $('<div>').addClass('col-img-catalogue');
+                const image = $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo');
+                const displayFrontHover = $('<a>').attr('href', photo.permalien).addClass('display-front-hover');
+                const reference = $('<span>').addClass('uppercase reference').text(photo.reference);
+                const categorie = $('<span>').addClass('uppercase categorie').text(photo.nom_categories);
+                const viewLink = $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye'));
+                const expandIcon = $('<i>').addClass('fa-sharp fa-solid fa-expand');
 
-                // En cas d'erreur
-                if (!body.success) {
-                    alert(body.data);
-                    return;
-                }
+                colImgCatalogue.append(image, displayFrontHover, reference, categorie, viewLink, expandIcon);
 
-                // Afficher les photos dans la div load-result
-                body.data.forEach(photo => {
-                    const colImgCatalogue = $('<div>').addClass('col-img-catalogue');
-                    const image = $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo');
-                    const displayFrontHover = $('<a>').attr('href', photo.permalien).addClass('display-front-hover');
-                    const reference = $('<span>').addClass('uppercase reference').text(photo.reference);
-                    const categorie = $('<span>').addClass('uppercase categorie').text(photo.nom_categories);
-                    const viewLink = $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye'));
-                    const expandIcon = $('<i>').addClass('fa-sharp fa-solid fa-expand');
-
-                    colImgCatalogue.append(image, displayFrontHover, reference, categorie, viewLink, expandIcon);
-
-                    $('.load-result').append(colImgCatalogue);
-                });
-
-               // Masquer le bouton de chargement si aucune photo n'est renvoyée dans la réponse
-                if (!data.id_photo) {
-                    $('.load-catalogue-photos').hide();
-                }
-
+                $('.load-result').append(colImgCatalogue);
             });
+
+           // Masquer le bouton de chargement si aucune photo n'est renvoyée dans la réponse
+            //if (!data.id_photo) {
+                //$('.load-catalogue-photos').hide();
+            //}
         });
     });
-})(jQuery);
+});
+
+
 
 
 

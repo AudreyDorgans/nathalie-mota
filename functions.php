@@ -111,6 +111,10 @@ function recuperer_infos_photo($post_id) {
 // Fonction pour charger les prochains 8 CPT
 ////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////
+// Fonction pour charger les prochains 8 CPT avec filtres de taxonomie
+////////////////////////////////////////////////////////////
+
 add_action( 'wp_ajax_NM_load_catalogue_photos', 'NM_load_catalogue_photos' );
 add_action( 'wp_ajax_nopriv_NM_load_catalogue_photos', 'NM_load_catalogue_photos' );
 
@@ -119,12 +123,31 @@ function NM_load_catalogue_photos() {
     check_ajax_referer( 'NM_load_catalogue_photos', 'nonce' );
 
     $paged = isset($_REQUEST['paged']) ? $_REQUEST['paged'] : 1;
+    $categorie = isset($_REQUEST['categorie']) ? $_REQUEST['categorie'] : '';
+    $format = isset($_REQUEST['format']) ? $_REQUEST['format'] : '';
 
     $arg_load_photo = array(
         'post_type' => 'photo',
         'posts_per_page' => 8, 
         'paged' => $paged,
+        'tax_query' => array(),
     );
+
+    if (!empty($categorie)) {
+        $arg_load_photo['tax_query'][] = array(
+            'taxonomy' => 'categorie',
+            'field'    => 'slug', 
+            'terms'    => $categorie,
+        );
+    }
+
+    if (!empty($format)) {
+        $arg_load_photo['tax_query'][] = array(
+            'taxonomy' => 'format',
+            'field'    => 'slug', 
+            'terms'    => $format,
+        );
+    }
 
     $my_query = new WP_Query($arg_load_photo); 
 
@@ -146,6 +169,7 @@ function NM_load_catalogue_photos() {
 
     wp_die();
 }
+
 
 
 ////////////////////////////////////////////////////////////
