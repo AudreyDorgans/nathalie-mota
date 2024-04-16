@@ -90,7 +90,7 @@ function recuperer_infos_photo($post_id) {
 
     return array(
         'id_photo' => $id_photo,
-        'image_photo' => $image, // Utilisez l'URL de l'image mise en avant
+        'image_photo' => $image, 
         'permalien' => $permalien,
         'reference' => $reference,
         'nom_categories' => $nom_categories,
@@ -100,7 +100,10 @@ function recuperer_infos_photo($post_id) {
         'prev_posts' => $prev_posts,
         'next_thumbnail' => $next_thumbnail,
         'prev_thumbnail' => $prev_thumbnail
-    );
+    ); 
+
+    // Arrêtez le script
+    wp_die();
 }
 
 
@@ -145,4 +148,85 @@ function NM_load_catalogue_photos() {
 }
 
 
- 
+////////////////////////////////////////////////////////////
+// Fonction pour les tris d'affichage
+////////////////////////////////////////////////////////////
+add_action( 'wp_ajax_filtres_photos', 'filtres_photos' );
+add_action( 'wp_ajax_nopriv_filtres_photos', 'filtres_photos' );
+
+function filtres_photos() {
+
+    $data = $_POST['formData'];
+    
+    // Initialiser les variables
+$categorie = $format = $ordre = '';
+
+// Traiter les données
+parse_str($data, $parsedData);
+
+if (isset($parsedData['categorie'])) {
+    $categorie = sanitize_text_field($parsedData['categorie']);
+    error_log("Valeur de categorie : " . $categorie, 3, "/Applications/MAMP/logs/php_error.log");
+}
+
+if (isset($parsedData['format'])) {
+    $format = sanitize_text_field($parsedData['format']);
+    error_log("Valeur de format : " . $format, 3, "/Applications/MAMP/logs/php_error.log");
+}
+
+if (isset($parsedData['ordre'])) {
+    $ordre = $parsedData['ordre'];
+    error_log("Valeur de ordre: " . $ordre, 3, "/Applications/MAMP/logs/php_error.log");
+}
+
+    $args = array(
+    'post_type'      => 'photo',
+    'posts_per_page' => 8,
+    'orderby'        => 'date', // Tri par défaut
+    'order'          => 'DESC', // Tri par défaut
+    );
+
+        // Ajout des conditions de filtrage si elles sont définies
+    if (!empty($categorie)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'categorie',
+            'terms'    => $categorie,
+        );
+    }
+
+if (!empty($format)) {
+
+    $args['tax_query'][] = array(
+        'taxonomy' => 'format',
+        'terms'    => $format,
+    );
+}
+
+if (!empty($ordre)) {
+    $args['order'] = $ordre;
+}
+
+// Exécution de la requête
+$my_query_filtres = new WP_Query($args);
+
+// Récupération des résultats
+$filtered_photos = array();
+
+if ($my_query_filtres->have_posts()) {
+    // Appel à recuperer_infos_photo pour chaque photo avant la boucle principale
+    while ($my_query_filtres->have_posts()) {
+        $my_query_filtres->the_post();
+        // Formattez les données de chaque photo selon vos besoins
+        $photo_data = recuperer_infos_photo(get_the_ID()); // Utilisez l'ID du post pour récupérer les informations de la photo
+        $filtered_photos[] = $photo_data;
+    }
+    wp_reset_postdata();
+}
+
+// Envoyer les résultats en JSON
+wp_send_json_success($filtered_photos);
+
+// Arrêter le script
+wp_die();
+
+}

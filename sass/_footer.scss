@@ -6,13 +6,17 @@
         display: flex;
         justify-content: center;
         position:relative;
-
+        border-top: 1px solid black;
+        height:40px;
+        padding-top:24px;
+        max-width:1440px;
+        
         #footer-menu {
             display: flex;
             margin: 0;
             padding: 0;
             gap: 85px;
-            
+
             li {
                 list-style: none;
                 display: inline;

@@ -11,16 +11,17 @@
 			<div class="col-img-catalogue">
             	<img src="<?php echo $infos_photo['image_photo']; ?>" alt="Photo">
 				<a href="<?php echo $infos_photo['permalien']; ?>" class="display-front-hover"></a>
-				<span class="uppercase reference"><?php $infos_photo['reference']; ?></span>
+				<span class="uppercase reference"><?php echo $infos_photo['reference']; ?></span>
                 <span class="uppercase categorie"> <?php echo $infos_photo['nom_categories']; ?></span>
 				<a href="<?php echo $infos_photo['permalien']; ?>"><i class="fa-regular fa-eye"></i></a>
 				<i class="fa-sharp fa-solid fa-expand"></i>
 			</div>
 
-
     	<?php endwhile; ?>
-        </div>       
+        </div>
 
+		<div class="load-result catalogue-photos"></div>
+		
 		<button
 			class="load-catalogue-photos"
     		data-postid="<?php echo get_the_ID(); ?>"
@@ -30,7 +31,7 @@
 		Charger plus
 		</button>
 
-		<div class="load-result catalogue-photos"></div>
+
 		
     <?php elseif (is_single()) : ?>
 

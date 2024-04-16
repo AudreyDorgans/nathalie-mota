@@ -61,7 +61,7 @@ jQuery(document).ready(function() {
     jQuery(".bouton-avec-reference").click(function() {
 
         var reference = jQuery(".reference").text();
-        console.log(reference);
+
         jQuery("#input-reference").val(reference);
     });
 });
@@ -164,9 +164,64 @@ if (document.body.classList.contains('single-photo')) {
 
 
 
+/**
+ * REQUETE POUR FILTRES
+ */
 
+(function ($) {
+    $(document).ready(function () {
+        // Écouteur d'événement pour les changements dans les sélecteurs du formulaire
+        $('.form-catalogue').on('change', function() {
+           
+            // Construire l'objet de données pour la requête AJAX
+            var formData = $('.form-catalogue').serialize(); 
+            // URL de l'action AJAX et autres données nécessaires
 
+            var ajaxUrl = $('.form-catalogue').data('ajaxurl');
 
+            // Effectuer la requête AJAX pour récupérer les photos filtrées
+            $.ajax({
+                method: 'POST',
+                url: ajaxUrl, 
+                data: {
+                    action: 'filtres_photos', // Spécifier l'action à appeler dans WordPress
+                    formData: formData 
+                },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Cache-Control': 'no-cache',
+                },
+                success: function (response) {
+                 
+                    // Afficher les photos filtrées dans le conteneur
+                    if (response.success) {
+                         $('.catalogue-photos').empty();
+                            
+                         response.data.forEach(function (photo) {
+                      
+                        // Générer le HTML pour chaque photo
+                    var colImgCatalogue = $('<div>').addClass('col-img-catalogue');
+                    colImgCatalogue.append(
+                        $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo'),
+                        $('<a>').attr('href', photo.permalien).addClass('display-front-hover'),
+                        $('<span>').addClass('uppercase reference').text(photo.reference),
+                        $('<span>').addClass('uppercase categorie').text(photo.nom_categories),
+                        $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye')),
+                        $('<i>').addClass('fa-sharp fa-solid fa-expand')
+                    );
 
-
+                // Ajouter la photo générée au conteneur des photos
+                    $('.catalogue-photos').append(colImgCatalogue);
+                        });
+                    } else {
+                        console.error('Une erreur est survenue lors du chargement des photos.');
+                    }
+                },
+                error: function () {
+                    console.error('Une erreur est survenue lors de la requête AJAX.');
+                }
+            });
+        });
+    });
+})(jQuery);
 
