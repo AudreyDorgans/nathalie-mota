@@ -156,9 +156,9 @@ add_action( 'wp_ajax_nopriv_filtres_photos', 'filtres_photos' );
 
 function filtres_photos() {
 
-    $data = $_POST['formData'];
+$data = $_POST['formData'];
     
-    // Initialiser les variables
+// Initialiser les variables
 $categorie = $format = $ordre = '';
 
 // Traiter les données
@@ -166,46 +166,44 @@ parse_str($data, $parsedData);
 
 if (isset($parsedData['categorie'])) {
     $categorie = sanitize_text_field($parsedData['categorie']);
-    error_log("Valeur de categorie : " . $categorie, 3, "/Applications/MAMP/logs/php_error.log");
 }
 
 if (isset($parsedData['format'])) {
     $format = sanitize_text_field($parsedData['format']);
-    error_log("Valeur de format : " . $format, 3, "/Applications/MAMP/logs/php_error.log");
 }
 
 if (isset($parsedData['ordre'])) {
     $ordre = $parsedData['ordre'];
-    error_log("Valeur de ordre: " . $ordre, 3, "/Applications/MAMP/logs/php_error.log");
 }
 
-    $args = array(
+$args = array(
     'post_type'      => 'photo',
     'posts_per_page' => 8,
-    'orderby'        => 'date', // Tri par défaut
-    'order'          => 'DESC', // Tri par défaut
-    );
+);
 
-        // Ajout des conditions de filtrage si elles sont définies
     if (!empty($categorie)) {
-        $args['tax_query'][] = array(
-            'taxonomy' => 'categorie',
-            'terms'    => $categorie,
-        );
-    }
+    $args['tax_query'][] = array(
+        'taxonomy' => 'categorie',
+        'field'    => 'slug', 
+        'terms'    => $categorie,
+    );
+}
 
 if (!empty($format)) {
-
     $args['tax_query'][] = array(
         'taxonomy' => 'format',
+        'field'    => 'slug', 
         'terms'    => $format,
     );
 }
 
+
 if (!empty($ordre)) {
     $args['order'] = $ordre;
+} else {
+    $args['order'] = 'DESC';
 }
-
+   
 // Exécution de la requête
 $my_query_filtres = new WP_Query($args);
 

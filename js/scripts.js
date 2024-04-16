@@ -195,24 +195,28 @@ if (document.body.classList.contains('single-photo')) {
                  
                     // Afficher les photos filtrées dans le conteneur
                     if (response.success) {
-                         $('.catalogue-photos').empty();
-                            
-                         response.data.forEach(function (photo) {
-                      
-                        // Générer le HTML pour chaque photo
-                    var colImgCatalogue = $('<div>').addClass('col-img-catalogue');
-                    colImgCatalogue.append(
-                        $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo'),
-                        $('<a>').attr('href', photo.permalien).addClass('display-front-hover'),
-                        $('<span>').addClass('uppercase reference').text(photo.reference),
-                        $('<span>').addClass('uppercase categorie').text(photo.nom_categories),
-                        $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye')),
-                        $('<i>').addClass('fa-sharp fa-solid fa-expand')
-                    );
-
-                // Ajouter la photo générée au conteneur des photos
-                    $('.catalogue-photos').append(colImgCatalogue);
-                        });
+                        $('.catalogue-photos').empty();
+                        
+                        if (response.data.length > 0) {
+                            // Si des photos sont disponibles, les afficher
+                            response.data.forEach(function (photo) {
+                                // Générer le HTML pour chaque photo
+                                var colImgCatalogue = $('<div>').addClass('col-img-catalogue');
+                                colImgCatalogue.append(
+                                    $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo'),
+                                    $('<a>').attr('href', photo.permalien).addClass('display-front-hover'),
+                                    $('<span>').addClass('uppercase reference').text(photo.reference),
+                                    $('<span>').addClass('uppercase categorie').text(photo.nom_categories),
+                                    $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye')),
+                                    $('<i>').addClass('fa-sharp fa-solid fa-expand')
+                                );
+                                // Ajouter la photo générée au conteneur des photos
+                                $('.load-result').append(colImgCatalogue);
+                            });
+                        } else {
+                            // Si aucune photo n'est disponible, afficher un message
+                            $('.load-result').append('<p>Aucune photo ne correspond à vos critères de recherche. Modifiez vos choix ! </p>');
+                        }
                     } else {
                         console.error('Une erreur est survenue lors du chargement des photos.');
                     }
@@ -224,4 +228,5 @@ if (document.body.classList.contains('single-photo')) {
         });
     });
 })(jQuery);
+
 
