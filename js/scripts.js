@@ -168,12 +168,6 @@ jQuery(document).ready(function($) {
 
 
 
-
-
-
-
-
-
 /**
  * REQUETE POUR FILTRES
  */
@@ -196,7 +190,7 @@ jQuery(document).ready(function($) {
                 url: ajaxUrl, 
                 data: {
                     action: 'filtres_photos', // Spécifier l'action à appeler dans WordPress
-                    formData: formData 
+                    formData: formData, 
                 },
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',

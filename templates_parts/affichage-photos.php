@@ -1,5 +1,6 @@
 <?php if ($my_query->have_posts()) : ?>
 
+ <!-- AFFICHAGE FRONT-PAGE --> 
 	<?php if ( is_front_page() ) : ?>
 		
 		<div class="catalogue-photos">
@@ -32,7 +33,10 @@
 		</button>
 
 		<div class="no-photos-message" style="display: none;"> Il n'y a pas, pour le moment, d'autres photos disponibles</div>
-		
+
+
+
+ <!-- AFFICHAGE SINGLE_PHOTO --> 
     <?php elseif (is_single()) : ?>
 
 		<?php while ($my_query->have_posts()) : $my_query->the_post(); ?>
@@ -47,8 +51,10 @@
 		<?php endwhile; ?>
 
     <?php else : ?>
-            <!-- ceci serait un cas ultérieur, par exemple de création du blog" --> 
-    <?php endif; ?>
+
+
+<!-- ceci serait un cas ultérieur, par exemple de création du blog" --> 
+<?php endif; ?>
         
 <?php endif; ?>
 
