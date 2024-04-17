@@ -31,7 +31,7 @@
 		Charger plus
 		</button>
 
-
+		<div class="no-photos-message" style="display: none;"> Il n'y a pas, pour le moment, d'autres photos disponibles</div>
 		
     <?php elseif (is_single()) : ?>
 

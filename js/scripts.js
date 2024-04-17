@@ -134,29 +134,38 @@ jQuery(document).ready(function($) {
                 alert(body.data);
                 return;
             }
-
             // Afficher les photos dans la div load-result
-            body.data.forEach(photo => {
-                const colImgCatalogue = $('<div>').addClass('col-img-catalogue');
-                const image = $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo');
-                const displayFrontHover = $('<a>').attr('href', photo.permalien).addClass('display-front-hover');
-                const reference = $('<span>').addClass('uppercase reference').text(photo.reference);
-                const categorie = $('<span>').addClass('uppercase categorie').text(photo.nom_categories);
-                const viewLink = $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye'));
-                const expandIcon = $('<i>').addClass('fa-sharp fa-solid fa-expand');
+            if (Array.isArray(body.data) && body.data.length > 0) {
+                // Afficher les photos dans la div load-result
+                body.data.forEach(photo => {
+                    const colImgCatalogue = $('<div>').addClass('col-img-catalogue');
+                    const image = $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo');
+                    const displayFrontHover = $('<a>').attr('href', photo.permalien).addClass('display-front-hover');
+                    const reference = $('<span>').addClass('uppercase reference').text(photo.reference);
+                    const categorie = $('<span>').addClass('uppercase categorie').text(photo.nom_categories);
+                    const viewLink = $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye'));
+                    const expandIcon = $('<i>').addClass('fa-sharp fa-solid fa-expand');
 
-                colImgCatalogue.append(image, displayFrontHover, reference, categorie, viewLink, expandIcon);
+                    colImgCatalogue.append(image, displayFrontHover, reference, categorie, viewLink, expandIcon);
 
-                $('.load-result').append(colImgCatalogue);
-            });
-
-           // Masquer le bouton de chargement si aucune photo n'est renvoyée dans la réponse
-            //if (!data.id_photo) {
-                //$('.load-catalogue-photos').hide();
-            //}
+                    $('.load-result').append(colImgCatalogue);
+                     $('.no-photos-message').hide(); // Masquer le message s'il y a des photos
+                });
+            } else {
+                // Gérer le cas où aucune photo n'a été renvoyée
+                $('.no-photos-message').show(); // Afficher le message s'il n'y a pas de photos
+            }
         });
     });
+
+     // Réinitialiser la pagination lors de l'application des filtres
+    $('.form-catalogue').on('change', function() {
+        Paged = 1;
+          $('.no-photos-message').hide(); // Masquer le message s'il y a des photos
+        // Autres actions pour appliquer les filtres
+    });
 });
+
 
 
 
@@ -171,9 +180,10 @@ jQuery(document).ready(function($) {
 
 (function ($) {
     $(document).ready(function () {
+  
         // Écouteur d'événement pour les changements dans les sélecteurs du formulaire
         $('.form-catalogue').on('change', function() {
-           
+ 
             // Construire l'objet de données pour la requête AJAX
             var formData = $('.form-catalogue').serialize(); 
             // URL de l'action AJAX et autres données nécessaires
