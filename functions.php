@@ -232,10 +232,13 @@ function filtres_photos() {
         $format = sanitize_text_field($parsedData['format']);
     }
 
-    if (isset($parsedData['ordre']) && in_array($parsedData['ordre'], array('ASC', 'DESC'))) {
-        $ordre = $parsedData['ordre'];
+   if (isset($parsedData['ordre'])) {
+        $ordre = strtoupper($parsedData['ordre']); // Convertir en majuscules pour assurer la correspondance
+        if ($ordre !== 'ASC' && $ordre !== 'DESC') {
+            $ordre = 'DESC'; // Défaut si la valeur n'est ni 'ASC' ni 'DESC'
+        }
     } else {
-        $ordre = 'DESC';
+        $ordre = 'DESC'; // Défaut si aucune valeur n'est fournie
     }
 
     $args = array(
