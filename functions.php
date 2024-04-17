@@ -215,9 +215,14 @@ function filtres_photos() {
         wp_send_json_error( array('message' => 'Données manquantes') );
     }
     
-    $categorie = $format = $ordre = '';
+    $nonce = $categorie = $format = $ordre = '';
 
     parse_str($data, $parsedData);
+
+    if (!isset($parsedData['nonce']) || !wp_verify_nonce($parsedData['nonce'], 'NC_filtres_photos')) {
+        wp_send_json_error('Erreur de vérification du jeton de sécurité.');
+        wp_die();
+    }
 
     if (isset($parsedData['categorie'])) {
         $categorie = sanitize_text_field($parsedData['categorie']);
@@ -227,8 +232,10 @@ function filtres_photos() {
         $format = sanitize_text_field($parsedData['format']);
     }
 
-    if (isset($parsedData['ordre'])) {
+    if (isset($parsedData['ordre']) && in_array($parsedData['ordre'], array('ASC', 'DESC'))) {
         $ordre = $parsedData['ordre'];
+    } else {
+        $ordre = 'DESC';
     }
 
     $args = array(
