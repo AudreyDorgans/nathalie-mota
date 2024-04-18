@@ -286,3 +286,31 @@ function filtres_photos() {
     wp_die();
 }
 
+
+////////////////////////////////////////////////////////////
+// Lightbox
+////////////////////////////////////////////////////////////
+add_action('wp_ajax_NM_load_lightbox_photo', 'NM_load_lightbox_photo');
+add_action('wp_ajax_nopriv_NM_load_lightbox_photo', 'NM_load_lightbox_photo');
+
+function NM_load_lightbox_photo() {
+
+    check_ajax_referer('NM_load_lightbox_photo', 'nonce');
+
+    $post_id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+
+    if ($post_id > 0) {
+        $infos_photo = recuperer_infos_photo($post_id);
+
+        if ($infos_photo) {
+            wp_send_json_success($infos_photo);
+            error_log($infos_photo);
+        } else {
+            wp_send_json_error('Failed to retrieve photo information.');
+      }
+    } else {
+        wp_send_json_error('Invalid photo ID.');
+    }
+
+    wp_die();
+}

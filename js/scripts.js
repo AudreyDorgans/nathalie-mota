@@ -132,14 +132,13 @@ jQuery(document).ready(function($) {
         .then(response => response.json())
         .then(body => {
 
-            // En cas d'erreur
             if (!body.success) {
                 alert(body.data);
                 return;
             }
-            // Afficher les photos dans la div load-result
+
             if (Array.isArray(body.data) && body.data.length > 0) {
-                // Afficher les photos dans la div load-result
+ 
                 body.data.forEach(photo => {
                     const colImgCatalogue = $('<div>').addClass('col-img-catalogue');
                     const image = $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo');
@@ -152,47 +151,40 @@ jQuery(document).ready(function($) {
                     colImgCatalogue.append(image, displayFrontHover, reference, categorie, viewLink, expandIcon);
 
                     $('.load-result').append(colImgCatalogue);
-                     $('.no-photo-message-2').hide(); // Masquer le message s'il y a des photos
+                     $('.no-photo-message-2').hide(); 
                 });
             } else {
-                // Gérer le cas où aucune photo n'a été renvoyée
-                $('.no-photo-message-2').show(); // Afficher le message s'il n'y a pas de photos
+                $('.no-photo-message-2').show(); 
             }
         });
     });
 
-     // Réinitialiser la pagination lors de l'application des filtres
     $('.form-catalogue').on('change', function() {
         Paged = 1;
-          $('.no-photo-message-2').hide(); // Masquer le message s'il y a des photos
-        // Autres actions pour appliquer les filtres
+          $('.no-photo-message-2').hide(); 
     });
 });
 
 
 
-/**
- * REQUETE POUR FILTRES
- */
+/*************************************
+ * FILTRES FORMULAIRE CATALOGUE PHOTO
+ *************************************/
 
 (function ($) {
     $(document).ready(function () {
   
-        // Écouteur d'événement pour les changements dans les sélecteurs du formulaire
         $('.form-catalogue').on('change', function() {
  
-            // Construire l'objet de données pour la requête AJAX
             var formData = $('.form-catalogue').serialize(); 
-            // URL de l'action AJAX et autres données nécessaires
 
             var ajaxUrl = $('.form-catalogue').data('ajaxurl');
 
-            // Effectuer la requête AJAX pour récupérer les photos filtrées
             $.ajax({
                 method: 'POST',
                 url: ajaxUrl, 
                 data: {
-                    action: 'filtres_photos', // Spécifier l'action à appeler dans WordPress
+                    action: 'filtres_photos', 
                     formData: formData, 
                 },
                 headers: {
@@ -201,14 +193,13 @@ jQuery(document).ready(function($) {
                 },
                 success: function (response) {
                  
-                    // Afficher les photos filtrées dans le conteneur
                     if (response.success) {
                         $('.catalogue-photos').empty();
                         
                         if (response.data.length > 0) {
-                            // Si des photos sont disponibles, les afficher
+
                             response.data.forEach(function (photo) {
-                                // Générer le HTML pour chaque photo
+            
                                 var colImgCatalogue = $('<div>').addClass('col-img-catalogue');
                                 colImgCatalogue.append(
                                     $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo'),
@@ -218,7 +209,7 @@ jQuery(document).ready(function($) {
                                     $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye')),
                                     $('<i>').addClass('fa-sharp fa-solid fa-expand')
                                 );
-                                // Ajouter la photo générée au conteneur des photos
+      
                                 $('.load-result').append(colImgCatalogue);
                             });
                         } else {
@@ -236,4 +227,59 @@ jQuery(document).ready(function($) {
         });
     });
 })(jQuery);
+
+
+
+
+
+/*************************************
+ * LIGHTBOX PHOTO EN COURS
+ *************************************/
+
+
+(function ($) {
+    $(document).ready(function () {
+  
+        $('.load-lightbox-photo').click(function (e){
+            e.preventDefault();
+            var ajaxUrl = $(this).data('ajaxurl');
+            const postId = $(this).data('postid');
+            const action = $(this).data('action');
+            const nonce =  $(this).data('nonce');
+            
+            $.ajax({
+                method: 'POST',
+                url: ajaxUrl, 
+                data: {
+                    id: postId,
+                    action: action,
+                    nonce: nonce,
+                },
+                success: function (response) {
+
+                    if (response.success) {
+                        
+                        // Remplir les éléments de la lightbox avec les données de l'image
+                        $('.lightbox-image').attr('src', response.data.image_photo);
+                        $('.reference').text(response.data.reference);
+                        $('.categorie').text(response.data.nom_categories);
+                        // Afficher la lightbox
+                        $('.lightbox').fadeIn();
+                    } else {
+
+                    }
+                },
+                error: function (xhr, status, error) {
+                }
+            });
+        });
+
+        // Gestion de la fermeture de la lightbox
+        $('.lightbox_close').click(function () {
+            $('.lightbox').fadeOut();
+        });
+    });
+})(jQuery);
+
+
 
