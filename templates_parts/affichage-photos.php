@@ -1,6 +1,5 @@
 <?php if ($my_query->have_posts()) : ?>
 
- <!-- AFFICHAGE FRONT-PAGE --> 
 	<?php if ( is_front_page() ) : ?>
 		
 		<div class="catalogue-photos">
@@ -32,7 +31,8 @@
 		Charger plus
 		</button>
 
-		<div class="no-photos-message" style="display: none;"> Il n'y a pas, pour le moment, d'autres photos disponibles</div>
+		<div class="no-photo-message-1"></div>
+		<div class="no-photo-message-2" style="display: none;"> <p>Il n'y a pas, pour le moment, d'autres photos disponibles.</p></div>
 
 
 

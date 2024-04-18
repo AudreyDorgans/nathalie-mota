@@ -391,7 +391,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-2-scaled.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-9-scaled.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -407,11 +407,53 @@ KEYFRAMES
   -webkit-text-fill-color: transparent;
   margin-bottom: 20px;
 }
-.main-accueil .form-catalogue #option-defaut {
-  display: none;
+.main-accueil .container-form {
+  max-width: 1440px;
+  display: block;
+  margin: 0 auto;
+  padding: 80px 146px 39px 146px;
+}
+.main-accueil .container-form .form-catalogue {
+  display: flex;
+  font-family: "Poppins";
+  gap: 20px;
+}
+.main-accueil .container-form .form-catalogue .col-form {
+  width: 50%;
+  display: flex;
+}
+.main-accueil .container-form .form-catalogue .col-form .col-select-form {
+  position: relative;
+  margin: 0;
+}
+.main-accueil .container-form .form-catalogue .col-form .col-select-form select {
+  width: 260px;
+  height: 43px;
+  border-radius: 8px;
+  border: 1.3px solid #B8BBC2;
+  padding-left: 10px;
+}
+.main-accueil .container-form .form-catalogue .col-form .col-select-form select option {
+  font-family: "Poppins";
+}
+.main-accueil .container-form .form-catalogue .col-form .col-select-form .taxonomy-label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  background-color: white;
+  width: calc(100% - 34px);
+}
+.main-accueil .container-form .form-catalogue .col-form-1 {
+  justify-content: space-between;
+}
+.main-accueil .container-form .form-catalogue .col-2-form {
+  justify-content: flex-end;
 }
 .main-accueil .catalogue-photos {
-  padding: 40px 146px 20px 146px;
+  padding: 0px 146px 40px 146px;
   margin: 0 auto;
   display: flex;
   max-width: 1440px;
@@ -423,6 +465,7 @@ KEYFRAMES
   width: 560px;
   height: 560px;
   position: relative;
+  margin: 0;
 }
 .main-accueil .catalogue-photos .col-img-catalogue img {
   object-fit: cover;
@@ -491,6 +534,14 @@ KEYFRAMES
   color: white;
   transition: all 0.5s ease-out;
   font-size: 16px;
+}
+.main-accueil .no-photo-message-1, .main-accueil .no-photo-message-2 {
+  font-family: "Poppins";
+  text-align: center;
+  margin-bottom: 30px;
+}
+.main-accueil .no-photo-message-2 {
+  margin-bottom: 60px;
 }
 
 .single-photo-main {
@@ -572,7 +623,7 @@ KEYFRAMES
   bottom: -10px;
 }
 .single-photo-main .row-infos-photo-contact .photos-navigation .photo-prev {
-  right: 44px;
+  right: 54px;
 }
 .single-photo-main .row-infos-photo-contact .photos-navigation .photo-next {
   right: 0;
@@ -582,6 +633,11 @@ KEYFRAMES
   position: absolute;
   top: 5px;
   right: 0px;
+}
+.single-photo-main .row-infos-photo-contact .photos-navigation .nav-thumbnails-prev img,
+.single-photo-main .row-infos-photo-contact .photos-navigation .nav-thumbnails-next img {
+  width: 80px;
+  height: 71px;
 }
 .single-photo-main .row-infos-photo-contact .photos-navigation .thumbnails_hide {
   display: none;

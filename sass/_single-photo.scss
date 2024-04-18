@@ -94,7 +94,7 @@
             }
 
             .photo-prev {
-                right:44px;
+                right:54px;
             }
 
             .photo-next {
@@ -105,12 +105,17 @@
             .nav-thumbnails-next {
                 position: absolute;
                 top: 5px;
-                right:0px;
+                right:0px; 
+
+                img {
+                    width: 80px;
+                     height: 71px;
+                }
             }
 
-        .thumbnails_hide {
-            display: none;
-        }
+            .thumbnails_hide {
+                display: none;
+            }
 
             .thumbnails_visible {
                 display: block;

@@ -79,15 +79,18 @@ if (document.body.classList.contains('single-photo')) {
         const prevThumbnail = document.querySelector('.nav-thumbnails-prev');
         const nextThumbnail = document.querySelector('.nav-thumbnails-next');
 
+
         function handleHover(element, thumbnail) {
             element.addEventListener('mouseenter', () => {
                 thumbnail.classList.add('thumbnails_visible');
             });
+                 
             element.addEventListener('mouseleave', () => {
                 thumbnail.classList.remove('thumbnails_visible');
             });
         }
-
+    
+  
         handleHover(prevPhoto, prevThumbnail);
         handleHover(nextPhoto, nextThumbnail);
     }
@@ -149,11 +152,11 @@ jQuery(document).ready(function($) {
                     colImgCatalogue.append(image, displayFrontHover, reference, categorie, viewLink, expandIcon);
 
                     $('.load-result').append(colImgCatalogue);
-                     $('.no-photos-message').hide(); // Masquer le message s'il y a des photos
+                     $('.no-photo-message-2').hide(); // Masquer le message s'il y a des photos
                 });
             } else {
                 // Gérer le cas où aucune photo n'a été renvoyée
-                $('.no-photos-message').show(); // Afficher le message s'il n'y a pas de photos
+                $('.no-photo-message-2').show(); // Afficher le message s'il n'y a pas de photos
             }
         });
     });
@@ -161,7 +164,7 @@ jQuery(document).ready(function($) {
      // Réinitialiser la pagination lors de l'application des filtres
     $('.form-catalogue').on('change', function() {
         Paged = 1;
-          $('.no-photos-message').hide(); // Masquer le message s'il y a des photos
+          $('.no-photo-message-2').hide(); // Masquer le message s'il y a des photos
         // Autres actions pour appliquer les filtres
     });
 });
@@ -220,7 +223,7 @@ jQuery(document).ready(function($) {
                             });
                         } else {
                             // Si aucune photo n'est disponible, afficher un message
-                            $('.load-result').append('<p>Aucune photo ne correspond à vos critères de recherche. Modifiez vos choix ! </p>');
+                            $('.no-photo-message-1').append('<p>Aucune photo ne correspond à vos critères de recherche. Modifiez vos choix ! </p>');
                         }
                     } else {
                         console.error('Une erreur est survenue lors du chargement des photos.');
@@ -233,5 +236,4 @@ jQuery(document).ready(function($) {
         });
     });
 })(jQuery);
-
 

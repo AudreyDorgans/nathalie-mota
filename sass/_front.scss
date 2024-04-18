@@ -20,17 +20,62 @@
         }
     }
 
-    .form-catalogue {
-        
-        #option-defaut{
-            display: none;
+    .container-form {
+        max-width: 1440px;
+        display: block;
+        margin: 0 auto;
+        padding: 80px 146px 39px 146px;
+
+        .form-catalogue {
+            display: flex;
+            font-family: $second-font;
+            gap: 20px;
+
+            .col-form {
+                width: 50%;
+                display: flex;
+            
+                .col-select-form {
+                    position: relative;
+                    margin: 0;
+
+                    select {
+                        width: 260px;
+                        height: 43px;
+                        border-radius: 8px;
+                        border: 1.3px solid #B8BBC2;
+                        padding-left: 10px;
+                
+                        option {
+                            font-family: $second-font;
+                        }
+                    }
+
+                    .taxonomy-label {
+                        position: absolute;
+                        left: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        pointer-events: none;
+                        z-index: 1;
+                        background-color: white;
+                        width:calc(100% - 34px);
+                    }
+                }
+            }
+
+            .col-form-1 {
+                justify-content: space-between;
+            }
+
+            .col-2-form {
+                justify-content: flex-end;           
+            }
         }
     }
 
-        
-
     .catalogue-photos {
-        padding: 40px 146px 20px 146px;
+        padding: 0px 146px 40px 146px;
         margin: 0 auto;
         display: flex;
         max-width: 1440px;
@@ -42,6 +87,7 @@
             width: 560px;
             height: 560px;
             position: relative;
+            margin:0;
 
             img {
                 object-fit: cover;
@@ -126,5 +172,15 @@
             transition: all 0.5s ease-out;
             font-size: 16px;
         }
+    }
+
+    .no-photo-message-1, .no-photo-message-2 {
+        font-family: $second-font;
+        text-align: center;
+        margin-bottom:30px;
+    }
+
+    .no-photo-message-2 {
+        margin-bottom: 60px;
     }
 }

@@ -45,9 +45,11 @@
 			</div>
 
 			<div class="photos-navigation">
-				<?php echo "<span class=\"nav-thumbnails-prev thumbnails_hide\">".$infos_photo['prev_thumbnail']."</span>"; ?>
-				<?php echo "<span class=\"nav-thumbnails-next thumbnails_hide\">".$infos_photo['next_thumbnail']."</span>";?>
+				<!-- images thumbnails-->
+				<span class="nav-thumbnails-prev thumbnails_hide"><img src="<?php echo $infos_photo['prev_thumbnail']; ?>" alt="Miniature de l'image précédente"></span>
+				<span class="nav-thumbnails-next thumbnails_hide"><img src="<?php echo $infos_photo['next_thumbnail']; ?>" alt="Miniature de l'image suivante"></span>
 				
+				<!-- fleches navigation et lien -->
 				<span class="photo-prev"> <?php previous_post_link('%link','<img src="' . get_bloginfo("template_directory") . '/assets/icones/prev.png" />'); ?> </span>
 				<span class="photo-next"> <?php next_post_link('%link','<img src="' . get_bloginfo("template_directory") . '/assets/icones/next.png" />'); ?> </span>
 			</div>
@@ -94,5 +96,3 @@ get_footer();
 		
 
 	
-
-

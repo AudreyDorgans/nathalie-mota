@@ -99,10 +99,10 @@ function recuperer_infos_photo($post_id) {
         $prev_posts = esc_url(get_previous_posts_link());
 
         $prev_post = get_previous_post();
-        $prev_thumbnail = esc_url(get_the_post_thumbnail_url($prev_post, array(80, 70))); 
+        $prev_thumbnail = esc_url(get_the_post_thumbnail_url($prev_post, array(80, 80))); 
 
         $next_post = get_next_post();
-        $next_thumbnail = esc_url(get_the_post_thumbnail_url($next_post, array(80, 70))); 
+        $next_thumbnail = esc_url(get_the_post_thumbnail_url($next_post, array(80, 80))); 
 
         return array(
             'id_photo' => $id_photo,
