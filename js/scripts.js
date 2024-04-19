@@ -1,4 +1,6 @@
-/** MENU HEADER */
+/***************************************************
+/* MENU HEADER */
+/*************************************************/
 
 /** @type {HTMLElement} */
 const siteNavigation = document.querySelector( 'nav' );
@@ -28,9 +30,9 @@ if (siteNavigation) {
 
 
 
-/**/
+/*************************************************/
 /* MODALE HEADER CONTACT */
-/**/
+/*************************************************/
 var modal = document.getElementById('myModal');
 var btns = document.getElementsByClassName("myBtnContact");
 var span = document.getElementsByClassName("close")[0];
@@ -53,9 +55,9 @@ window.addEventListener('click', function(event) {
 
 
 
-/**/
+/*************************************************/
 /* FONCTIONNALITE REFERENCE CONTACT  */
-/**/
+/*************************************************/
 jQuery(document).ready(function() {
 
     jQuery(".bouton-avec-reference").click(function() {
@@ -67,9 +69,9 @@ jQuery(document).ready(function() {
 });
 
 
-/**/
+/*************************************************/
 /* FONCTIONNALITES HOVER THUMBNAILS SINGLE PHOTO */
-/**/
+/*************************************************/
 
 if (document.body.classList.contains('single-photo')) {
         // Les fonctions suivantes ne s'exécuteront que si nous sommes sur la page single-photo.php
@@ -96,21 +98,20 @@ if (document.body.classList.contains('single-photo')) {
     }
 
 
-/**
+/******************************************************
  * REQUETE AJAX POUR CHARGEMENT DES POSTS SUR FRONTPAGE
- */
+ ******************************************************/
 
 jQuery(document).ready(function($) {
    
-    let Paged = 1; // Définir la variable Paged ici
+    let Paged = 1; 
     
     $('.load-catalogue-photos').click(function (e){
         Paged++;
 
         e.preventDefault();
-
-        const categorieValue = $('select[name="categorie"]').val() || ''; // Valeur par défaut : ''
-        const formatValue = $('select[name="format"]').val() || ''; // Valeur par défaut : ''
+        const categorieValue = $('select[name="categorie"]').val() || ''; 
+        const formatValue = $('select[name="format"]').val() || ''; 
         const ajaxurl = $(this).data('ajaxurl');
 
         const data = {
@@ -131,7 +132,6 @@ jQuery(document).ready(function($) {
         })
         .then(response => response.json())
         .then(body => {
-
             if (!body.success) {
                 alert(body.data);
                 return;
@@ -146,19 +146,24 @@ jQuery(document).ready(function($) {
                     const reference = $('<span>').addClass('uppercase reference').text(photo.reference);
                     const categorie = $('<span>').addClass('uppercase categorie').text(photo.nom_categories);
                     const viewLink = $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye'));
-                    const expandIcon = $('<i>').addClass('fa-sharp fa-solid fa-expand');
+                    const expandButton = $('<button>')
+                    .addClass('load-lightbox-photo')
+                    .attr('data-postid', photo.id_photo)
+                    .attr('data-nonce', photo.nonce)
+                    .attr('data-action', 'NM_load_lightbox_photo')
+                    .attr('data-ajaxurl', ajaxurl)
+                    .append($('<i>').addClass('fa-sharp fa-solid fa-expand'));
 
-                    colImgCatalogue.append(image, displayFrontHover, reference, categorie, viewLink, expandIcon);
+                    colImgCatalogue.append(image, displayFrontHover, reference, categorie, viewLink, expandButton);
 
                     $('.load-result').append(colImgCatalogue);
-                     $('.no-photo-message-2').hide(); 
+                    $('.no-photo-message-2').hide(); 
                 });
             } else {
                 $('.no-photo-message-2').show(); 
             }
         });
     });
-
     $('.form-catalogue').on('change', function() {
         Paged = 1;
           $('.no-photo-message-2').hide(); 
@@ -166,81 +171,73 @@ jQuery(document).ready(function($) {
 });
 
 
-
 /*************************************
  * FILTRES FORMULAIRE CATALOGUE PHOTO
  *************************************/
-
 (function ($) {
     $(document).ready(function () {
-  
-        $('.form-catalogue').on('change', function() {
- 
-            var formData = $('.form-catalogue').serialize(); 
+    $('.form-catalogue').on('change', function() {
+        var formData = $('.form-catalogue').serialize(); 
+        var ajaxUrl = $('.form-catalogue').data('ajaxurl');
 
-            var ajaxUrl = $('.form-catalogue').data('ajaxurl');
-
-            $.ajax({
-                method: 'POST',
-                url: ajaxUrl, 
-                data: {
-                    action: 'filtres_photos', 
-                    formData: formData, 
-                },
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Cache-Control': 'no-cache',
-                },
-                success: function (response) {
-                 
-                    if (response.success) {
-                        $('.catalogue-photos').empty();
-                        
-                        if (response.data.length > 0) {
-
-                            response.data.forEach(function (photo) {
-            
-                                var colImgCatalogue = $('<div>').addClass('col-img-catalogue');
-                                colImgCatalogue.append(
-                                    $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo'),
-                                    $('<a>').attr('href', photo.permalien).addClass('display-front-hover'),
-                                    $('<span>').addClass('uppercase reference').text(photo.reference),
-                                    $('<span>').addClass('uppercase categorie').text(photo.nom_categories),
-                                    $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye')),
-                                    $('<i>').addClass('fa-sharp fa-solid fa-expand')
-                                );
-      
-                                $('.load-result').append(colImgCatalogue);
-                            });
-                        } else {
-                            // Si aucune photo n'est disponible, afficher un message
-                            $('.no-photo-message-1').append('<p>Aucune photo ne correspond à vos critères de recherche. Modifiez vos choix ! </p>');
-                        }
+        $.ajax({
+            method: 'POST',
+            url: ajaxUrl, 
+            data: {
+                action: 'filtres_photos', 
+                formData: formData, 
+            },
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Cache-Control': 'no-cache',
+            },
+            success: function (response) {
+                if (response.success) {
+                    console.log(response.data);
+                    $('.catalogue-photos').empty();
+                    if (response.data.length > 0) {
+                        response.data.forEach(function (photo) {
+                            var colImgCatalogue = $('<div>').addClass('col-img-catalogue');
+                            colImgCatalogue.append(
+                                $('<img>').attr('src', photo.image_photo).attr('alt', 'Photo'),
+                                $('<a>').attr('href', photo.permalien).addClass('display-front-hover'),
+                                $('<span>').addClass('uppercase reference').text(photo.reference),
+                                $('<span>').addClass('uppercase categorie').text(photo.nom_categories),
+                                $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye')),
+                                $('<button>').addClass('load-lightbox-photo')
+                                    .attr('data-postid', photo.id_photo)
+                                    .attr('data-nonce', photo.nonce) // Ajouter le nonce ici
+                                    .attr('data-action', 'NM_load_lightbox_photo')
+                                    .attr('data-ajaxurl', ajaxUrl)
+                                    .append($('<i>').addClass('fa-sharp fa-solid fa-expand'))
+                            );
+                            $('.load-result').append(colImgCatalogue);
+                        });
                     } else {
-                        console.error('Une erreur est survenue lors du chargement des photos.');
+                        $('.no-photo-message-1').append('<p>Aucune photo ne correspond à vos critères de recherche. Modifiez vos choix ! </p>');
                     }
-                },
-                error: function () {
-                    console.error('Une erreur est survenue lors de la requête AJAX.');
+                } else {
+                    console.error('Une erreur est survenue lors du chargement des photos.');
                 }
-            });
+            },
+            error: function () {
+                console.error('Une erreur est survenue lors de la requête AJAX.');
+            }
         });
     });
+});
 })(jQuery);
-
-
-
 
 
 /*************************************
  * LIGHTBOX PHOTO EN COURS
  *************************************/
-
-
 (function ($) {
     $(document).ready(function () {
-  
-        $('.load-lightbox-photo').click(function (e){
+
+        // Utilisation de la délégation d'événements pour les boutons load-lightbox-photo
+        $(document).on('click', '.load-lightbox-photo', function (e) {
+            
             e.preventDefault();
             var ajaxUrl = $(this).data('ajaxurl');
             const postId = $(this).data('postid');
@@ -258,28 +255,25 @@ jQuery(document).ready(function($) {
                 success: function (response) {
 
                     if (response.success) {
-                        
-                        // Remplir les éléments de la lightbox avec les données de l'image
                         $('.lightbox-image').attr('src', response.data.image_photo);
                         $('.reference').text(response.data.reference);
                         $('.categorie').text(response.data.nom_categories);
                         // Afficher la lightbox
                         $('.lightbox').fadeIn();
                     } else {
-
+                        console.error("Une erreur est survenue lors de l'affichage de la photo");
                     }
                 },
                 error: function (xhr, status, error) {
                 }
             });
         });
-
-        // Gestion de la fermeture de la lightbox
         $('.lightbox_close').click(function () {
             $('.lightbox').fadeOut();
         });
     });
 })(jQuery);
+
 
 
 

@@ -43,24 +43,24 @@
 
 		<!-- Lightbox -->
 		<div class="lightbox">
-		<?php 
-			$next_post = $infos_photo['next_posts'];
-			$prev_post = $infos_photo['prev_posts'];
-		?>
-    	<div class="container-elements-lightbox">
-        <button class="lightbox_close">X</button>
-        <button class="lightbox_prev"><a href="<?php echo $prev_post ? get_permalink($prev_post) : '#'; ?>">Précédent</a></button>
-        <button class="lightbox_next"><a href="<?php echo $next_post ? get_permalink($next_post) : '#'; ?>">Suivant</a></button></button>
+			<?php 
+				$next_post = $infos_photo['next_posts'];
+				$prev_post = $infos_photo['prev_posts'];
+			?>
+			<div class="container-elements-lightbox">
+			<button class="lightbox_close">X</button>
+			<button class="lightbox_prev"><a href="<?php echo $prev_post ? get_permalink($prev_post) : '#'; ?>">Précédent</a></button>
+			<button class="lightbox_next"><a href="<?php echo $next_post ? get_permalink($next_post) : '#'; ?>">Suivant</a></button></button>
 
-        <div class="lightbox__container">
-            <img class="lightbox-image" src="" alt="Photo">
-        </div>
+			<div class="lightbox__container">
+				<img class="lightbox-image" src="" alt="Photo">
+			</div>
 
-        <div class="lightbox__container">
-            <span class="reference"></span>
-            <span class="categorie"></span>
-        </div>
-    </div>
+			<div class="lightbox__container">
+				<span class="reference"></span>
+				<span class="categorie"></span>
+			</div>
+    	</div>
 </div>
 
 		

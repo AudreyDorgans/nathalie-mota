@@ -134,7 +134,7 @@
                 right: 16px;
             }
 
-            .fa-eye, .fa-expand {
+            .fa-eye{
                 color:white;
                 position: absolute;
                 opacity: 0;
@@ -146,14 +146,29 @@
                 left: calc(50% - 25px);
                 font-size: 44px;
             }
-
-            .fa-expand {
-                top: 10px;
-                right: 16px;
-                font-size: 24px;
-            }
         }
     }
+
+    .load-lightbox-photo {
+        width: 30px;
+        height: 30px;
+        border: none;
+        top: 10px;
+        right: 16px;
+        position: absolute;
+        font-size: 24px;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    
+        .fa-expand {
+            top: 4px;
+            right: 5px;
+            color: white;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
 
     .load-catalogue-photos {
         margin:0 auto 60px;

@@ -391,7 +391,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-15-scaled.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-11-scaled.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -502,7 +502,7 @@ KEYFRAMES
 .main-accueil .catalogue-photos .col-img-catalogue .categorie {
   right: 16px;
 }
-.main-accueil .catalogue-photos .col-img-catalogue .fa-eye, .main-accueil .catalogue-photos .col-img-catalogue .fa-expand {
+.main-accueil .catalogue-photos .col-img-catalogue .fa-eye {
   color: white;
   position: absolute;
   opacity: 0;
@@ -513,10 +513,24 @@ KEYFRAMES
   left: calc(50% - 25px);
   font-size: 44px;
 }
-.main-accueil .catalogue-photos .col-img-catalogue .fa-expand {
+.main-accueil .load-lightbox-photo {
+  width: 30px;
+  height: 30px;
+  border: none;
   top: 10px;
   right: 16px;
+  position: absolute;
   font-size: 24px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.main-accueil .fa-expand {
+  top: 4px;
+  right: 5px;
+  color: white;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 .main-accueil .load-catalogue-photos {
   margin: 0 auto 60px;

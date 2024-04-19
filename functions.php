@@ -131,27 +131,15 @@ add_action( 'wp_ajax_NM_load_catalogue_photos', 'NM_load_catalogue_photos' );
 add_action( 'wp_ajax_nopriv_NM_load_catalogue_photos', 'NM_load_catalogue_photos' );
 
 function NM_load_catalogue_photos() {
-
+    // Vérifier le nonce pour des raisons de sécurité
     check_ajax_referer( 'NM_load_catalogue_photos', 'nonce' );
 
-    if (isset($_REQUEST['paged'])) {
-        $paged = intval($_REQUEST['paged']);
-    } else {
-        $paged = 1;
-    }
+    // Récupérer les valeurs de paged, categorie et format depuis la requête AJAX
+    $paged = isset( $_REQUEST['paged'] ) ? intval( $_REQUEST['paged'] ) : 1;
+    $categorie = isset( $_REQUEST['categorie'] ) ? sanitize_text_field( $_REQUEST['categorie'] ) : '';
+    $format = isset( $_REQUEST['format'] ) ? sanitize_text_field( $_REQUEST['format'] ) : '';
 
-    if (isset($_REQUEST['categorie'])) {
-        $categorie = sanitize_text_field($_REQUEST['categorie']);
-    } else {
-        $categorie = '';
-    }
-
-    if (isset($_REQUEST['format'])) {
-        $format = sanitize_text_field($_REQUEST['format']);
-    } else {
-        $format = '';
-    }
-
+    // Construire les arguments de la requête pour récupérer les photos
     $args_load_photo = array(
         'post_type' => 'photo',
         'posts_per_page' => 8,
@@ -159,7 +147,8 @@ function NM_load_catalogue_photos() {
         'tax_query' => array(),
     );
 
-    if (!empty($categorie)) {
+    // Ajouter la taxonomie categorie aux arguments de la requête si elle est spécifiée
+    if ( ! empty( $categorie ) ) {
         $args_load_photo['tax_query'][] = array(
             'taxonomy' => 'categorie',
             'field'    => 'slug', 
@@ -167,7 +156,8 @@ function NM_load_catalogue_photos() {
         );
     }
 
-    if (!empty($format)) {
+    // Ajouter la taxonomie format aux arguments de la requête si elle est spécifiée
+    if ( ! empty( $format ) ) {
         $args_load_photo['tax_query'][] = array(
             'taxonomy' => 'format',
             'field'    => 'slug', 
@@ -175,29 +165,33 @@ function NM_load_catalogue_photos() {
         );
     }
 
-    $my_query = new WP_Query($args_load_photo); 
+    // Exécuter la requête pour récupérer les photos
+    $my_query = new WP_Query( $args_load_photo ); 
 
+    // Initialiser un tableau pour stocker les données des photos
     $photos_data = array(); 
 
-    if ($my_query->have_posts()) {
-        while ($my_query->have_posts()) {
+    // Parcourir les résultats de la requête pour récupérer les données des photos
+    if ( $my_query->have_posts() ) {
+        while ( $my_query->have_posts() ) {
             $my_query->the_post();
-            $infos_photo = recuperer_infos_photo(get_the_id());
-            if ($infos_photo) {
+            $infos_photo = recuperer_infos_photo( get_the_id() );
+            if ( $infos_photo ) {
+                $infos_photo['nonce'] = wp_create_nonce( 'NM_load_lightbox_photo' ); // Ajouter le nonce à chaque photo
                 $photos_data[] = $infos_photo; 
             }
         }
     }
 
-    if (empty($photos_data)) {
-        wp_send_json_success( array('message' => 'Aucune photo trouvée') );
+    // Envoyer une réponse JSON contenant les données des photos
+    if ( empty( $photos_data ) ) {
+        wp_send_json_success( array( 'message' => 'Aucune photo trouvée' ) );
+    } else {
+        wp_send_json_success( $photos_data );
     }
-
-    wp_send_json_success( $photos_data );
-
-    wp_die();
+    
+    wp_die(); // Arrêter l'exécution du script WordPress
 }
-
 
 
 
@@ -276,12 +270,15 @@ function filtres_photos() {
         while ($my_query_filtres->have_posts()) {
             $my_query_filtres->the_post();
             $photo_data = recuperer_infos_photo(get_the_ID()); 
+            $photo_data['nonce'] = wp_create_nonce('NM_load_lightbox_photo');
             $filtered_photos[] = $photo_data;
+
         }
         wp_reset_postdata();
     }
 
     wp_send_json_success($filtered_photos);
+    error_log($filtered_photos);
 
     wp_die();
 }
