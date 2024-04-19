@@ -43,25 +43,33 @@
 
 		<!-- Lightbox -->
 		<div class="lightbox">
-			<?php 
-				$next_post = $infos_photo['next_posts'];
-				$prev_post = $infos_photo['prev_posts'];
-			?>
-			<div class="container-elements-lightbox">
-			<button class="lightbox_close">X</button>
-			<button class="lightbox_prev"><a href="<?php echo $prev_post ? get_permalink($prev_post) : '#'; ?>">Précédent</a></button>
-			<button class="lightbox_next"><a href="<?php echo $next_post ? get_permalink($next_post) : '#'; ?>">Suivant</a></button></button>
 
-			<div class="lightbox__container">
-				<img class="lightbox-image" src="" alt="Photo">
-			</div>
+			<div class="container-lightbox">
+				
+				<div class="container-elements">
 
-			<div class="lightbox__container">
-				<span class="reference"></span>
-				<span class="categorie"></span>
-			</div>
-    	</div>
-</div>
+					<div class="lightbox-container-image">
+						<img class="lightbox-image" src="" alt="Photo">		
+					</div>
+
+					<button class="lightbox-close">
+						<i class="fa-solid fa-xmark"></i>
+					</button>
+					<button class="lightbox-prev" data-postid="" data-ajaxurl="" action="" nonce=""
+						><i class="fa-solid fa-arrow-left"></i>Précédente 
+					</button>
+					
+					<button class="lightbox-next" data-postid="" data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>" action="NM_load_lightbox_photo" nonce="">
+						Suivante<i class="fa-solid fa-arrow-right"></i>
+					</button>
+					
+					<span class="lightbox-reference uppercase"></span>
+					<span class="lightbox-categorie uppercase"></span>
+				</div>		
+
+    		</div>
+
+		</div>
 
 		
 

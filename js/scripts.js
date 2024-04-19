@@ -256,10 +256,12 @@ jQuery(document).ready(function($) {
 
                     if (response.success) {
                         $('.lightbox-image').attr('src', response.data.image_photo);
-                        $('.reference').text(response.data.reference);
-                        $('.categorie').text(response.data.nom_categories);
-                        // Afficher la lightbox
+                        $('.lightbox-reference').text(response.data.reference);
+                        $('.lightbox-categorie').text(response.data.nom_categories);
                         $('.lightbox').fadeIn();
+
+                        console.log(response.data.reference);
+                        console.log(response.data.nom_categories);
                     } else {
                         console.error("Une erreur est survenue lors de l'affichage de la photo");
                     }
@@ -268,7 +270,7 @@ jQuery(document).ready(function($) {
                 }
             });
         });
-        $('.lightbox_close').click(function () {
+        $('.lightbox-close').click(function () {
             $('.lightbox').fadeOut();
         });
     });

@@ -6,17 +6,81 @@
     height:100vh;
     background-color: rgba(0,0,0,0.8);
     display: none;
+    z-index:2;
 
-    .container-elements-lightbox {
+    .container-lightbox {
         max-width:1440px;
-      
+        margin:0 auto;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:10%;
+
+        .container-elements {
+            position: relative;
+
+            .lightbox-container-image {
+                width: 560px;
+                height: 560px;
+
+                .lightbox-image {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .lightbox-close,
+            .lightbox-prev,
+            .lightbox-next,
+            .lightbox-reference,
+            .lightbox-categorie {
+                position: absolute;
+                color:white;
+            }
+
+            .lightbox-close, .lightbox-prev, .lightbox-next {
+                background-color: transparent;
+                border:none;
+                display: flex;
+                align-items:center;
+                justify-content: space-between;
+                font-family: $second-font;
+            }
+
+            .lightbox-close {
+                top: -100px;
+                right: -35%;
+            }
+
+            .lightbox-prev i, .lightbox-next i, .lightbox-close i {
+                font-size:24px;
+                margin : 0 10px;
+            }
+
+            .lightbox-prev {
+                top: 50%;
+                left:-35%;
+            }
+
+            .lightbox-next {
+                top: 50%;
+                right: -35%;
+            }
+
+            .lightbox-reference {
+                bottom: -30px;
+                left : 0%;
+                font-family: $main-font;
+            }
+
+            .lightbox-categorie {
+                bottom: -30px;
+                right: 0%;
+                font-family: $main-font;
+            } 
+            
+        } 
     }
 }
 
-.lightbox__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0 50px;
-}

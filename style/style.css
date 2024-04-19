@@ -391,7 +391,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-11-scaled.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-15-scaled.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -566,17 +566,70 @@ KEYFRAMES
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   display: none;
+  z-index: 2;
 }
-.lightbox .container-elements-lightbox {
+.lightbox .container-lightbox {
   max-width: 1440px;
-}
-
-.lightbox__container {
+  margin: 0 auto;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  margin: 0 50px;
+  padding: 10%;
+}
+.lightbox .container-lightbox .container-elements {
+  position: relative;
+}
+.lightbox .container-lightbox .container-elements .lightbox-container-image {
+  width: 560px;
+  height: 560px;
+}
+.lightbox .container-lightbox .container-elements .lightbox-container-image .lightbox-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.lightbox .container-lightbox .container-elements .lightbox-close,
+.lightbox .container-lightbox .container-elements .lightbox-prev,
+.lightbox .container-lightbox .container-elements .lightbox-next,
+.lightbox .container-lightbox .container-elements .lightbox-reference,
+.lightbox .container-lightbox .container-elements .lightbox-categorie {
+  position: absolute;
+  color: white;
+}
+.lightbox .container-lightbox .container-elements .lightbox-close, .lightbox .container-lightbox .container-elements .lightbox-prev, .lightbox .container-lightbox .container-elements .lightbox-next {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Poppins";
+}
+.lightbox .container-lightbox .container-elements .lightbox-close {
+  top: -100px;
+  right: -35%;
+}
+.lightbox .container-lightbox .container-elements .lightbox-prev i, .lightbox .container-lightbox .container-elements .lightbox-next i, .lightbox .container-lightbox .container-elements .lightbox-close i {
+  font-size: 24px;
+  margin: 0 10px;
+}
+.lightbox .container-lightbox .container-elements .lightbox-prev {
+  top: 50%;
+  left: -35%;
+}
+.lightbox .container-lightbox .container-elements .lightbox-next {
+  top: 50%;
+  right: -35%;
+}
+.lightbox .container-lightbox .container-elements .lightbox-reference {
+  bottom: -30px;
+  left: 0%;
+  font-family: "SpaceMono";
+}
+.lightbox .container-lightbox .container-elements .lightbox-categorie {
+  bottom: -30px;
+  right: 0%;
+  font-family: "SpaceMono";
 }
 
 .single-photo-main {
@@ -655,10 +708,10 @@ KEYFRAMES
 }
 .single-photo-main .row-infos-photo-contact .photos-navigation .photo-prev, .single-photo-main .row-infos-photo-contact .photos-navigation .photo-next {
   position: absolute;
-  bottom: -10px;
+  bottom: -20px;
 }
 .single-photo-main .row-infos-photo-contact .photos-navigation .photo-prev {
-  right: 54px;
+  right: 65px;
 }
 .single-photo-main .row-infos-photo-contact .photos-navigation .photo-next {
   right: 0;
