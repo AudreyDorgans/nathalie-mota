@@ -55,14 +55,13 @@
 					<button class="lightbox-close">
 						<i class="fa-solid fa-xmark"></i>
 					</button>
-					<button class="lightbox-prev" data-postid="" data-ajaxurl="" action="" nonce=""
-						><i class="fa-solid fa-arrow-left"></i>Précédente 
+
+					<button class="lightbox-prev" data-action="NM_load_lightbox_photo" data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>" data-nonce="<?php echo wp_create_nonce('NM_load_lightbox_photo'); ?>">
+						<i class="fa-solid fa-arrow-left"></i> Précédente
 					</button>
-					
-					<button class="lightbox-next" data-postid="" data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>" action="NM_load_lightbox_photo" nonce="">
-						Suivante<i class="fa-solid fa-arrow-right"></i>
+					<button class="lightbox-next" data-action="NM_load_lightbox_photo" data-ajaxurl="<?php echo admin_url( 'admin-ajax.php' ); ?>" data-nonce="<?php echo wp_create_nonce('NM_load_lightbox_photo'); ?>">
+						Suivante <i class="fa-solid fa-arrow-right"></i>
 					</button>
-					
 					<span class="lightbox-reference uppercase"></span>
 					<span class="lightbox-categorie uppercase"></span>
 				</div>		

@@ -71,9 +71,14 @@ function recuperer_infos_photo($post_id) {
 
     if ($id_photo > 0) {
         
+        $image = esc_url(get_the_post_thumbnail_url($id_photo));
+
+        $permalien = esc_url(get_permalink($id_photo));
+
+        $reference = esc_html(get_field('reference', $id_photo));
+
         $categories = get_the_terms($id_photo, 'categorie');
-        $nom_categories = $slug_categories = '';
-        
+        $nom_categories = $slug_categories = '';       
         if (!empty($categories) && !is_wp_error($categories)) {
             foreach ($categories as $categorie) {
                 $nom_categories = sanitize_text_field($categorie->name);
@@ -89,22 +94,19 @@ function recuperer_infos_photo($post_id) {
             }
         }
 
-        $image = esc_url(get_the_post_thumbnail_url($id_photo));
-
-        $permalien = esc_url(get_permalink($id_photo));
-
-        $reference = esc_html(get_field('reference', $id_photo));
-
-        $next_posts = esc_url(get_next_posts_link()); 
-        $prev_posts = esc_url(get_previous_posts_link());
-
+        // Récupérer les ID des posts précédent et suivant
         $prev_post = get_previous_post();
-        $prev_thumbnail = esc_url(get_the_post_thumbnail_url($prev_post, array(80, 80))); 
+        $prev_post_id = $prev_post ? $prev_post->ID : '';
 
         $next_post = get_next_post();
-        $next_thumbnail = esc_url(get_the_post_thumbnail_url($next_post, array(80, 80))); 
+        $next_post_id = $next_post ? $next_post->ID : '';
+       
+        // Récupérer les miniatures des posts précédent et suivant
+        $prev_thumbnail = $prev_post_id ? esc_url(get_the_post_thumbnail_url($prev_post_id, array(80, 80))) : '';
+        $next_thumbnail = $next_post_id ? esc_url(get_the_post_thumbnail_url($next_post_id, array(80, 80))) : '';
 
-        return array(
+        // Créez un tableau avec toutes les informations de la photo, y compris les ID des posts précédent et suivant ainsi que leurs miniatures
+        $infos_photo = array(
             'id_photo' => $id_photo,
             'image_photo' => $image, 
             'permalien' => $permalien,
@@ -112,15 +114,19 @@ function recuperer_infos_photo($post_id) {
             'nom_categories' => $nom_categories,
             'slug_categories' => $slug_categories,
             'formats' => $format_name,
-            'next_posts' => $next_posts,
-            'prev_posts' => $prev_posts,
+            'prev_post_id' => $prev_post_id,
+            'next_post_id' => $next_post_id,
+            'prev_thumbnail' => $prev_thumbnail,
             'next_thumbnail' => $next_thumbnail,
-            'prev_thumbnail' => $prev_thumbnail
         ); 
+
+        // Retournez le tableau complet des informations de la photo
+        return $infos_photo;
     }
 
     return false;
 }
+
 
 
 ////////////////////////////////////////////////////////////
@@ -294,20 +300,55 @@ function NM_load_lightbox_photo() {
 
     check_ajax_referer('NM_load_lightbox_photo', 'nonce');
 
-    $post_id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+    $post_id_lightbox = isset($_POST['id']) ? intval($_POST['id']) : 0;
 
-    if ($post_id > 0) {
-        $infos_photo = recuperer_infos_photo($post_id);
+    if ($post_id_lightbox  > 0) {
+        
+        $infos_photo = recuperer_infos_photo($post_id_lightbox);
 
         if ($infos_photo) {
+            global $wpdb;
+            $current_post_date = get_post_field('post_date', $post_id_lightbox);
+            $prev_post_id = $wpdb->get_var(
+                $wpdb->prepare(
+                    "SELECT p.ID 
+                    FROM {$wpdb->posts} p 
+                    WHERE p.post_type = 'photo' AND p.post_status = 'publish' AND p.post_date < %s
+                    ORDER BY p.post_date DESC 
+                    LIMIT 1",
+                    $current_post_date
+                )
+            );
+
+            $next_post_id = $wpdb->get_var(
+                $wpdb->prepare(
+                    "SELECT p.ID 
+                    FROM {$wpdb->posts} p 
+                    WHERE p.post_type = 'photo' AND p.post_status = 'publish' AND p.post_date > %s
+                    ORDER BY p.post_date ASC 
+                    LIMIT 1",
+                    $current_post_date
+                )
+            );
+
+            $infos_photo['prev_post_id'] = $prev_post_id;
+            $infos_photo['next_post_id'] = $next_post_id;
+
+            $nonce = wp_create_nonce('NM_load_lightbox_photo');
+            $infos_photo['nonce'] = $nonce;
+
+            
             wp_send_json_success($infos_photo);
-            error_log($infos_photo);
+
         } else {
             wp_send_json_error('Failed to retrieve photo information.');
-      }
+        }
     } else {
         wp_send_json_error('Invalid photo ID.');
     }
-
     wp_die();
 }
+
+
+
+
