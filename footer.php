@@ -22,6 +22,7 @@
   		?>
 
 		<?php get_template_part('templates_parts/modale-contact'); ?>
+		<?php get_template_part('templates_parts/lightbox'); ?>
 	</footer>
 </div>
 </div> <!-- #NM-page -->
