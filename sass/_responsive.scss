@@ -1,25 +1,177 @@
 /***********************************/
 /***********************************/
+/* FORMAT 1024px MAX
+/***********************************/
+/***********************************/
+ @media screen and (max-width: 1024px) {
+
+    /*****************/
+    /* COMMUN */
+    /*****************/
+
+    h1 {
+        line-height:1;
+    }
+
+    h2 {
+        font-size: 52px;
+    }
+
+    /*****************/
+    /* FRONT-PAGE */
+    /*****************/
+
+    .main-accueil {
+        .container-form {
+
+            .form-catalogue {
+                    display: flex;
+                    font-family: $second-font;
+                    gap: 20px;
+            
+                    .col-form {
+            
+                        .col-select-form {
+            
+                            select {
+                                width: 170px;
+                            }
+            
+                            .taxonomy-label {
+                                left: 14px;
+                            }
+                        }
+                    }
+                }
+        }
+
+        .catalogue-photos {
+
+            .col-img-catalogue {
+                width: 355px;
+                height: 355px;
+
+                .display-front-hover {
+                    width: 355px;
+                    height: 355px;
+                }    
+            }
+        }
+    }
+
+    /*****************/
+    /* lightbox */
+    /*****************/
+    .lightbox {
+
+        .container-lightbox .container-elements .lightbox-close {
+            top: -25px;
+            right: -22%;
+        }
+    }
+
+    /*****************/
+    /* modale */
+    /*****************/
+    .modal {
+        height:80vh;
+    }
+ }
+
+
+/***********************************/
+/***********************************/
 /* FORMAT TABLETTE 992px MAX
 /***********************************/
 /***********************************/
  @media screen and (max-width: 992px) {
-#NM-header {
-    padding-top: 50px;
+
+    /*****************/
+    /* HEADER */
+    /*****************/
+    #NM-header {
 
         #NM-nav-header {
+            padding: 0 80px;
 
             #logo-header {
-                margin-left: 80px;
+                width: 30%;
+                margin: 0px;
             }
-          
+
             #header-menu {
-                margin: 0 80px 0 0;                
+                gap: 30px;
+                margin: 0;
+            }
+        }        
+    }
+
+
+    /*****************/
+    /* FRONT-PAGE */
+    /*****************/
+    .main-accueil {
+    
+        #stroke {
+            text-align:center;
+            }
+ 
+
+        .container-form { 
+            padding: 80px 80px 39px 80px;
+
+        }
+
+        .catalogue-photos {
+            padding: 0px 80px 40px 80px;
+           
+            .col-img-catalogue {
+                width: 405px;
+                height: 405px;
+                         
+                .display-front-hover {
+                    width: 405px;
+                    height: 405px;
+                }
             }
         }
     }
+
+    /*****************/
+    /* SINGLE-PHOTO */
+    /*****************/
+    .single-photo-main {
+        padding: 38px 80px 0 80px;
+
+        .row-infos-photo-contact .colonne-photo-contact .myBtnContact {
+            width:40%;
+        }
+    }
+
+    .aside-photo-comp {
+        padding: 0px 80px 109px 80px;
+    }
+
+
+    /*****************/
+    /* INDEX */
+    /*****************/
+    .page-template-default {
+
+        .main-index {
+            padding: 0 80px;
+        }
+    }
+
+    /*****************/
+    /* FOOTER */
+    /*****************/
+
+    .container-footer {
+        padding: 7px 80px 30px 80px;
+    }
+
  }
- 
 /***********************************/
 /***********************************/
 /* FORMAT 768px MAX
@@ -27,9 +179,9 @@
 /***********************************/
  @media screen and (max-width: 768px) {
 
-/*****************/
-/* HEADER */
-/*****************/
+    /*****************/
+    /* HEADER */
+    /*****************/
 
     #NM-header {
         padding-top:20px;
@@ -37,18 +189,19 @@
         #NM-nav-header {
             display: block;
             min-width:100%;  
+            padding:0;
 
             #logo-header {
-                width: 100%;
-                display: block;
-                margin : 10px 0 0 40px;
+                width: 20%;
+                display: flex;
+                margin-left: 40px;
             }
 
             .menu_button {
                 display: block; 
                 position:absolute;
-                top:50px;
-                right:17px;
+                top:40px;
+                right:20px;
             }
 
             #header-menu {
@@ -76,31 +229,88 @@
             }
         }
     }  
-/*****************/
-/* FOOTER */
-/*****************/
-.container-footer {
-   
-    .NM-footer {
-        flex-direction: column;
-        align-items: center;
-        gap: 0px;
-    
-        #footer-menu {
-            flex-direction: column;
-            align-items: center;
-    
-            #menu-item-51 {
-                margin-right: 0px;
-                margin-bottom: 35px;
+
+    /*****************/
+    /* FRONT-PAGE */
+    /*****************/
+
+    .main-accueil {
+
+        .container-form {
+            padding: 80px 40px 39px 40px;
+
+            .form-catalogue {
+                flex-direction: column;
+
+                .col-form { 
+                    flex-direction: column;
+                    gap:20px;
+
+                    .col-select-form {
+                        width:100%;
+                        text-align: center;
+
+                        select {
+                            width:270px;
+                        }
+
+                        .taxonomy-label {
+                            right: 28px;
+                            width: calc(100% - 90px);
+                        }
+                    }
+                }
             }
         }
-    
-        span {
-            margin-top: 35px;
+
+        .catalogue-photos {
+            padding: 0px 0px 40px 0px;
+            width: 600px;
+
+            .col-img-catalogue {
+                width: 600px;
+                height: 600px;
+
+                .display-front-hover {          
+                    width: 600px;
+                    height: 600px;
+                }
+            }
         }
     }
-}
+
+    /*****************/
+    /* LIGHTBOX */
+    /*****************/
+
+    .lightbox {
+
+    }
+    /*****************/
+    /* FOOTER */
+    /*****************/
+    .container-footer {
+    
+        .NM-footer {
+            flex-direction: column;
+            align-items: center;
+            gap: 0px;
+        
+            #footer-menu {
+                flex-direction: column;
+                align-items: center;
+        
+                #menu-item-51 {
+                    margin-right: 0px;
+                    margin-bottom: 35px;
+                }
+            }
+        
+            span {
+                margin-top: 35px;
+            }
+        }
+    }
 
 /*****************/
 /* MODALE CONTACT*/

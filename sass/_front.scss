@@ -83,12 +83,13 @@
         display: flex;
         max-width: 1440px;
         flex-wrap: wrap;
+        justify-content: space-between;
         gap: 20px;
         -webkit-animation: fade-in $animation-duration-medium ease-in-out;
             animation: fade-in $animation-duration-medium ease-in-out;
 
         .col-img-catalogue {
-            max-width: 50%;
+            width: 50%;
             width: 560px;
             height: 560px;
             position: relative;
@@ -108,11 +109,11 @@
                 left: 0;
                 width: 560px;
                 height: 560px;
-                transition: opacity 0.5s;    
+                transition: opacity 0.7s;    
             }
 
             &:hover .display-front-hover {
-                opacity: 0.5;
+                opacity: 0.7;
             }
 
             &:hover .reference,
@@ -128,7 +129,7 @@
                 color: white;
                 font-family: $main_font;
                 opacity: 0;
-                transition: opacity 0.5s;
+                transition: opacity 0.7s;
             }
 
             .reference {
@@ -143,14 +144,17 @@
                 color:white;
                 position: absolute;
                 opacity: 0;
-                transition: opacity 0.5s;
-            }
-
-            .fa-eye {
                 top: calc(50% - 25px);
                 left: calc(50% - 25px);
                 font-size: 44px;
-            }
+                transition: all 0.5s;
+
+                &:hover {
+                    font-size: 54px;
+                    top: calc(50% - 30px);
+                    left: calc(50% - 30px);
+                }
+            }        
         }
     }
 
@@ -164,6 +168,10 @@
         font-size: 24px;
         background-color: transparent;
         cursor: pointer;
+
+        &:hover {
+            font-size: 34px;
+        }
     }
     
         .fa-expand {
@@ -172,7 +180,7 @@
             color: white;
             position: absolute;
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: all 0.7s;       
         }
 
     .load-catalogue-photos {

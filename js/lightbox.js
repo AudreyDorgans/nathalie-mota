@@ -29,10 +29,22 @@
 
                         var prevPostId = response.data.prev_post_id;
                         var nextPostId = response.data.next_post_id;
+                        
+                        if (prevPostId !== null) {
+                            $('.lightbox-prev').attr('data-postid', prevPostId);
+                            $('.lightbox-prev').show();
+                        } else {
+                            $('.lightbox-prev').attr('data-postid', '');
+                            $('.lightbox-prev').hide();
+                        }
 
-                        $('.lightbox-prev').attr('data-postid', prevPostId);
-                        $('.lightbox-next').attr('data-postid', nextPostId);
-
+                        if (nextPostId !== null) {
+                            $('.lightbox-next').attr('data-postid', nextPostId);
+                            $('.lightbox-next').show();
+                        } else {
+                            $('.lightbox-next').attr('data-postid', '');
+                            $('.lightbox-next').hide();
+                        }
                     } else {
                         console.error("Une erreur est survenue lors de l'affichage de la photo");
                     }
@@ -58,7 +70,6 @@
 
             // Vérifier si l'ID est null avant d'effectuer la requête AJAX
             if (postId === null || postId === undefined || postId === '') {
-                console.log("L'ID de l'image est nul ou non défini. Arrêt de la requête AJAX.");
                 return; // Arrêter l'exécution de la fonction
             }
 

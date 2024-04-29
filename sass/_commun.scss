@@ -42,11 +42,16 @@ h1 {
 h2 {
     font-size: 66px;
     font-family: $main-font-italic;
+
 }
 
 h3 {
     font-size: 18px;
     font-family: $main-font;
+}
+
+button, .wpcf7-submit, .myBtnContact {
+    cursor: pointer;
 }
 
 .btnhover {
