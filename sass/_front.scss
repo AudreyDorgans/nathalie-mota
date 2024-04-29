@@ -3,7 +3,6 @@
     .banner {
         background-image: url($background-image-url);
         max-width: 1440px;
-        
         height: 960px;
         background-repeat: no-repeat;
         background-position: center;
@@ -11,6 +10,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        -webkit-animation: fade-in $animation-duration-medium ease-in-out;
+            animation: fade-in $animation-duration-medium ease-in-out;
 
         #stroke {
             -webkit-text-stroke-width: 3px;
@@ -25,6 +26,8 @@
         display: block;
         margin: 0 auto;
         padding: 80px 146px 39px 146px;
+        -webkit-animation: fade-in $animation-duration-medium ease-in-out;
+            animation: fade-in $animation-duration-medium ease-in-out;
 
         .form-catalogue {
             display: flex;
@@ -81,6 +84,8 @@
         max-width: 1440px;
         flex-wrap: wrap;
         gap: 20px;
+        -webkit-animation: fade-in $animation-duration-medium ease-in-out;
+            animation: fade-in $animation-duration-medium ease-in-out;
 
         .col-img-catalogue {
             max-width: 50%;
@@ -180,7 +185,9 @@
         border-radius: 2px;
         font-family: $main-font;
         border:none;
-
+        -webkit-animation: fade-in $animation-duration-medium ease-in-out;
+            animation: fade-in $animation-duration-medium ease-in-out;  
+            
         &:hover {
             background-color: $main-black;
             color: white;

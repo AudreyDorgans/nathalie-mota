@@ -1,6 +1,8 @@
 .container-footer {
     padding: 7px 146px 30px 146px;
     width:100%;
+    -webkit-animation: fade-in $animation-duration-medium ease-in-out;
+        animation: fade-in $animation-duration-medium ease-in-out;
 
     .NM-footer {
         display: flex;

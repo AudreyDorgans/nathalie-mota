@@ -3,6 +3,7 @@
 // support du thème
 //////////////////////////////
 function nathalie_mota_supports() {
+    
     add_theme_support( 'title-tag' );
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
@@ -311,6 +312,7 @@ function NM_load_lightbox_photo() {
         if ($infos_photo) {
             global $wpdb;
             $current_post_date = get_post_field('post_date', $post_id_lightbox);
+            
             $prev_post_id = $wpdb->get_var(
                 $wpdb->prepare(
                     "SELECT p.ID 

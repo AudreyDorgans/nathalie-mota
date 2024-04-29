@@ -3,7 +3,8 @@
     max-width:1440px;
     width:100%;
     height:calc(100vh - 80px);
-
+    -webkit-animation: fade-in $animation-duration-medium ease-in-out;
+        animation: fade-in $animation-duration-medium ease-in-out;
 
     .row-infos-photo-single {
         display: flex;
@@ -127,6 +128,8 @@
 .aside-photo-comp{
     padding: 0px 146px 109px 146px;
     max-width: 1440px;
+    -webkit-animation: fade-in $animation-duration-medium ease-in-out;
+        animation: fade-in $animation-duration-medium ease-in-out;
 
     h3 {
         margin:0 0 52px 0;

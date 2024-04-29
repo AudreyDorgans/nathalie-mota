@@ -361,6 +361,8 @@ KEYFRAMES
 .container-footer {
   padding: 7px 146px 30px 146px;
   width: 100%;
+  -webkit-animation: fade-in 2s ease-in-out;
+  animation: fade-in 2s ease-in-out;
 }
 .container-footer .NM-footer {
   display: flex;
@@ -391,7 +393,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-10-scaled.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2022/03/nathalie-14-scaled-1.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -400,6 +402,8 @@ KEYFRAMES
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-animation: fade-in 2s ease-in-out;
+  animation: fade-in 2s ease-in-out;
 }
 .main-accueil .banner #stroke {
   -webkit-text-stroke-width: 3px;
@@ -412,6 +416,8 @@ KEYFRAMES
   display: block;
   margin: 0 auto;
   padding: 80px 146px 39px 146px;
+  -webkit-animation: fade-in 2s ease-in-out;
+  animation: fade-in 2s ease-in-out;
 }
 .main-accueil .container-form .form-catalogue {
   display: flex;
@@ -459,6 +465,8 @@ KEYFRAMES
   max-width: 1440px;
   flex-wrap: wrap;
   gap: 20px;
+  -webkit-animation: fade-in 2s ease-in-out;
+  animation: fade-in 2s ease-in-out;
 }
 .main-accueil .catalogue-photos .col-img-catalogue {
   max-width: 50%;
@@ -542,6 +550,8 @@ KEYFRAMES
   border-radius: 2px;
   font-family: "SpaceMono";
   border: none;
+  -webkit-animation: fade-in 2s ease-in-out;
+  animation: fade-in 2s ease-in-out;
 }
 .main-accueil .load-catalogue-photos:hover {
   background-color: #000000;
@@ -556,6 +566,23 @@ KEYFRAMES
 }
 .main-accueil .no-photo-message-2 {
   margin-bottom: 60px;
+}
+
+.page-template-default .main-index {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 146px;
+  min-height: 80vh;
+}
+.page-template-default .main-index h1 {
+  margin: 50px 0 50px 0;
+}
+.page-template-default .main-index p {
+  margin-bottom: 30px;
+}
+.page-template-default .main-index h2 {
+  margin: 60px 0 30px 0;
+  line-height: 1;
 }
 
 .lightbox {
@@ -637,6 +664,8 @@ KEYFRAMES
   max-width: 1440px;
   width: 100%;
   height: calc(100vh - 80px);
+  -webkit-animation: fade-in 2s ease-in-out;
+  animation: fade-in 2s ease-in-out;
 }
 .single-photo-main .row-infos-photo-single {
   display: flex;
@@ -737,6 +766,8 @@ KEYFRAMES
 .aside-photo-comp {
   padding: 0px 146px 109px 146px;
   max-width: 1440px;
+  -webkit-animation: fade-in 2s ease-in-out;
+  animation: fade-in 2s ease-in-out;
 }
 .aside-photo-comp h3 {
   margin: 0 0 52px 0;

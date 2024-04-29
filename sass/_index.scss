@@ -1,0 +1,22 @@
+.page-template-default {
+    
+    .main-index {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 146px;
+        min-height: 80vh;
+        
+        h1 {
+            margin: 50px 0 50px 0;
+        }
+
+        p {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin: 60px 0 30px 0;
+            line-height: 1;
+        }
+    }
+}
