@@ -396,7 +396,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-0-scaled.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-2-scaled.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -991,6 +991,7 @@ KEYFRAMES
   .main-accueil .catalogue-photos {
     padding: 0px 0px 40px 0px;
     width: 600px;
+    justify-content: center;
   }
   .main-accueil .catalogue-photos .col-img-catalogue {
     width: 600px;
@@ -1003,21 +1004,27 @@ KEYFRAMES
   /*****************/
   /* LIGHTBOX */
   /*****************/
+  .lightbox .container-lightbox .container-elements .lightbox-close {
+    top: -40px;
+    right: -10%;
+  }
+  .lightbox .container-lightbox .container-elements .lightbox-next {
+    right: 0;
+  }
+  .lightbox .container-lightbox .container-elements .lightbox-prev {
+    left: 0;
+  }
   /*****************/
   /* FOOTER */
   /*****************/
   .container-footer .NM-footer {
-    flex-direction: column;
-    align-items: center;
-    gap: 0px;
+    padding-top: 0px;
   }
   .container-footer .NM-footer #footer-menu {
     flex-direction: column;
     align-items: center;
-  }
-  .container-footer .NM-footer #footer-menu #menu-item-51 {
-    margin-right: 0px;
-    margin-bottom: 35px;
+    padding: 43px 0 30px 0;
+    gap: 30px;
   }
   .container-footer .NM-footer span {
     margin-top: 35px;
@@ -1025,7 +1032,6 @@ KEYFRAMES
   /*****************/
   /* MODALE CONTACT*/
   /*****************/
-  /* The Modal */
   .modal {
     width: 286px;
     bottom: 20px;
@@ -1071,17 +1077,48 @@ KEYFRAMES
     padding-top: 10px;
   }
   #NM-header #NM-nav-header .menu_button {
-    top: 40px;
-    right: 40px;
+    top: 30px;
+    right: 30px;
   }
   /*****************/
-  /* FOOTER */
+  /* FRONT_PAGE*/
   /*****************/
-  .container-footer {
-    padding: 44px 0px 44px 0px;
+  .main-accueil .container-form .form-catalogue .col-form {
+    width: 100%;
   }
-  .container-footer .NM-footer #footer-menu {
-    gap: 30px;
+  .main-accueil .container-form .form-catalogue .col-form .col-select-form .taxonomy-label {
+    width: calc(100% - 40px);
+  }
+  .main-accueil .catalogue-photos {
+    max-width: 360px;
+  }
+  .main-accueil .catalogue-photos .col-img-catalogue {
+    width: 300px;
+    height: 300px;
+  }
+  .main-accueil .catalogue-photos .col-img-catalogue .display-front-hover {
+    width: 300px;
+    height: 300px;
+  }
+  /*****************/
+  /* LIGHTBOX */
+  /*****************/
+  .lightbox .container-lightbox .container-elements .lightbox-container-image {
+    width: 300px;
+    height: 300px;
+  }
+  .lightbox .container-lightbox .container-elements .lightbox-close {
+    top: -100px;
+    right: -3%;
+  }
+  .lightbox .container-lightbox .container-elements .lightbox-prev, .lightbox .container-lightbox .container-elements .lightbox-next {
+    top: -25px;
+  }
+  .lightbox .container-lightbox .container-elements .lightbox-prev {
+    left: -10px;
+  }
+  .lightbox .container-lightbox .container-elements .lightbox-next {
+    right: -10px;
   }
   /*****************/
   /* SINGLE-PHOTO */
@@ -1093,7 +1130,7 @@ KEYFRAMES
   }
   .single-photo-main .row-infos-photo-single {
     flex-direction: column-reverse;
-    margin: 0 56px;
+    margin: 0 56px 44px 56px;
     padding: 0 0 40px 0;
   }
   .single-photo-main .row-infos-photo-single .colonne-infos-photo,
@@ -1107,28 +1144,30 @@ KEYFRAMES
     border: none;
   }
   .single-photo-main .row-infos-photo-contact {
-    margin: 0 56px;
+    margin: 80px 56px 0 56px;
   }
   .single-photo-main .row-infos-photo-contact .colonne-photo-contact {
     flex-direction: column;
     width: 100%;
     justify-content: space-around;
     border-top: 1px solid black;
+    padding-top: 14px;
   }
   .single-photo-main .row-infos-photo-contact .colonne-photo-contact p {
     width: 100%;
+    margin-bottom: 14px;
   }
   .single-photo-main .row-infos-photo-contact .colonne-photo-contact .myBtnContact {
     width: 100%;
     margin-right: 0px;
+    margin-bottom: 24px;
   }
   .single-photo-main .row-infos-photo-contact .photos-navigation {
     display: none;
-    justify-content: space-around;
   }
   .aside-photo-comp {
-    margin: 0px 29px 0px 29px;
-    padding-bottom: 25px;
+    margin: 100px 29px 0px 29px;
+    padding: 0 0 25px 0;
   }
   .aside-photo-comp h3 {
     text-align: center;
@@ -1138,7 +1177,8 @@ KEYFRAMES
     flex-direction: column;
   }
   .aside-photo-comp .row-img-similaires .col-img-similaire {
-    width: 100%;
+    width: 300px;
+    height: 300px;
   }
 }
 

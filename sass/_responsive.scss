@@ -172,6 +172,8 @@
     }
 
  }
+
+
 /***********************************/
 /***********************************/
 /* FORMAT 768px MAX
@@ -266,6 +268,7 @@
         .catalogue-photos {
             padding: 0px 0px 40px 0px;
             width: 600px;
+            justify-content: center;
 
             .col-img-catalogue {
                 width: 600px;
@@ -284,26 +287,35 @@
     /*****************/
 
     .lightbox {
+        .container-lightbox .container-elements {
+            .lightbox-close {
+                top: -40px;
+                right: -10%;
+            }
 
+            .lightbox-next {
+                right:0;
+            }
+
+            .lightbox-prev {
+                left: 0;
+            }
+        }                
     }
+         
     /*****************/
     /* FOOTER */
     /*****************/
     .container-footer {
     
         .NM-footer {
-            flex-direction: column;
-            align-items: center;
-            gap: 0px;
-        
+            padding-top: 0px;
+
             #footer-menu {
                 flex-direction: column;
                 align-items: center;
-        
-                #menu-item-51 {
-                    margin-right: 0px;
-                    margin-bottom: 35px;
-                }
+                padding: 43px 0 30px 0;
+                gap:30px;
             }
         
             span {
@@ -312,16 +324,15 @@
         }
     }
 
-/*****************/
-/* MODALE CONTACT*/
-/*****************/
+    /*****************/
+    /* MODALE CONTACT*/
+    /*****************/
 
-        /* The Modal */
     .modal {
         width: 286px;
         bottom: 20px;
 
-    /* Modal Header */
+        /* Modal Header */
         .modal-header {
             padding-top: 30px;
             position: relative;
@@ -360,7 +371,6 @@
 }
 
 
-
  /***********************************/
  /***********************************/
  /* FORMAT PETIT TELEPHONE 390px MAX
@@ -368,9 +378,9 @@
  /***********************************/
 @media screen and (max-width: 390px) {
 
-/*****************/
-/* HEADER */
-/*****************/
+    /*****************/
+    /* HEADER */
+    /*****************/
     
     #NM-header {
         min-height: 72px;
@@ -379,97 +389,152 @@
         #NM-nav-header {
                 
             .menu_button {
-                top: 40px;
-                right: 40px;
+                top: 30px;
+                right: 30px;
             }
         }
     }
 
-/*****************/
-/* FOOTER */
-/*****************/
-    .container-footer {
-        padding: 44px 0px 44px 0px;
+    /*****************/
+    /* FRONT_PAGE*/
+    /*****************/
 
-        .NM-footer {
-
-            #footer-menu {
-                gap:30px;
-            }
-        }
-       
-    }
-
-/*****************/
-/* SINGLE-PHOTO */
-/*****************/
-
-.single-photo-main {
-    padding: 20px 0px 0 0px;
-    margin: 0 auto;
-    min-height: calc(100vh + 72px);
-
-    .row-infos-photo-single {
-        flex-direction: column-reverse;
-        margin: 0 56px;
-        padding: 0 0 40px 0;
-
-        .colonne-infos-photo,
-        .colonne-photo {
+    .main-accueil {
+        .container-form .form-catalogue .col-form {
             width: 100%;
-            justify-content: flex-start;
-            height: calc(50vh - 72px);
-            align-items: stretch;
         }
 
-        .colonne-infos-photo {
-            border:none;
+        .container-form .form-catalogue .col-form .col-select-form .taxonomy-label {
+            width: calc(100% - 40px);
+        }
+
+        .catalogue-photos {
+            max-width: 360px;
+
+            .col-img-catalogue {
+                width: 300px;
+                height: 300px;
+
+                .display-front-hover {
+                    width: 300px;
+                    height: 300px; 
+                }
+            }
+
         }
 
     }
+        
+    /*****************/
+    /* LIGHTBOX */
+    /*****************/
+    .lightbox {
+        
+        .container-lightbox {
+        
 
-    .row-infos-photo-contact {
-        margin: 0 56px;
+            .container-elements {
+            
+                .lightbox-container-image {
+                    width: 300px;
+                    height: 300px;
 
-        .colonne-photo-contact {
+                }        
+
+                .lightbox-close {
+                    top: -100px;
+                    right: -3%;
+                }
+
+                .lightbox-prev,  .lightbox-next {
+                    top: -25px;
+                }
+
+                .lightbox-prev {
+                    left:-10px;
+                }
+                
+                .lightbox-next {
+                    right: -10px;
+                }
+            }
+        }
+    }
+   
+    /*****************/
+    /* SINGLE-PHOTO */
+    /*****************/
+
+    .single-photo-main {
+        padding: 20px 0px 0 0px;
+        margin: 0 auto;
+        min-height: calc(100vh + 72px);
+
+        .row-infos-photo-single {
+            flex-direction: column-reverse;
+            margin: 0 56px 44px 56px;
+            padding: 0 0 40px 0;
+
+            .colonne-infos-photo,
+            .colonne-photo {
+                width: 100%;
+                justify-content: flex-start;
+                height: calc(50vh - 72px);
+                align-items: stretch;
+            }
+
+            .colonne-infos-photo {
+                border:none;
+            }
+
+        }
+
+        .row-infos-photo-contact {
+            margin: 80px 56px 0 56px;
+
+            .colonne-photo-contact {
+                flex-direction: column;
+                width: 100%;
+                justify-content: space-around;
+                border-top:1px solid black;
+                padding-top: 14px;
+                
+                p {
+                    width: 100%;
+                    margin-bottom:14px;
+                }
+
+                .myBtnContact {
+                    width: 100%;
+                    margin-right: 0px;
+                    margin-bottom: 24px;
+                }
+            }
+
+            .photos-navigation {
+                display: none;
+
+            }
+        }
+    }
+
+    .aside-photo-comp {
+        margin:100px 29px 0px 29px;
+        padding: 0 0 25px 0;
+
+        h3 {
+            text-align: center;
+            margin: 0 0 20px 0;
+        }
+
+        .row-img-similaires {
             flex-direction: column;
-            width: 100%;
-            justify-content: space-around;
-            border-top:1px solid black;
 
-            p {
-                width: 100%;
-            }
-
-            .myBtnContact {
-                width: 100%;
-                margin-right: 0px;
+            .col-img-similaire {
+                width: 300px;
+                height:300px;
             }
         }
-
-        .photos-navigation {
-            display: none;
-            justify-content: space-around;
-        }
     }
-}
-
-.aside-photo-comp {
-    margin: 0px 29px 0px 29px;
-    padding-bottom: 25px;
-
-    h3 {
-        text-align: center;
-        margin: 0 0 20px 0;
-    }
-
-    .row-img-similaires {
-        flex-direction: column;
-
-        .col-img-similaire {
-            width: 100%;
-        }
-    }
-}
 }
 

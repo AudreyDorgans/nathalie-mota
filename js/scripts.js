@@ -28,6 +28,8 @@ if (siteNavigation) {
         }
     }
 
+
+
 /*************************************************/
 /* FONCTIONNALITES HOVER THUMBNAILS SINGLE PHOTO */
 /*************************************************/
