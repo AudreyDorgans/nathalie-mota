@@ -154,7 +154,7 @@ jQuery(document).ready(function($) {
             },
             success: function (response) {
                 if (response.success) {
-                    console.log(response.data);
+                   
                     $('.catalogue-photos').empty();
                     if (response.data.length > 0) {
                         response.data.forEach(function (photo) {
@@ -167,7 +167,7 @@ jQuery(document).ready(function($) {
                                 $('<a>').attr('href', photo.permalien).append($('<i>').addClass('fa-regular fa-eye')),
                                 $('<button>').addClass('load-lightbox-photo')
                                     .attr('data-postid', photo.id_photo)
-                                    .attr('data-nonce', photo.nonce) // Ajouter le nonce ici
+                                    .attr('data-nonce', photo.nonce) 
                                     .attr('data-action', 'NM_load_lightbox_photo')
                                     .attr('data-ajaxurl', ajaxUrl)
                                     .append($('<i>').addClass('fa-sharp fa-solid fa-expand'))
@@ -189,4 +189,42 @@ jQuery(document).ready(function($) {
 });
 })(jQuery);
 
+
+/*************************************
+ * APPARENCE FORMULAIRE CATALOGUE PHOTO
+ *************************************/
+(function ($) {
+    $(document).ready(function () {
+        // Stocker le label initial et l'option sélectionnée pour chaque select
+        $('.col-select-form select').each(function() {
+            var select = $(this);
+            var initialLabel = select.closest('.col-select-form').find('.taxonomy-label').text();
+            var selectedOptionText = select.find('option:selected').text();
+            select.data('initial-label', initialLabel);
+            select.data('selected-option-text', selectedOptionText);
+        });
+
+        $('.col-select-form select').on('change', function() {
+            var select = $(this);
+            var selectedOption = select.find('option:selected');
+            
+            // Mettre à jour le texte du label avec l'option sélectionnée
+            select.closest('.col-select-form').find('.taxonomy-label').text(selectedOption.text());
+
+            // Réinitialiser le style de fond pour toutes les options
+            select.find('option').css('background-color', '');
+
+            // Appliquer le style de fond rouge à l'option sélectionnée
+            selectedOption.css('background-color', 'red');
+        });
+
+        $('.col-select-form select').on('click', function() {
+            var select = $(this);
+            var initialLabel = select.data('initial-label');
+            
+            // Réafficher le label initial lorsque le select est cliqué à nouveau
+            select.closest('.col-select-form').find('.taxonomy-label').text(initialLabel);
+        });
+    });
+})(jQuery);
 

@@ -396,7 +396,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-2-scaled.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-12-scaled.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -434,16 +434,30 @@ KEYFRAMES
 .main-accueil .container-form .form-catalogue .col-form .col-select-form {
   position: relative;
   margin: 0;
+  /* Sélectionné */
 }
-.main-accueil .container-form .form-catalogue .col-form .col-select-form select {
+.main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select {
   width: 260px;
   height: 43px;
   border-radius: 8px;
   border: 1.3px solid #B8BBC2;
   padding-left: 10px;
+  background-color: white;
 }
-.main-accueil .container-form .form-catalogue .col-form .col-select-form select option {
+.main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select select {
+  opacity: 0;
+  width: 260px;
+  height: 43px;
+}
+.main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select select option {
   font-family: "Poppins";
+  background-color: white;
+}
+.main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select:hover option {
+  background-color: pink;
+}
+.main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select select:focus option:checked {
+  background-color: red;
 }
 .main-accueil .container-form .form-catalogue .col-form .col-select-form .taxonomy-label {
   position: absolute;
@@ -500,7 +514,8 @@ KEYFRAMES
 .main-accueil .catalogue-photos .col-img-catalogue:hover .reference, .main-accueil .catalogue-photos .col-img-catalogue:hover .categorie, .main-accueil .catalogue-photos .col-img-catalogue:hover .fa-eye, .main-accueil .catalogue-photos .col-img-catalogue:hover .fa-expand {
   opacity: 1;
 }
-.main-accueil .catalogue-photos .col-img-catalogue .reference, .main-accueil .catalogue-photos .col-img-catalogue .categorie {
+.main-accueil .catalogue-photos .col-img-catalogue .reference,
+.main-accueil .catalogue-photos .col-img-catalogue .categorie {
   position: absolute;
   bottom: 10px;
   color: white;
@@ -569,7 +584,8 @@ KEYFRAMES
   transition: all 0.5s ease-out;
   font-size: 16px;
 }
-.main-accueil .no-photo-message-1, .main-accueil .no-photo-message-2 {
+.main-accueil .no-photo-message-1,
+.main-accueil .no-photo-message-2 {
   font-family: "Poppins";
   text-align: center;
   margin-bottom: 30px;

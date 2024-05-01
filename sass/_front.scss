@@ -11,7 +11,7 @@
         justify-content: center;
         align-items: center;
         -webkit-animation: fade-in $animation-duration-medium ease-in-out;
-            animation: fade-in $animation-duration-medium ease-in-out;
+        animation: fade-in $animation-duration-medium ease-in-out;
 
         #stroke {
             -webkit-text-stroke-width: 3px;
@@ -27,7 +27,7 @@
         margin: 0 auto;
         padding: 80px 146px 39px 146px;
         -webkit-animation: fade-in $animation-duration-medium ease-in-out;
-            animation: fade-in $animation-duration-medium ease-in-out;
+        animation: fade-in $animation-duration-medium ease-in-out;
 
         .form-catalogue {
             display: flex;
@@ -37,22 +37,40 @@
             .col-form {
                 width: 50%;
                 display: flex;
-            
+
                 .col-select-form {
                     position: relative;
                     margin: 0;
 
-                    select {
-                        width: 260px;
-                        height: 43px;
-                        border-radius: 8px;
-                        border: 1.3px solid #B8BBC2;
-                        padding-left: 10px;
-                
-                        option {
-                            font-family: $second-font;
+                    .custom-select {
+                            width: 260px;
+                            height: 43px;
+                            border-radius: 8px;
+                            border: 1.3px solid #B8BBC2;
+                            padding-left: 10px;
+                            background-color: white;
+
+                        select {
+                            opacity:0;
+                            width: 260px;
+                            height: 43px;
+
+                            option {
+                                font-family: $second-font;
+                            }
                         }
                     }
+
+.custom-select:hover option {
+    background-color: pink;
+}
+
+/* Sélectionné */
+.custom-select select:focus option:checked {
+    background-color: red;
+}
+
+                   
 
                     .taxonomy-label {
                         position: absolute;
@@ -62,7 +80,7 @@
                         pointer-events: none;
                         z-index: 1;
                         background-color: white;
-                        width:calc(100% - 34px);
+                        width: calc(100% - 34px);
                     }
                 }
             }
@@ -72,7 +90,7 @@
             }
 
             .col-2-form {
-                justify-content: flex-end;           
+                justify-content: flex-end;
             }
         }
     }
@@ -86,14 +104,14 @@
         justify-content: space-between;
         gap: 20px;
         -webkit-animation: fade-in $animation-duration-medium ease-in-out;
-            animation: fade-in $animation-duration-medium ease-in-out;
+        animation: fade-in $animation-duration-medium ease-in-out;
 
         .col-img-catalogue {
             width: 50%;
             width: 560px;
             height: 560px;
             position: relative;
-            margin:0;
+            margin: 0;
 
             img {
                 object-fit: cover;
@@ -109,7 +127,7 @@
                 left: 0;
                 width: 560px;
                 height: 560px;
-                transition: opacity 0.7s;    
+                transition: opacity 0.7s;
             }
 
             &:hover .display-front-hover {
@@ -123,7 +141,8 @@
                 opacity: 1;
             }
 
-            .reference, .categorie {
+            .reference,
+            .categorie {
                 position: absolute;
                 bottom: 10px;
                 color: white;
@@ -140,8 +159,8 @@
                 right: 16px;
             }
 
-            .fa-eye{
-                color:white;
+            .fa-eye {
+                color: white;
                 position: absolute;
                 opacity: 0;
                 top: calc(50% - 25px);
@@ -154,7 +173,7 @@
                     top: calc(50% - 30px);
                     left: calc(50% - 30px);
                 }
-            }        
+            }
         }
     }
 
@@ -173,18 +192,18 @@
             font-size: 34px;
         }
     }
-    
-        .fa-expand {
-            top: 4px;
-            right: 5px;
-            color: white;
-            position: absolute;
-            opacity: 0;
-            transition: all 0.7s;       
-        }
+
+    .fa-expand {
+        top: 4px;
+        right: 5px;
+        color: white;
+        position: absolute;
+        opacity: 0;
+        transition: all 0.7s;
+    }
 
     .load-catalogue-photos {
-        margin:0 auto 60px;
+        margin: 0 auto 60px;
         display: block;
         width: 272px;
         height: 50px;
@@ -192,10 +211,10 @@
         background-color: $second-grey;
         border-radius: 2px;
         font-family: $main-font;
-        border:none;
+        border: none;
         -webkit-animation: fade-in $animation-duration-medium ease-in-out;
-            animation: fade-in $animation-duration-medium ease-in-out;  
-            
+        animation: fade-in $animation-duration-medium ease-in-out;
+
         &:hover {
             background-color: $main-black;
             color: white;
@@ -204,10 +223,11 @@
         }
     }
 
-    .no-photo-message-1, .no-photo-message-2 {
+    .no-photo-message-1,
+    .no-photo-message-2 {
         font-family: $second-font;
         text-align: center;
-        margin-bottom:30px;
+        margin-bottom: 30px;
     }
 
     .no-photo-message-2 {
