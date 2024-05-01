@@ -190,6 +190,7 @@ jQuery(document).ready(function($) {
 })(jQuery);
 
 
+
 /*************************************
  * APPARENCE FORMULAIRE CATALOGUE PHOTO
  *************************************/
@@ -198,33 +199,58 @@ jQuery(document).ready(function($) {
         // Stocker le label initial et l'option sélectionnée pour chaque select
         $('.col-select-form select').each(function() {
             var select = $(this);
-            var initialLabel = select.closest('.col-select-form').find('.taxonomy-label').text();
+            var initialLabel = select.closest('.col-select-form').find('.taxonomy-label').text().trim();
             var selectedOptionText = select.find('option:selected').text();
             select.data('initial-label', initialLabel);
             select.data('selected-option-text', selectedOptionText);
+            
+            // Ajouter ou supprimer la classe uppercase en fonction du contenu initial du label
+            updateUppercaseClass(select);
         });
 
         $('.col-select-form select').on('change', function() {
             var select = $(this);
             var selectedOption = select.find('option:selected');
+            var label = select.closest('.col-select-form').find('.taxonomy-label');
             
             // Mettre à jour le texte du label avec l'option sélectionnée
-            select.closest('.col-select-form').find('.taxonomy-label').text(selectedOption.text());
+            label.text(selectedOption.text());
 
             // Réinitialiser le style de fond pour toutes les options
             select.find('option').css('background-color', '');
 
             // Appliquer le style de fond rouge à l'option sélectionnée
             selectedOption.css('background-color', 'red');
+            
+            // Ajouter ou supprimer la classe uppercase en fonction du contenu du label
+            updateUppercaseClass(select);
         });
 
         $('.col-select-form select').on('click', function() {
             var select = $(this);
             var initialLabel = select.data('initial-label');
+            var label = select.closest('.col-select-form').find('.taxonomy-label');
             
             // Réafficher le label initial lorsque le select est cliqué à nouveau
-            select.closest('.col-select-form').find('.taxonomy-label').text(initialLabel);
+            label.text(initialLabel);
+
+            // Ajouter ou supprimer la classe uppercase en fonction du contenu du label
+            updateUppercaseClass(select);
         });
+        
+        // Fonction pour ajouter ou supprimer la classe uppercase en fonction du contenu initial du label
+        function updateUppercaseClass(select) {
+            var label = select.closest('.col-select-form').find('.taxonomy-label');
+            var initialLabel = select.data('initial-label');
+            
+            if (label.text().trim() === initialLabel) {
+                label.addClass('uppercase');
+            } else {
+                label.removeClass('uppercase');
+            }
+        }
     });
 })(jQuery);
+
+
 

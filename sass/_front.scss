@@ -49,6 +49,14 @@
                             border: 1.3px solid #B8BBC2;
                             padding-left: 10px;
                             background-color: white;
+                            position:relative;
+                        
+                        .fa-chevron-down {
+                            position: absolute;
+                            top:12px;
+                            right:10px;
+                            z-index:100;
+                        }
 
                         select {
                             opacity:0;
@@ -57,20 +65,10 @@
 
                             option {
                                 font-family: $second-font;
+                                text-transform: lowercase;
                             }
                         }
-                    }
-
-.custom-select:hover option {
-    background-color: pink;
-}
-
-/* Sélectionné */
-.custom-select select:focus option:checked {
-    background-color: red;
-}
-
-                   
+                    }                 
 
                     .taxonomy-label {
                         position: absolute;

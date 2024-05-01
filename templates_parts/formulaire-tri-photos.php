@@ -15,13 +15,13 @@
                 echo '<div class="col-select-form">';
                 
                     echo '<label class="taxonomy-label uppercase">' . $taxonomy->label . '</label>';
-                    echo '<div class="custom-select">';
+                    echo '<div class="custom-select"><i class="fa-solid fa-chevron-down"></i>';
                         echo '<select name="' . $taxonomy->name . '">';
                             foreach ($terms as $term) {
                                 echo '<option value="' . $term->slug . '">' . $term->name . '</option>';
                             }
                         echo '</select>';
-                    echo "</div>";
+                    echo '</div>';
                
                 echo '</div>';
             }
@@ -31,7 +31,7 @@
         <div class="col-form col-2-form">
             <div class="col-select-form">
                 <label for="ordre" class="uppercase taxonomy-label"> Trier par </label>
-                <div class="custom-select">
+                <div class="custom-select"><i class="fa-solid fa-chevron-down"></i>
                     <select name="ordre">
                         <option value="asc">Du plus ancien au plus récent</option>
                         <option value="desc">Du plus récent au plus ancien</option>

@@ -396,7 +396,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-12-scaled.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-4-scaled.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -434,7 +434,6 @@ KEYFRAMES
 .main-accueil .container-form .form-catalogue .col-form .col-select-form {
   position: relative;
   margin: 0;
-  /* Sélectionné */
 }
 .main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select {
   width: 260px;
@@ -443,6 +442,13 @@ KEYFRAMES
   border: 1.3px solid #B8BBC2;
   padding-left: 10px;
   background-color: white;
+  position: relative;
+}
+.main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select .fa-chevron-down {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  z-index: 100;
 }
 .main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select select {
   opacity: 0;
@@ -451,13 +457,7 @@ KEYFRAMES
 }
 .main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select select option {
   font-family: "Poppins";
-  background-color: white;
-}
-.main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select:hover option {
-  background-color: pink;
-}
-.main-accueil .container-form .form-catalogue .col-form .col-select-form .custom-select select:focus option:checked {
-  background-color: red;
+  text-transform: lowercase;
 }
 .main-accueil .container-form .form-catalogue .col-form .col-select-form .taxonomy-label {
   position: absolute;
