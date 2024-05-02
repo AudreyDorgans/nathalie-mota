@@ -202,6 +202,11 @@ jQuery(document).ready(function($) {
             var selectedOptionText = select.find('option:selected').text();
             select.data('initial-label', initialLabel);
             select.data('selected-option-text', selectedOptionText);
+
+             // Ajouter ou supprimer la classe uppercase en fonction du contenu initial du label
+            updateUppercaseClass(select);
+
+
         });
 
         $('.col-select-form select').on('change', function() {
@@ -210,12 +215,8 @@ jQuery(document).ready(function($) {
             
             // Mettre à jour le texte du label avec l'option sélectionnée
             select.closest('.col-select-form').find('.taxonomy-label').text(selectedOption.text());
-
-            // Réinitialiser le style de fond pour toutes les options
-            select.find('option').css('background-color', '');
-
-            // Appliquer le style de fond rouge à l'option sélectionnée
-            selectedOption.css('background-color', 'red');
+            // Ajouter ou supprimer la classe uppercase en fonction du contenu du label
+            updateUppercaseClass(select);
         });
 
         $('.col-select-form select').on('click', function() {
@@ -224,7 +225,24 @@ jQuery(document).ready(function($) {
             
             // Réafficher le label initial lorsque le select est cliqué à nouveau
             select.closest('.col-select-form').find('.taxonomy-label').text(initialLabel);
+            // Ajouter ou supprimer la classe uppercase en fonction du contenu du label
+            updateUppercaseClass(select);
+            // Si le label initial est affiché, sélectionner l'option avec la valeur vide
+            if (initialLabel === select.find('#option-tout').text()) {
+                select.val('');
+            }
         });
+
+        function updateUppercaseClass(select) {
+            var label = select.closest('.col-select-form').find('.taxonomy-label');
+            var initialLabel = select.data('initial-label');
+            
+            if (label.text().trim() === initialLabel) {
+                label.addClass('uppercase');
+            } else {
+                label.removeClass('uppercase');
+            }
+        }
     });
 })(jQuery);
 
