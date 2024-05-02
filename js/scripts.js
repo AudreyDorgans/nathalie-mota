@@ -73,6 +73,7 @@ jQuery(document).ready(function($) {
         e.preventDefault();
         const categorieValue = $('select[name="categorie"]').val() || ''; 
         const formatValue = $('select[name="format"]').val() || ''; 
+        const ordreValue = $('select[name="ordre"]').val() || ''; 
         const ajaxurl = $(this).data('ajaxurl');
 
         const data = {
@@ -81,6 +82,7 @@ jQuery(document).ready(function($) {
             paged: Paged,
             categorie: categorieValue,
             format: formatValue,
+            ordre: ordreValue,
         }
 
         fetch(ajaxurl, {
@@ -141,6 +143,7 @@ jQuery(document).ready(function($) {
         var formData = $('.form-catalogue').serialize(); 
         var ajaxUrl = $('.form-catalogue').data('ajaxurl');
 
+
         $.ajax({
             method: 'POST',
             url: ajaxUrl, 
@@ -193,6 +196,7 @@ jQuery(document).ready(function($) {
 /*************************************
  * APPARENCE FORMULAIRE CATALOGUE PHOTO
  *************************************/
+
 (function ($) {
     $(document).ready(function () {
         // Stocker le label initial et l'option sélectionnée pour chaque select
@@ -205,8 +209,6 @@ jQuery(document).ready(function($) {
 
              // Ajouter ou supprimer la classe uppercase en fonction du contenu initial du label
             updateUppercaseClass(select);
-
-
         });
 
         $('.col-select-form select').on('change', function() {
@@ -230,6 +232,9 @@ jQuery(document).ready(function($) {
             // Si le label initial est affiché, sélectionner l'option avec la valeur vide
             if (initialLabel === select.find('#option-tout').text()) {
                 select.val('');
+
+                // Si une option était déjà sélectionnée, déclencher le changement pour réinitialiser les filtres
+                select.trigger('change');
             }
         });
 

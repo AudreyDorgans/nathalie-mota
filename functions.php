@@ -147,13 +147,18 @@ function NM_load_catalogue_photos() {
     $paged = isset( $_REQUEST['paged'] ) ? intval( $_REQUEST['paged'] ) : 1;
     $categorie = isset( $_REQUEST['categorie'] ) ? sanitize_text_field( $_REQUEST['categorie'] ) : '';
     $format = isset( $_REQUEST['format'] ) ? sanitize_text_field( $_REQUEST['format'] ) : '';
+    $order = isset($_REQUEST['ordre']) ? strtoupper($_REQUEST['ordre']) : '';
 
+    error_log('Order value: ' . $order);
+
+    
     // Construire les arguments de la requête pour récupérer les photos
     $args_load_photo = array(
         'post_type' => 'photo',
         'posts_per_page' => 8,
         'paged' => $paged,
         'tax_query' => array(),
+        'order' => $order,
     );
 
     // Ajouter la taxonomie categorie aux arguments de la requête si elle est spécifiée
