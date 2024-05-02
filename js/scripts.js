@@ -196,7 +196,6 @@ jQuery(document).ready(function($) {
 /*************************************
  * APPARENCE FORMULAIRE CATALOGUE PHOTO
  *************************************/
-
 (function ($) {
     $(document).ready(function () {
         // Stocker le label initial et l'option sélectionnée pour chaque select
@@ -206,11 +205,9 @@ jQuery(document).ready(function($) {
             var selectedOptionText = select.find('option:selected').text();
             select.data('initial-label', initialLabel);
             select.data('selected-option-text', selectedOptionText);
-
-             // Ajouter ou supprimer la classe uppercase en fonction du contenu initial du label
-            updateUppercaseClass(select);
         });
 
+       
         $('.col-select-form select').on('change', function() {
             var select = $(this);
             var selectedOption = select.find('option:selected');
@@ -232,7 +229,6 @@ jQuery(document).ready(function($) {
             // Si le label initial est affiché, sélectionner l'option avec la valeur vide
             if (initialLabel === select.find('#option-tout').text()) {
                 select.val('');
-
                 // Si une option était déjà sélectionnée, déclencher le changement pour réinitialiser les filtres
                 select.trigger('change');
             }
@@ -240,14 +236,14 @@ jQuery(document).ready(function($) {
 
         function updateUppercaseClass(select) {
             var label = select.closest('.col-select-form').find('.taxonomy-label');
-            var initialLabel = select.data('initial-label');
-            
+            var initialLabel = select.data('initial-label').trim(); // Trim le texte initial
+            console.log(initialLabel);
             if (label.text().trim() === initialLabel) {
                 label.addClass('uppercase');
             } else {
                 label.removeClass('uppercase');
             }
-        }
+}
     });
 })(jQuery);
 

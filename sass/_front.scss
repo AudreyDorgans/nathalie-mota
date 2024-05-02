@@ -41,6 +41,7 @@
                 .col-select-form {
                     position: relative;
                     margin: 0;
+                  
 
                     select {
                         width: 260px;
@@ -48,12 +49,31 @@
                         border-radius: 8px;
                         border: 1.3px solid #B8BBC2;
                         padding-left: 10px;
-                
+                        background-color: #FFF;
+                        background-image: none;
+
                         option {
                             font-family: $second-font;
+
+                            &:checked {
+                                background-color: red;
+                                /* Nouvelle couleur de fond pour les options sélectionnées */
+                                -webkit-mask-image: none;
+                                    /* Masquer la coche sur Chrome */
+                                mask-image: none;
+                                /* Masquer la coche sur Firefox */
+                                }
+
+                            &:hover {
+                                background-color: pink;
+                            }
                         }
 
-                        #option-tout {
+                        
+
+                        
+
+                        #option-tout, #option-defaut {
                             display: none;
                         }
                     }
@@ -82,8 +102,8 @@
     }
 
     .catalogue-photos {
-        padding: 0px 146px 40px 146px;
-        margin: 0 auto;
+        padding: 0px 146px 20px 146px;
+        margin: 0 auto !important;
         display: flex;
         max-width: 1440px;
         flex-wrap: wrap;
@@ -173,6 +193,7 @@
         background-color: transparent;
         cursor: pointer;
 
+
         &:hover {
             font-size: 34px;
         }
@@ -188,7 +209,7 @@
         }
 
     .load-catalogue-photos {
-        margin:0 auto 60px;
+        margin:20px auto 60px;
         display: block;
         width: 272px;
         height: 50px;
