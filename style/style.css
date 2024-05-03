@@ -557,7 +557,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2022/03/nathalie-14-scaled-1.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-1-scaled.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -596,11 +596,6 @@ KEYFRAMES
   position: relative;
   margin: 0;
 }
-.main-accueil .container-form .form-catalogue .col-form .col-select-form .taxonomy-label {
-  position: absolute;
-  top: 25%;
-  left: 16px;
-}
 .main-accueil .container-form .form-catalogue .col-form .col-select-form .nice-select {
   width: 260px;
   height: 43px;
@@ -611,7 +606,7 @@ KEYFRAMES
   background-color: transparent;
 }
 .main-accueil .container-form .form-catalogue .col-form .col-select-form .nice-select .current {
-  display: none;
+  text-transform: uppercase;
 }
 .main-accueil .container-form .form-catalogue .col-form .col-select-form .nice-select .list {
   width: 260px;
@@ -1018,9 +1013,6 @@ KEYFRAMES
   }
   .main-accueil .container-form .form-catalogue .col-form .col-select-form select {
     width: 170px;
-  }
-  .main-accueil .container-form .form-catalogue .col-form .col-select-form .taxonomy-label {
-    left: 14px;
   }
   .main-accueil .catalogue-photos .col-img-catalogue {
     width: 355px;

@@ -42,12 +42,6 @@
                     position: relative;
                     margin: 0;
 
-                    .taxonomy-label {
-                        position: absolute;
-                        top: 25%;
-                        left: 16px;
-                    }
-
                     .nice-select {
                         width: 260px;
                         height: 43px;
@@ -58,7 +52,7 @@
                         background-color: transparent;
                        
                         .current {
-                            display: none;
+                           text-transform: uppercase;
                         }
 
                         .list {

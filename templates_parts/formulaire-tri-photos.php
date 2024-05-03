@@ -14,7 +14,6 @@
             
                 echo '<div class="col-select-form">';
                 
-                    echo '<label for="' . $taxonomy->name . '" class="taxonomy-label uppercase" >' . $taxonomy->label . '</label>';
                     echo '<select name="' . $taxonomy->name . '" id="' . $taxonomy->name . '">';
                         echo '<option value="" id="option-tout">' . $taxonomy->label . '</option>';
                         foreach ($terms as $term) {
@@ -29,7 +28,6 @@
 
         <div class="col-form col-2-form">
             <div class="col-select-form">
-                <label for="ordre" class="uppercase taxonomy-label"> Trier par </label>
                 <select name="ordre" id="ordre">
                     <option value="desc" id="option-defaut">Trier par</option>
                     <option value="desc">A partir des plus récentes</option>
