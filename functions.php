@@ -28,6 +28,8 @@ add_action( 'wp_enqueue_scripts', 'nathalie_mota_register_style' );
 //////////////////////////////
 function nathalie_mota_scripts() {
     wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'nice-select', get_stylesheet_directory_uri()  . '/js/jquery.nice-select.js', array(), 1, true );
+    wp_enqueue_script( 'fastclick', get_stylesheet_directory_uri()  . '/js/fastclick.js', array(), 1, true );
     wp_enqueue_script( 'scripts', get_stylesheet_directory_uri()  . '/js/scripts.js', array(), 1, true );
     wp_enqueue_script( 'modale', get_stylesheet_directory_uri()  . '/js/modale.js', array(), 1, true );
     wp_enqueue_script( 'lightbox', get_stylesheet_directory_uri()  . '/js/lightbox.js', array(), 1, true );

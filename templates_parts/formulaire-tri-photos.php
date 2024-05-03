@@ -31,7 +31,7 @@
             <div class="col-select-form">
                 <label for="ordre" class="uppercase taxonomy-label"> Trier par </label>
                 <select name="ordre" id="ordre">
-                    <option value="desc" id="option-defaut">A partir des plus récentes</option>
+                    <option value="desc" id="option-defaut">Trier par</option>
                     <option value="desc">A partir des plus récentes</option>
                     <option value="asc">A partir des plus anciennes</option>
                 </select>

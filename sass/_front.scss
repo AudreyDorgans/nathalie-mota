@@ -41,64 +41,81 @@
                 .col-select-form {
                     position: relative;
                     margin: 0;
-                  
 
-                    select {
+                    .taxonomy-label {
+                        position: absolute;
+                        top: 25%;
+                        left: 16px;
+                    }
+
+                    .nice-select {
                         width: 260px;
                         height: 43px;
                         border-radius: 8px;
                         border: 1.3px solid #B8BBC2;
                         padding-left: 10px;
-                        background-color: #FFF;
-                        background-image: none;
-
-                        option {
-                            font-family: $second-font;
-
-                            &:checked {
-                                background-color: red;
-                                /* Nouvelle couleur de fond pour les options sélectionnées */
-                                -webkit-mask-image: none;
-                                    /* Masquer la coche sur Chrome */
-                                mask-image: none;
-                                /* Masquer la coche sur Firefox */
-                                }
-
-                            &:hover {
-                                background-color: pink;
-                            }
-                        }
-
-                        
-
-                        
-
-                        #option-tout, #option-defaut {
+                        font-family: $second-font;
+                        background-color: transparent;
+                       
+                        .current {
                             display: none;
                         }
-                    }
 
-                    .taxonomy-label {
-                        position: absolute;
-                        left: 10px;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        pointer-events: none;
-                        z-index: 1;
-                        background-color: white;
-                        width:calc(100% - 34px);
+                        .list {
+                            width: 260px;
+
+                            .first-option {
+                                font-style:italic;
+                            }
+
+                            .first-option::before {
+                                content: "";
+                                width: 10px;
+                                height: 1px;
+                                background-color: black;
+                                display: inline-block;
+                                margin-right: 5px;
+                            }
+                            
+                            .first-option::after {
+                                content: "";
+                                width: 10px;
+                                height: 1px;
+                                background-color: black;
+                                display: inline-block;
+                                margin-left: 5px;
+                            }
+
+                            .autre-option {
+                                padding-left:33px;
+                            }
+                            
+                            .option.selected {
+                                background-color: $main-red !important;
+                                color: white;
+                            }
+                            
+                            .option:hover {
+                                background-color: $third-red;
+                            }
+
+                            .first-option.selected::before,
+                            .first-option.selected::after {
+                                background-color: white !important;
+                            }
+                        }    
                     }
                 }
             }
-
+                
             .col-form-1 {
-                justify-content: space-between;
+                justify-content: space-between;             
             }
-
+                
             .col-2-form {
-                justify-content: flex-end;           
-            }
-        }
+                justify-content: flex-end;
+            }         
+        }   
     }
 
     .catalogue-photos {

@@ -255,11 +255,6 @@
                         select {
                             width:270px;
                         }
-
-                        .taxonomy-label {
-                            right: 28px;
-                            width: calc(100% - 90px);
-                        }
                     }
                 }
             }
@@ -403,11 +398,6 @@
         .container-form .form-catalogue .col-form {
             width: 100%;
         }
-
-        .container-form .form-catalogue .col-form .col-select-form .taxonomy-label {
-            width: calc(100% - 40px);
-        }
-
         .catalogue-photos {
             max-width: 360px;
 
@@ -420,9 +410,7 @@
                     height: 300px; 
                 }
             }
-
         }
-
     }
         
     /*****************/

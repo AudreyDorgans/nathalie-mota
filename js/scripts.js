@@ -134,6 +134,19 @@ jQuery(document).ready(function($) {
 });
 
 
+
+/*************************************
+ * INITIALISATION NICE-SELECT
+ *************************************/
+(function ($) {
+    $(document).ready(function() {
+  $('select').niceSelect();
+}); 
+})(jQuery);
+
+
+
+
 /*************************************
  * FILTRES FORMULAIRE CATALOGUE PHOTO
  *************************************/
@@ -207,7 +220,6 @@ jQuery(document).ready(function($) {
             select.data('selected-option-text', selectedOptionText);
         });
 
-       
         $('.col-select-form select').on('change', function() {
             var select = $(this);
             var selectedOption = select.find('option:selected');
