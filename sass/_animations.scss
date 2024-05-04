@@ -26,6 +26,7 @@ $animation-delay: 1.5s;
         opacity: 1;
     }
 }
+
 @keyframes animateModale {
     0% {
         top: -300px;
@@ -38,7 +39,9 @@ $animation-delay: 1.5s;
     }
 }
 
-
+/*********************
+/* Animation éléments pages */
+/*********************/
 @-webkit-keyframes fade-in {
     0% {
         opacity: 0;
@@ -59,7 +62,9 @@ $animation-delay: 1.5s;
     }
 }
 
-
+/*********************
+/* Animation menu */
+/*********************/
 @-webkit-keyframes blink {
 
     0%,
@@ -75,7 +80,6 @@ $animation-delay: 1.5s;
 }
 
 @keyframes blink {
-
     0%,
     50%,
     100% {
@@ -87,3 +91,23 @@ $animation-delay: 1.5s;
         opacity: 0;
     }
 }
+
+/*********************
+/* Animation memnu */
+/*********************/
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+

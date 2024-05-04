@@ -13,20 +13,28 @@ const siteNavigation = document.querySelector( 'nav' );
  const setAttr = ( el, attr, value ) => el.setAttribute( attr, value );
 
 if (siteNavigation) {
-        const mobileButton = siteNavigation.querySelector('button.menu_button');
+    const mobileButton = siteNavigation.querySelector('button.menu_button');
+    const headerMenu = document.getElementById('header-menu');
+    const viewport = document.getElementById('NM-page');
 
-        if (mobileButton) {
-            mobileButton.addEventListener('click', function() {
-                siteNavigation.classList.toggle('toggled');
+    if (mobileButton && headerMenu && viewport) {
+        mobileButton.addEventListener('click', function() {
+            siteNavigation.classList.toggle('toggled');
 
-                if (mobileButton.getAttribute('aria-expanded') === 'true') {
-                    setAttr(mobileButton, 'aria-expanded', 'false');
-                } else {
-                    setAttr(mobileButton, 'aria-expanded', 'true');
-                }
-            });
-        }
+            // Inverser l'attribut aria-expanded
+            if (mobileButton.getAttribute('aria-expanded') === 'true') {
+                setAttr(mobileButton, 'aria-expanded', 'false');
+                headerMenu.style.display = 'none'; // Masquer la liste de menu
+            } else {
+                setAttr(mobileButton, 'aria-expanded', 'true');
+                headerMenu.style.display = 'flex'; // Afficher la liste de menu
+            }
+
+            // Ajouter la classe pour déclencher l'animation de glissement du viewport
+            viewport.classList.toggle('header-sliding');
+        });
     }
+}
 
 
 
@@ -143,7 +151,6 @@ jQuery(document).ready(function($) {
   $('select').niceSelect();
 }); 
 })(jQuery);
-
 
 
 

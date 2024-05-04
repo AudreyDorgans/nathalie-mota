@@ -113,13 +113,12 @@
     }
 
     .catalogue-photos {
-        padding: 0px 146px 20px 146px;
+        padding: 0px 146px 0px 146px;
         margin: 0 auto !important;
         display: flex;
         max-width: 1440px;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 20px;
         -webkit-animation: fade-in $animation-duration-medium ease-in-out;
             animation: fade-in $animation-duration-medium ease-in-out;
 
@@ -128,7 +127,7 @@
             width: 560px;
             height: 560px;
             position: relative;
-            margin:0;
+            margin:0 0 25px 0;
 
             img {
                 object-fit: cover;

@@ -231,9 +231,9 @@ p {
   -webkit-transform-origin: 50% 0;
   -ms-transform-origin: 50% 0;
   transform-origin: 50% 0;
-  -webkit-transform: scale(0.75) translateY(-21px);
-  -ms-transform: scale(0.75) translateY(-21px);
-  transform: scale(0.75) translateY(-21px);
+  -webkit-transform: scale(0.75) translateY -21px;
+  -ms-transform: scale(0.75) translateY -21px;
+  transform: scale(0.75) translateY -21px;
   -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   z-index: 9;
@@ -302,6 +302,9 @@ KEYFRAMES
     opacity: 1;
   }
 }
+/*********************
+/* Animation éléments pages */
+/*********************/
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
@@ -318,6 +321,9 @@ KEYFRAMES
     opacity: 1;
   }
 }
+/*********************
+/* Animation menu */
+/*********************/
 @-webkit-keyframes blink {
   0%, 50%, 100% {
     opacity: 1;
@@ -334,12 +340,30 @@ KEYFRAMES
     opacity: 0;
   }
 }
+/*********************
+/* Animation memnu */
+/*********************/
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+#logo-fin-animation {
+  display: none;
+}
+
 #NM-header {
   color: #000000;
   padding-top: 25px;
   -webkit-animation: fade-in 2s ease-in-out;
   animation: fade-in 2s ease-in-out;
   min-height: 80px;
+  background-color: white;
 }
 #NM-header #NM-nav-header {
   display: flex;
@@ -557,7 +581,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-1-scaled.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-3-scaled.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -651,13 +675,12 @@ KEYFRAMES
   justify-content: flex-end;
 }
 .main-accueil .catalogue-photos {
-  padding: 0px 146px 20px 146px;
+  padding: 0px 146px 0px 146px;
   margin: 0 auto !important;
   display: flex;
   max-width: 1440px;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
   -webkit-animation: fade-in 2s ease-in-out;
   animation: fade-in 2s ease-in-out;
 }
@@ -666,7 +689,7 @@ KEYFRAMES
   width: 560px;
   height: 560px;
   position: relative;
-  margin: 0;
+  margin: 0 0 25px 0;
 }
 .main-accueil .catalogue-photos .col-img-catalogue img {
   object-fit: cover;
@@ -1011,7 +1034,7 @@ KEYFRAMES
     font-family: "Poppins";
     gap: 20px;
   }
-  .main-accueil .container-form .form-catalogue .col-form .col-select-form select {
+  .main-accueil .container-form .form-catalogue .col-form .col-select-form .nice-select {
     width: 170px;
   }
   .main-accueil .catalogue-photos .col-img-catalogue {
@@ -1076,6 +1099,9 @@ KEYFRAMES
     width: 405px;
     height: 405px;
   }
+  .main-accueil .load-catalogue-photos {
+    margin-top: 0;
+  }
   /*****************/
   /* SINGLE-PHOTO */
   /*****************/
@@ -1110,6 +1136,9 @@ KEYFRAMES
   /*****************/
   /* HEADER */
   /*****************/
+  .header-sliding {
+    animation: slide-in-right 0.5s ease-out;
+  }
   #NM-header {
     padding-top: 20px;
   }
@@ -1167,7 +1196,7 @@ KEYFRAMES
     width: 100%;
     text-align: center;
   }
-  .main-accueil .container-form .form-catalogue .col-form .col-select-form select {
+  .main-accueil .container-form .form-catalogue .col-form .col-select-form .nice-select {
     width: 270px;
   }
   .main-accueil .catalogue-photos {

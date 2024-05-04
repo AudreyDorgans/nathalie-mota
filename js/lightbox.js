@@ -61,16 +61,15 @@
 
         $('.lightbox-prev, .lightbox-next').click(function () {
 
-            var button = $(this); // Référence au bouton cliqué
+            var button = $(this);
 
             var postId = button.data('postid');
             var ajaxUrl = button.data('ajaxurl');
             var action = button.data('action');
             var nonce = button.data('nonce');
 
-            // Vérifier si l'ID est null avant d'effectuer la requête AJAX
             if (postId === null || postId === undefined || postId === '') {
-                return; // Arrêter l'exécution de la fonction
+                return; 
             }
 
             $.ajax({

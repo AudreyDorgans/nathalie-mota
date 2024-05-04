@@ -1,9 +1,14 @@
+#logo-fin-animation {
+display: none;
+}
+
 #NM-header {
     color:$main-black;
     padding-top:25px;
     -webkit-animation: fade-in $animation-duration-medium ease-in-out;
     animation: fade-in $animation-duration-medium ease-in-out;
     min-height:80px;
+    background-color: white;
    
     #NM-nav-header {
         display: flex;

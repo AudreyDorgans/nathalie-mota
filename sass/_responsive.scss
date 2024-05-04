@@ -33,7 +33,7 @@
             
                         .col-select-form {
             
-                            select {
+                            .nice-select {
                                 width: 170px;
                             }
                         }
@@ -131,6 +131,10 @@
                 }
             }
         }
+
+        .load-catalogue-photos {
+            margin-top: 0;
+        }
     }
 
     /*****************/
@@ -175,15 +179,20 @@
 /* FORMAT 768px MAX
 /***********************************/
 /***********************************/
+
  @media screen and (max-width: 768px) {
 
+   
     /*****************/
     /* HEADER */
     /*****************/
+    .header-sliding {
+        animation: slide-in-right 0.5s ease-out;
+    }
 
     #NM-header {
         padding-top:20px;
-        
+
         #NM-nav-header {
             display: block;
             min-width:100%;  
@@ -248,7 +257,7 @@
                         width:100%;
                         text-align: center;
 
-                        select {
+                        .nice-select{
                             width:270px;
                         }
                     }

@@ -25,7 +25,7 @@
 
 <div id="NM-page">
 
-	<header id="NM-header">
+	<header id="NM-header" class="">
 		
 		<nav role="navigation" aria-label="<?php _e('Menu principal', 'text-domain'); ?>" id="NM-nav-header">
 

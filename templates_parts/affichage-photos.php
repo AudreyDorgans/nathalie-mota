@@ -63,7 +63,7 @@
 
 
 <!-- ceci serait un cas ultérieur, par exemple de création du blog" --> 
-<?php endif; ?>
+	<?php endif; ?>
         
 <?php endif; ?>
 
