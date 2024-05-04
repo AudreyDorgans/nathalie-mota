@@ -95,18 +95,29 @@ $animation-delay: 1.5s;
 /*********************
 /* Animation memnu */
 /*********************/
-@keyframes slide-in-right {
-    0% {
+@keyframes slideInRight {
+    from {
         transform: translateX(100%);
         opacity: 0;
     }
 
-    100% {
+    to {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
+@keyframes expandHeight {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+
+    to {
+        height: calc(100vh - 60px);
+        opacity: 1;
+    }
+}
 
 
 

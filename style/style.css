@@ -343,13 +343,23 @@ KEYFRAMES
 /*********************
 /* Animation memnu */
 /*********************/
-@keyframes slide-in-right {
-  0% {
+@keyframes slideInRight {
+  from {
     transform: translateX(100%);
     opacity: 0;
   }
-  100% {
+  to {
     transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes expandHeight {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: calc(100vh - 60px);
     opacity: 1;
   }
 }
@@ -581,7 +591,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-3-scaled.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2022/03/nathalie-14-scaled-1.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
@@ -1136,8 +1146,20 @@ KEYFRAMES
   /*****************/
   /* HEADER */
   /*****************/
-  .header-sliding {
-    animation: slide-in-right 0.5s ease-out;
+  #NM-page.header-sliding #NM-nav-header {
+    animation: slideInRight 0.5s ease forwards;
+  }
+  #NM-page.header-sliding #header-menu {
+    animation: expandHeight 0.5s ease forwards;
+  }
+  #logo-fin-animation {
+    width: 216px;
+    height: 14px;
+    position: absolute;
+    top: 32px;
+    left: 40px;
+    display: block;
+    opacity: 0.6;
   }
   #NM-header {
     padding-top: 20px;
@@ -1166,7 +1188,6 @@ KEYFRAMES
     flex-direction: column;
     padding: 0;
     justify-content: center;
-    min-height: 100vh;
     background-color: #E00000;
     margin: 20px 0 0 0;
     z-index: 2;

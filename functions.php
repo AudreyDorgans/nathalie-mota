@@ -145,7 +145,7 @@ function NM_load_catalogue_photos() {
     // Vérifier le nonce pour des raisons de sécurité
     check_ajax_referer( 'NM_load_catalogue_photos', 'nonce' );
 
-    // Récupérer les valeurs de paged, categorie et format depuis la requête AJAX
+    // Récupérer les valeurs de paged, categorie, format et ordre depuis la requête AJAX
     $paged = isset( $_REQUEST['paged'] ) ? intval( $_REQUEST['paged'] ) : 1;
     $categorie = isset( $_REQUEST['categorie'] ) ? sanitize_text_field( $_REQUEST['categorie'] ) : '';
     $format = isset( $_REQUEST['format'] ) ? sanitize_text_field( $_REQUEST['format'] ) : '';

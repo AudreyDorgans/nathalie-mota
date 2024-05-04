@@ -186,8 +186,22 @@
     /*****************/
     /* HEADER */
     /*****************/
-    .header-sliding {
-        animation: slide-in-right 0.5s ease-out;
+    #NM-page.header-sliding #NM-nav-header {
+        animation: slideInRight 0.5s ease forwards;
+    }
+
+    #NM-page.header-sliding #header-menu {
+        animation: expandHeight 0.5s ease forwards;
+    }
+
+    #logo-fin-animation {
+        width: 216px;
+        height: 14px;
+        position: absolute;
+        top:32px;
+        left:40px;
+        display: block;
+        opacity:0.6;
     }
 
     #NM-header {
@@ -221,7 +235,7 @@
             flex-direction: column;
             padding:0;
             justify-content: center;
-            min-height: 100vh;
+
             background-color: $main-red;
             margin : 20px 0 0 0;
             z-index: 2;

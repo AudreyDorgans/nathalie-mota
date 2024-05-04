@@ -1,16 +1,9 @@
 /***************************************************
 /* MENU HEADER */
 /*************************************************/
+const siteNavigation = document.querySelector('nav');
 
-/** @type {HTMLElement} */
-const siteNavigation = document.querySelector( 'nav' );
-
-/**
- * @param {HTMLElement} el
- * @param {string}      attr
- * @param {any}         value
- */
- const setAttr = ( el, attr, value ) => el.setAttribute( attr, value );
+const setAttr = (el, attr, value) => el.setAttribute(attr, value);
 
 if (siteNavigation) {
     const mobileButton = siteNavigation.querySelector('button.menu_button');
@@ -21,17 +14,18 @@ if (siteNavigation) {
         mobileButton.addEventListener('click', function() {
             siteNavigation.classList.toggle('toggled');
 
-            // Inverser l'attribut aria-expanded
-            if (mobileButton.getAttribute('aria-expanded') === 'true') {
-                setAttr(mobileButton, 'aria-expanded', 'false');
-                headerMenu.style.display = 'none'; // Masquer la liste de menu
+            const isExpanded = mobileButton.getAttribute('aria-expanded') === 'true';
+            setAttr(mobileButton, 'aria-expanded', isExpanded ? 'false' : 'true');
+
+            if (isExpanded) {
+                viewport.classList.remove('header-sliding');
+                headerMenu.classList.remove('expandHeight');
             } else {
-                setAttr(mobileButton, 'aria-expanded', 'true');
-                headerMenu.style.display = 'flex'; // Afficher la liste de menu
+                viewport.classList.add('header-sliding');
+                headerMenu.classList.add('expandHeight');
             }
 
-            // Ajouter la classe pour déclencher l'animation de glissement du viewport
-            viewport.classList.toggle('header-sliding');
+            headerMenu.style.display = isExpanded ? 'none' : 'flex';
         });
     }
 }
@@ -43,28 +37,26 @@ if (siteNavigation) {
 /*************************************************/
 
 if (document.body.classList.contains('single-photo')) {
-        // Les fonctions suivantes ne s'exécuteront que si nous sommes sur la page single-photo.php
+    // Les fonctions suivantes ne s'exécuteront que si nous sommes sur la page single-photo.php
 
-        const prevPhoto = document.querySelector('.photo-prev');
-        const nextPhoto = document.querySelector('.photo-next');
-        const prevThumbnail = document.querySelector('.nav-thumbnails-prev');
-        const nextThumbnail = document.querySelector('.nav-thumbnails-next');
+    const prevPhoto = document.querySelector('.photo-prev');
+    const nextPhoto = document.querySelector('.photo-next');
+    const prevThumbnail = document.querySelector('.nav-thumbnails-prev');
+    const nextThumbnail = document.querySelector('.nav-thumbnails-next');
 
-
-        function handleHover(element, thumbnail) {
-            element.addEventListener('mouseenter', () => {
-                thumbnail.classList.add('thumbnails_visible');
-            });
+    function handleHover(element, thumbnail) {
+        element.addEventListener('mouseenter', () => {
+            thumbnail.classList.add('thumbnails_visible');
+        });
                  
-            element.addEventListener('mouseleave', () => {
-                thumbnail.classList.remove('thumbnails_visible');
-            });
-        }
-    
-  
-        handleHover(prevPhoto, prevThumbnail);
-        handleHover(nextPhoto, nextThumbnail);
+        element.addEventListener('mouseleave', () => {
+            thumbnail.classList.remove('thumbnails_visible');
+        });
     }
+    
+    handleHover(prevPhoto, prevThumbnail);
+    handleHover(nextPhoto, nextThumbnail);
+}
 
 
 /******************************************************

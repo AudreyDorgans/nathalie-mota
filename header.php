@@ -24,6 +24,7 @@
 	<?php wp_body_open(); ?>
 
 <div id="NM-page">
+	<img src=" <?php echo get_stylesheet_directory_uri() .'/assets/logo/Logo.png'; ?> " alt="Logo de la photographe évènementielle Nathalie Mota" id="logo-fin-animation">
 
 	<header id="NM-header" class="">
 		
