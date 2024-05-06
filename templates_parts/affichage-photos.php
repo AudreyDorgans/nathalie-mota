@@ -60,8 +60,6 @@
 		<?php endwhile; ?>
 
     <?php else : ?>
-
-
 <!-- ceci serait un cas ultérieur, par exemple de création du blog" --> 
 	<?php endif; ?>
         

@@ -17,7 +17,7 @@ add_action('after_setup_theme', 'nathalie_mota_supports');
 //style
 //////////////////////////////
 function nathalie_mota_register_style() {
-    wp_register_style('nathalie-mota-style', get_template_directory_uri() . '/style/style.css');
+    wp_register_style('nathalie-mota-style', get_template_directory_uri() . '/style.css');
     wp_enqueue_style('nathalie-mota-style');
 }
 add_action( 'wp_enqueue_scripts', 'nathalie_mota_register_style' );
@@ -110,7 +110,7 @@ function recuperer_infos_photo($post_id) {
         $prev_thumbnail = $prev_post_id ? esc_url(get_the_post_thumbnail_url($prev_post_id, array(80, 80))) : '';
         $next_thumbnail = $next_post_id ? esc_url(get_the_post_thumbnail_url($next_post_id, array(80, 80))) : '';
 
-        // Créez un tableau avec toutes les informations de la photo, y compris les ID des posts précédent et suivant ainsi que leurs miniatures
+        // Créer un tableau avec toutes les informations de la photo, y compris les ID des posts précédent et suivant ainsi que leurs miniatures
         $infos_photo = array(
             'id_photo' => $id_photo,
             'image_photo' => $image, 
@@ -125,7 +125,7 @@ function recuperer_infos_photo($post_id) {
             'next_thumbnail' => $next_thumbnail,
         ); 
 
-        // Retournez le tableau complet des informations de la photo
+        // Retourner le tableau complet des informations de la photo
         return $infos_photo;
     }
 

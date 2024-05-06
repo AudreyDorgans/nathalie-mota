@@ -60,7 +60,7 @@ if (document.body.classList.contains('single-photo')) {
 
 
 /******************************************************
- * REQUETE AJAX POUR CHARGEMENT DES POSTS SUR FRONTPAGE
+ * REQUETE AJAX POUR CHARGEMENT EN PLUS DES POSTS SUR FRONTPAGE
  ******************************************************/
 
 jQuery(document).ready(function($) {
