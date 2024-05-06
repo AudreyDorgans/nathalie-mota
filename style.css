@@ -470,7 +470,7 @@ KEYFRAMES
   position: relative;
 }
 .modal .modal-header .background-contact {
-  background-image: url("../assets/header/contact.png");
+  background-image: url("assets/header/contact.png");
   background-repeat: no-repeat;
   width: 100%;
   height: 106px;
@@ -591,7 +591,7 @@ KEYFRAMES
 }
 
 .main-accueil .banner {
-  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2022/03/nathalie-13-scaled-1.jpeg");
+  background-image: url("http://localhost:8888/nathalie-mota/wp-content/uploads/2024/03/nathalie-5-scaled.jpeg");
   max-width: 1440px;
   height: 960px;
   background-repeat: no-repeat;
